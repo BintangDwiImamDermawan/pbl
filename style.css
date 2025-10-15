@@ -1,0 +1,108 @@
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit';
+      font-weight: 800;
+    }
+    :root{
+        --maincolor :#5ea7e6;
+    }
+    body {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      background: url('https://www.polibatam.ac.id/wp-content/uploads/2023/05/Gedung-2048x1366.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .navbar {
+      color: #ffffff;
+      background-color: var(--maincolor);
+      padding: 2px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    .navbar .nav-links a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      font-size: 19px;
+    }
+    .nav-links a:hover{
+        color: #727171;
+    }
+    .navbar .nav-links .login-btn {
+      background-color: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+    }
+    .dashboard-content {
+      padding: 15rem;
+      height: 100vh;
+      background-color: #17161660;
+      color: hsl(0, 0%, 100%);    
+    }
+    .login-btn{
+        color: rgb(65, 63, 63) !important; 
+    }
+    .dashboard-content h1 {
+      font-size: 4rem;
+      margin-bottom: 70px;
+    }
+    .dashboard-content p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      max-width: 800px;
+    }
+    .footer {
+      background-color: var(--maincolor);
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 25px;
+      bottom: 0;
+      width: 100%;
+      /* margin-top: 1rem; */
+    }
+    .footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .btn-primary {
+      display: inline-block;
+      margin-top: 100px;
+      padding: 1rem 1.2rem;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 2px solid gray;
+      color: black;
+      font-size: 1rem;
+    }
+    .logo img{
+        /* font-size: 20px; */
+        width: 200px;
+        /* height: 100px; */
+        /* width: 50px; */
+        /* scale: 0.7; */
+    }
+

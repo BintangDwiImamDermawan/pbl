@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajukan Dokumen - AJUK</title>
+  <link rel="stylesheet" href="style.css">
+<style>
+
+/* Hero Section */
+.hero {
+  height: 85vh;
+  position: relative;
+}
+
+.overlay {
+    margin-top: 100px;
+  height:  100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-bar {
+  display: flex;
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0 15px;
+  font-size: 1.2rem;
+}
+
+/* Buttons */
+.buttons button {
+  display: block;
+  width: 100%;
+  background: white;
+  border: none;
+  margin: 20px 0;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.buttons button:hover {
+  transform: scale(1.03);
+}
+
+.buttons .selected {
+  border: 2px solid #3a8bff;
+}
+
+
+  
+</style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  
+   <nav class="navbar">
+    <div class="logo"><img src="./assets/logo.svg" alt="logo"></div>
+    <div class="nav-links">
+      <a href="dashboard.html">Home</a>
+      <a href="surat.html">Ajukan Dokumen</a>
+      <a href="#">Lacak Pengajuan</a>
+      <a href="daftar.html">Daftar</a>
+      <a href="login.html" class="login-btn">Masuk</a>
+    </div>
+  </nav>
+ 
+
+  <!-- Hero Section -->
+  <section class="dashboard-content">
+    <div class="overlay">
+      <div class="content">
+        <div class="search-bar">
+          <input type="text" placeholder="Search">
+          <button><span>🔍</span></button>
+        </div>
+
+        <div class="buttons">
+          <button class="selected">Surat Keterangan Tidak Mampu</button>
+          <button>Surat Domisili</button>
+          <button>Surat Keterangan Kematian</button>
+          <button>Surat Izin Usaha</button>
+          <button>Surat Kepemilikan Rumah</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>AJUK - Copyright © 2025. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
