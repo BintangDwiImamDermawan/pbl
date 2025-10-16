@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJUK</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist\css\bootstrap.min.css">
+    <link href = "bootstrap-5.3.8-dist/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="daftar.css">
+    
+</head>
+<body>
+<main class="daftar">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="text-center">
+                    <img src="./assets/logo.svg" alt="">
+                </div>
+                <div class="card ">
+                    <div class="card-body ">
+                        <h3>Daftar Akun Baru</h3>
+                        
+                        <form action="" method="POST">
+                        
+                            <label class="form-label">Nama</label>
+                            <input type="text" name="Nama" id="nama" class="form-control" required>
+
+                            <label class="form-label">Email (aktif)</label>
+                            <input type="email" name="email" id="email" class="form-control" required placeholder="">
+
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" required>
+                            
+
+                            <div class="d-grid mt-2">
+                                <button class="btn btn-primary" type="submit" name="kirim">Daftar</button>
+                            </div>
+                        </form>
+                        <hr>
+                        <p>Sudah Punya Akun? <a href="login.html">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
