@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ====================== BODY ====================== */
+body {
+  background-image: url('../assets/ikn2.jpeg');
+  min-height: 100vh;
+  background-size: cover;            /* menyesuaikan ukuran layar */
+  background-position: center;       /* fokus gambar di tengah */
+  background-repeat: no-repeat;
+  background-attachment: fixed;      /* efek paralaks ringan */
+  color: #fff;
+}
+
+/* ====================== NAVBAR ====================== */
+nav {
+  background-image: url('../assets/bg4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5); /* tambahan layer warna */
+  backdrop-filter: blur(5px);
+  opacity: 0.95;
+  transition: background 0.3s ease;
+}
+
+.navbar>.container-fluid {
+  padding: 0 40px;
+}
+
+.logo img {
+  height: 65px;
+}
+.logo-link img {
+  height: 40px; /* sesuaikan ukuran logo */
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover img {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+
+.nav-links a {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff !important;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f8dada !important;
+}
+
+.navbar-toggler {
+  background-color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  color: #000;
+  text-decoration: none;
+}
+
+/* ======== PROFILE BUTTON ======== */
+.profile-btn {
+  margin-left: 15px;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.profile-icon:hover {
+  background: rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+/* ====================== DASHBOARD SECTION ====================== */
+.dashboard-content {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgba(88, 77, 111, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dashcont {
+  margin-top: 90px;
+  height: auto;
+  width: 85%;
+  max-width: 1000px;
+  background-color: rgba(148, 125, 125, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 60px;
+  backdrop-filter: blur(6px);
+}
+
+.dashboard-content h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.dashboard-content p {
+  font-size: 1rem;
+  font-weight: 400;
+  max-width: 850px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.btn-primary {
+  background-color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #f0f0f0;
+}
+
+/* ====================== LAYANAN SECTION ====================== */
+.layanan {
+  padding: 80px 20px;
+  background-color: rgba(108, 85, 154, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.layanan-dashboard {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.4);
+  padding: 40px 30px;
+  max-width: 900px;
+  width: 90%;
+}
+
+.wrap-layanan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrap-layanan h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.wrap-layanan .btn {
+  width: 80%;
+  max-width: 500px;
+  margin: 10px 0;
+  border-radius: 9px;
+  border: 2px solid rgb(116, 112, 112);
+  transition: 0.3s;
+}
+
+.wrap-layanan .btn:hover {
+  background-color: #eee;
+}
+
+/* ====================== FOOTER ====================== */
+footer {
+  background-color: rgba(108, 85, 154, 0.7);
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  color: white;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .dashboard-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .dashcont {
+    width: 90%;
+    padding: 40px 30px;
+  }
+
+  .wrap-layanan h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo img {
+    height: 50px;
+  }
+
+  .profile-btn .username {
+    display: none; /* sembunyikan nama di layar kecil */
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}

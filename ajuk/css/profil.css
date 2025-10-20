@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-image: url('assets/ikn2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+/* ===== NAVBAR ===== */
+#navigasi {
+  background-image: url('../assets/bg4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+#navigasi a {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ===== CONTAINER ===== */
+/* ======== LOGO NAVBAR ======== */
+.logo img {
+  height: 60px;            /* ukuran logo */
+  width: auto;             /* biar proporsional */
+  object-fit: contain;     /* biar tidak gepeng */
+}
+
+/* Pastikan elemen navbar tidak membuat logo melebar */
+.navbar .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.profil-section {
+  padding-top: 100px;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profil-container {
+  background-color: rgba(80, 60, 80, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 60px;
+  width: 90%;
+  max-width: 1100px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.profil-container h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+/* Tombol Logout */
+.logout-btn {
+  background-color: #dc3545;       /* Merah */
+  color: #fff;                     /* Teks putih */
+  border: 2px solid #b02a37;       /* Border merah tua */
+  padding: 6px 14px;               /* Spasi dalam */
+  border-radius: 8px;              /* Sudut membulat */
+  font-weight: 600;
+  text-decoration: none;           /* Hilangkan underline */
+  transition: all 0.3s ease;       /* Animasi hover */
+}
+
+/* Efek hover */
+.logout-btn:hover {
+  background-color: #b02a37;       /* Merah tua saat dihover */
+  border-color: #dc3545;           /* Border berubah jadi merah muda */
+  color: #fff;
+  transform: scale(1.05);          /* Sedikit membesar */
+}
+
+
+/* ===== CONTENT LAYOUT ===== */
+.profil-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.profil-form {
+  flex: 1 1 60%;
+}
+
+.profil-side {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== AVATAR ===== */
+.profil-avatar {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 90px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* ===== FORM ===== */
+label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: none;
+  padding: 10px 12px;
+  margin-bottom: 5px;
+}
+
+textarea.form-control {
+  height: 80px;
+  resize: none;
+}
+
+button.btn {
+  background-color: #d8fdd8;
+  color: black;
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #b8ebb8;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: rgba(108, 85, 154, 0.7);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+footer p {
+  color: white;
+  margin: 0;
+  font-size: 14px;
+}
