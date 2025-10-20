@@ -12,10 +12,13 @@
 body {
   background-image: url('../assets/ikn2.jpeg');
   min-height: 100vh;
-  background-size: cover;            /* menyesuaikan ukuran layar */
-  background-position: center;       /* fokus gambar di tengah */
+  background-size: cover;
+  /* menyesuaikan ukuran layar */
+  background-position: center;
+  /* fokus gambar di tengah */
   background-repeat: no-repeat;
-  background-attachment: fixed;      /* efek paralaks ringan */
+  background-attachment: fixed;
+  /* efek paralaks ringan */
   color: #fff;
 }
 
@@ -25,7 +28,7 @@ nav {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0.5); /* tambahan layer warna */
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   opacity: 0.95;
   transition: background 0.3s ease;
@@ -38,8 +41,9 @@ nav {
 .logo img {
   height: 65px;
 }
+
 .logo-link img {
-  height: 40px; /* sesuaikan ukuran logo */
+  height: 40px;
   transition: transform 0.2s ease;
 }
 
@@ -232,7 +236,8 @@ footer p {
   }
 
   .profile-btn .username {
-    display: none; /* sembunyikan nama di layar kecil */
+    display: none;
+    /* sembunyikan nama di layar kecil */
   }
 
   .btn-primary {

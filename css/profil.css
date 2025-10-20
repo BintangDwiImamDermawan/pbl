@@ -23,6 +23,7 @@ body {
   background-repeat: no-repeat;
   opacity: 0.6;
 }
+
 #navigasi a {
   color: #fff !important;
   font-weight: 700;
@@ -32,9 +33,12 @@ body {
 /* ===== CONTAINER ===== */
 /* ======== LOGO NAVBAR ======== */
 .logo img {
-  height: 60px;            /* ukuran logo */
-  width: auto;             /* biar proporsional */
-  object-fit: contain;     /* biar tidak gepeng */
+  height: 60px;
+  /* ukuran logo */
+  width: auto;
+  /* biar proporsional */
+  object-fit: contain;
+  /* biar tidak gepeng */
 }
 
 /* Pastikan elemen navbar tidak membuat logo melebar */
@@ -69,24 +73,35 @@ body {
   font-size: 2.2rem;
   margin-bottom: 40px;
 }
+
 /* Tombol Logout */
 .logout-btn {
-  background-color: #dc3545;       /* Merah */
-  color: #fff;                     /* Teks putih */
-  border: 2px solid #b02a37;       /* Border merah tua */
-  padding: 6px 14px;               /* Spasi dalam */
-  border-radius: 8px;              /* Sudut membulat */
+  background-color: #dc3545;
+  /* Merah */
+  color: #fff;
+  /* Teks putih */
+  border: 2px solid #b02a37;
+  /* Border merah tua */
+  padding: 6px 14px;
+  /* Spasi dalam */
+  border-radius: 8px;
+  /* Sudut membulat */
   font-weight: 600;
-  text-decoration: none;           /* Hilangkan underline */
-  transition: all 0.3s ease;       /* Animasi hover */
+  text-decoration: none;
+  /* Hilangkan underline */
+  transition: all 0.3s ease;
+  /* Animasi hover */
 }
 
 /* Efek hover */
 .logout-btn:hover {
-  background-color: #b02a37;       /* Merah tua saat dihover */
-  border-color: #dc3545;           /* Border berubah jadi merah muda */
+  background-color: #b02a37;
+  /* Merah tua saat dihover */
+  border-color: #dc3545;
+  /* Border berubah jadi merah muda */
   color: #fff;
-  transform: scale(1.05);          /* Sedikit membesar */
+  transform: scale(1.05);
+  /* Sedikit membesar */
 }
 
 
@@ -114,7 +129,7 @@ body {
 .profil-avatar {
   width: 150px;
   height: 150px;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   display: flex;
   justify-content: center;
