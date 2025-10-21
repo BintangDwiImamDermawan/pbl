@@ -1,3 +1,3 @@
 # PBL104-B4
 Dokumentasi Implementasi Aplikasi Website Pengajuan Dokumen Warga Digital
-!/assets/logo.svg
+![https://github.com/BintangDwiImamDermawan/pbl/blob/main/assets%2Flogo.svg]
