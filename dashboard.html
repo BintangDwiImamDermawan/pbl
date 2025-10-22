@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AJUK | Landing Page</title>
 
-    <!-- Bootstrap -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 
     <!-- Bootstrap Icons -->
@@ -15,11 +14,11 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
   </head>
   <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-dark fixed-top" id="navigasi">
+    <!-- <nav class="navbar navbar-dark fixed-top" id="navigasi">
       <div
         class="container-fluid d-flex align-items-center justify-content-between"
       >
@@ -39,6 +38,58 @@
           </div>
         </div>
       </div>
+    </nav> -->
+
+     <nav class="navbar navbar-dark bg-dark  navbar-expand-lg bg-body-tertiary fixed-top" id="navigasi">
+      <div class="container-fluid ">
+        <a class="logo-link navbar-brand"><img src="./assets/logo.svg" alt="logo"/></a>
+       <div class="wrap-icon ">
+        <button
+          class=" navbar-toggler btn1"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+           <img src="./assets/nav_menu.svg" class="material-icons navMenu" alt="" srcset="">
+
+
+        </button>
+        <div class="profile-btn">
+            <a href="profil.html" class="profile-icon">
+              <i class="bi bi-person-circle"></i>
+            </a>
+          </div>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="login.html">Ajukan Dokumen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="login.html">Lacak Pengajuan</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link active" href="login.html">Masuk</a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link btn text-black btn-light active fw-bold ml-3 p-2 tombol" href="daftar.html">Daftar</a>
+          </li> -->
+         
+        
+          </div>
+           <div class="icon-hide profile-btn">
+            <a href="profil.html" class="profile-icon">
+              <i class="bi bi-person-circle"></i>
+            </a>
+          </div>
+        </div>
+    </div>
     </nav>
 
     <!-- KONTEN -->
@@ -53,11 +104,11 @@
             menghasilkan nomor surat otomatis, sementara dokumen RT/RW atau di
             atasnya tetap diurus manual.
           </p>
-          <a href="surat.html" class="btn-primary">Ajukan Dokumen</a>
+          <a href="login.html" class="btn-primary">Ajukan Dokumen</a>
         </div>
       </div>
     </section>
-
+<!-- 
     <section class="layanan">
       <div class="layanan-dashboard">
         <div class="wrap-layanan">
@@ -79,10 +130,33 @@
           >
         </div>
       </div>
-    </section>
+    </section> -->
 
+       <section class="layanan">
+      <div class="layanan-dashboard">
+        <div class="wrap-layanan wrap-container">
+          <h2>Layanan Yang Kami Sediakan</h2>
+          <a class="fw-bold fs-6 btn btn-light mt-4 p-1" href="login.html"
+            >Surat Keterangan Tidak Mampu</a
+          >
+          <a class="fw-bold fs-6 btn btn-light mt-4 p-1" href="login.html"
+            >Surat Domisili</a
+          >
+          <a class="fw-bold fs-6 btn btn-light mt-4 p-1" href="login.html"
+            >Surat Keterangan Kematian</a
+          >
+          <a class="fw-bold fs-6 btn btn-light mt-4 p-1" href="login.html"
+            >Surat Izin Usaha</a
+          >
+          <a class="fw-bold fs-6 btn btn-light mt-4 p-1" href="login.html"
+            >Surat Kepemilikan Rumah</a
+          >
+        </div>
+      </div>
+    </section>
     <footer>
       <p>AJUK - Copyright © 2025. All rights reserved.</p>
     </footer>
   </body>
+   <script src="./bootstrap/js/bootstrap.min.js"></script>
 </html>

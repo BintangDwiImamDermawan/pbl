@@ -8,11 +8,12 @@
 }
 
 body {
-  background-image: url('assets/ikn2.jpeg');
+  background-image: url('../assets/ikn2.jpeg');
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: white;
+  background-position: cover;
+  color: rgb(216, 209, 209);
+  background-repeat: no-repeat;
+  height: 100%;
 }
 
 /* ===== NAVBAR ===== */
@@ -21,7 +22,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 #navigasi a {
@@ -34,14 +35,10 @@ body {
 /* ======== LOGO NAVBAR ======== */
 .logo img {
   height: 60px;
-  /* ukuran logo */
   width: auto;
-  /* biar proporsional */
   object-fit: contain;
-  /* biar tidak gepeng */
 }
 
-/* Pastikan elemen navbar tidak membuat logo melebar */
 .navbar .container-fluid {
   display: flex;
   justify-content: space-between;
@@ -55,6 +52,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background: #5858584d;
+  
 }
 
 .profil-container {
@@ -64,7 +63,8 @@ body {
   padding: 40px 60px;
   width: 90%;
   max-width: 1100px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  border:2px solid hwb(120 40% 52%);
+  box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.4);
 }
 
 .profil-container h1 {
@@ -77,31 +77,21 @@ body {
 /* Tombol Logout */
 .logout-btn {
   background-color: #dc3545;
-  /* Merah */
   color: #fff;
-  /* Teks putih */
   border: 2px solid #b02a37;
-  /* Border merah tua */
   padding: 6px 14px;
-  /* Spasi dalam */
   border-radius: 8px;
-  /* Sudut membulat */
   font-weight: 600;
   text-decoration: none;
-  /* Hilangkan underline */
   transition: all 0.3s ease;
-  /* Animasi hover */
 }
 
 /* Efek hover */
 .logout-btn:hover {
   background-color: #b02a37;
-  /* Merah tua saat dihover */
   border-color: #dc3545;
-  /* Border berubah jadi merah muda */
   color: #fff;
   transform: scale(1.05);
-  /* Sedikit membesar */
 }
 
 
@@ -163,7 +153,7 @@ button.btn {
   border: none;
   font-weight: 600;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 6px 12px;
   transition: 0.3s ease;
 }
 
@@ -173,16 +163,32 @@ button.btn:hover {
 
 /* ===== FOOTER ===== */
 footer {
-  background-color: rgba(108, 85, 154, 0.7);
+  background-color: rgba(130, 99, 192, 0.62);
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 
 footer p {
   color: white;
   margin: 0;
   font-size: 14px;
+}
+
+
+/* ============RESPONSIVE================= */
+@media screen and (max-width: 980px) {
+  .profil-container {
+    padding: 40px 20px;
+  }
+
+  .container-fluid {
+    padding: 0 10px !important;
+  }
+
+  input.form-control {
+    padding: 6px 12px !important;
+  }
 }
