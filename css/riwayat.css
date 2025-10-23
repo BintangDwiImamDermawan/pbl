@@ -150,7 +150,7 @@ body {
 }
 
 .riwayat-card:hover {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.403);
 }
 
 .status {
@@ -165,7 +165,8 @@ body {
 }
 
 .status.success {
-  background-color: #4caf50;
+  background-color: #3b853d;
+  color: black;
 }
 
 footer {

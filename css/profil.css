@@ -38,6 +38,11 @@ body {
   width: auto;
   object-fit: contain;
 }
+.logo:hover img {
+  transition: all .2s ease-in;
+    transform: scale(1.05);
+    cursor: pointer;
+}
 
 .navbar .container-fluid {
   display: flex;
