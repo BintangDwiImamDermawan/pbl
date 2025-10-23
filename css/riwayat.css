@@ -121,6 +121,7 @@ body {
 /* ===== RIWAYAT SECTION ===== */
 .riwayat-section {
   padding: 30px;
+  height:120vh;
 }
 
 .search-bar {
@@ -175,7 +176,7 @@ footer {
   height:50px;
   bottom:0;
   padding: 10px;
-  margin-top: auto;
+  /* margin-top: auto; */
 }
 
 
@@ -195,7 +196,7 @@ footer {
   }
   .riwayat-section{
     width: 100%;
-    height:100%;
+    min-height:100%;
   }
   .riwayat-card{
    padding:10px;
