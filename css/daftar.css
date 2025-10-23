@@ -16,14 +16,16 @@ h3 {
 
 body {
     background-image: url(../assets/ikn2.jpeg);
-    height: 120vh;
+    height: 130vh;
     background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
 
 }
-
+.main{
+    padding-bottom: 20px;
+}
 .daftar {
     background-color: #3529477c;
     height: 100%;
