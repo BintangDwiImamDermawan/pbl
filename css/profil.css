@@ -8,11 +8,10 @@
 }
 
 body {
-  background-image: url('../assets/ikn2.jpeg');
-  background-size: cover;
-  background-position: cover;
+  background: url('../assets/ikn2.jpeg') center/cover no-repeat;
+  /* background-size: cover; */
+  /* background-position: cover; */
   color: rgb(216, 209, 209);
-  background-repeat: no-repeat;
   height: 100%;
 }
 
@@ -26,7 +25,7 @@ body {
 }
 
 #navigasi a {
-  color: #fff !important;
+  color: #fff;
   font-weight: 700;
   font-size: 18px;
 }
@@ -38,10 +37,11 @@ body {
   width: auto;
   object-fit: contain;
 }
+
 .logo:hover img {
   transition: all .2s ease-in;
-    transform: scale(1.05);
-    cursor: pointer;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .navbar .container-fluid {
@@ -58,7 +58,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   background: #5858584d;
-  
+
 }
 
 .profil-container {
@@ -68,7 +68,7 @@ body {
   padding: 40px 60px;
   width: 90%;
   max-width: 1100px;
-  border:2px solid hwb(120 40% 52%);
+  border: 2px solid hwb(120 40% 52%);
   box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -79,25 +79,6 @@ body {
   margin-bottom: 40px;
 }
 
-/* Tombol Logout */
-.logout-btn {
-  background-color: #dc3545;
-  color: #fff;
-  border: 2px solid #b02a37;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-/* Efek hover */
-.logout-btn:hover {
-  background-color: #b02a37;
-  border-color: #dc3545;
-  color: #fff;
-  transform: scale(1.05);
-}
 
 
 /* ===== CONTENT LAYOUT ===== */
@@ -152,19 +133,6 @@ textarea.form-control {
   resize: none;
 }
 
-button.btn {
-  background-color: #d8fdd8;
-  color: black;
-  border: none;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 6px 12px;
-  transition: 0.3s ease;
-}
-
-button.btn:hover {
-  background-color: #b8ebb8;
-}
 
 /* ===== FOOTER ===== */
 footer {

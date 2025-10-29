@@ -1,20 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Outfit';
-      font-weight: 800;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit';
+    font-weight: 800;
 }
 
-nav{
+body {
+    background: url('../assets/ikn2.jpeg') center/cover no-repeat;
+    height: 100%;
+
+}
+nav {
     background-image: url(../assets/bg4.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.9;
 }
-.navbar-toggler{ 
+
+.navbar-toggler {
     background-color: rgb(255, 255, 255);
     padding: 10px 16px;
     border-radius: 8px;
@@ -22,49 +29,73 @@ nav{
     color: black;
     text-decoration: none;
 }
-.nav-links a{
+
+.nav-links a {
     font-size: 18px;
 }
-.nav-links a:hover{
+
+.nav-links a:hover {
     color: #fadbdbbd;
 }
-.navbar .container-fluid{
+
+.navbar .container-fluid {
 
     padding: 0 40px;
 }
-.logo img{
+
+.logo img {
     height: 50px;
 
 }
-body{
-    background-image: url(../assets/ikn2.jpeg);
-    height: 125vh;
-    background-size: 190%;
-    background-position: center;
-    background-repeat: no-repeat;
-    
+.logo:hover img {
+    transform: scale(1.05);
+    cursor: pointer;
 }
-.text-center img{
+.text-center img {
     margin-top: 50px;
     height: 125px;
 }
-.dokumen1{
+
+.dokumen1 {
     background-color: #5d5b938d;
-    
 }
-.card{
-     background-color: rgba(77, 171, 238, 0.319);
-     border-radius: 20px;
-     border: 1px solid white;
+
+.card {
+    background-color: rgba(77, 171, 238, 0.319);
+    border-radius: 20px;
+    border: 1px solid white;
 }
-form{
+
+form {
     color: white;
 }
-.btn-success{
-    border:1px solid rgb(21, 237, 89);
+
+.btn-success {
+    border: 1px solid rgb(21, 237, 89);
 }
-.iconPer{
+
+.iconPer {
     padding: 10px 10px;
     background-color: rgba(240, 248, 255, 0.341);
     border-radius: 50%;
 }
+
+/* avatar icons */
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    transition: 0.3s ease;
+    text-decoration: none;
+  }
+  .profile-icon:hover {
+    background: rgba(255, 255, 255, 0.35);
+    color: #fff;
+  }

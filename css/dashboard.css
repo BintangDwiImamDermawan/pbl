@@ -10,12 +10,8 @@
 
 /* ====================== BODY ====================== */
 body {
-  background-image: url('../assets/ikn2.jpeg');
+  background: url('../assets/ikn2.jpeg') center/cover no-repeat;
   min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
   color: #fff;
   scroll-behavior: smooth;
 }
@@ -81,7 +77,6 @@ nav {
 .profile-btn {
   margin-left: 15px;
 }
-
 .profile-icon {
   width: 50px;
   height: 50px;
@@ -95,7 +90,6 @@ nav {
   transition: 0.3s ease;
   text-decoration: none;
 }
-
 .profile-icon:hover {
   background: rgba(255, 255, 255, 0.35);
   color: #fff;
@@ -151,14 +145,13 @@ nav {
   color: black;
   text-decoration: none;
   font-weight: 600;
-    transition: all 0.55s ease, transform 0.4s ease-in;
+  transition: all 0.55s ease, transform 0.4s ease-in;
 }
+
 .btn-primary:hover {
-    background-color: #7c7878;
-    color: aliceblue;
-
+  background-color: #7c7878;
+  color: aliceblue;
 }
-
 
 /* ====================== LAYANAN SECTION ====================== */
 .layanan {
@@ -298,7 +291,6 @@ footer p {
 
   .profile-btn .username {
     display: none;
-    /* sembunyikan nama di layar kecil */
   }
 
   .btn-primary {

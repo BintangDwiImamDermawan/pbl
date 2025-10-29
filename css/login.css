@@ -7,93 +7,152 @@
     font-family: 'Outfit';
     font-weight: 800;
 }
+
+/* body */
+
 body {
-    background-image: url(../assets/ikn2.jpeg);
-    height: 120vh;
+    background: url('../assets/ikn2.jpeg') center/cover no-repeat;
+    height: 100%;
     width: 100%;
-    background-size: 120%;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* background-attachment: fixed; */
+    /* background-position: center; */
+
 }
-h3 {
-    text-align: center;
-    font-weight: bold;
-    color: white;
-}
+
 .daftar {
     width: 100%;
     background-color: #3529477c;
     height: 100%;
-    margin:0;
+    margin: 0;
 }
+
 form {
     padding: 20px;
     color: white;
-
 }
+
+/* ========CARD======== */
 .card {
     background-color: rgba(172, 183, 209, 0.319);
     border-radius: 20px;
     border: 1px solid white;
     backdrop-filter: blur(10px);
 }
+
+.card-body h3 {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
 p {
     color: white;
 }
-.btn {
+#login{
     background-color: rgb(31, 31, 31);
     border: none;
 }
+
 a {
     text-decoration: none;
 }
+
+/* logo */
 img {
     height: 150px;
 }
+
+/* footer */
+
 footer {
-    background-color: #3529477c;;
+    background-color: #3529477c;
     height: 50px;
-    /* padding:10px 20px; */
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
+
 footer p {
     color: white;
     font-size: 14px;
-    margin:0;   
+    margin: 0;
+}
+
+/* ===========LUPA PASSWORD CSS============ */
+.lupa {
+    z-index: 100;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    margin-top:  160px;
+    display: none;
+    /* top: 200px; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    align-items: center;
+}
+
+.lupa-container {
+    z-index: 3;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.moll {
+    background: rgba(111, 110, 110, 0.528);
+    backdrop-filter: blur(4px);
+    border-radius: 9px;
+    border: 3px solid rgb(208, 205, 205);
+}
+.bi-x{
+    cursor:pointer;
 }
 /* ===============RESPONSIVE================= */
-@media screen and (max-width: 980px){
-    body{
-        background-size: 400%;
-        background-position: center;
-        height: 100vh;
-        /* background:red; */
-    }
-    .daftar{
+@media screen and (max-width: 980px) {
+    body {
         height: 100%;
-        /* padding:50px 20px ; */
-        /* background-color: aliceblue; */
-    }
-    img{
-        /* scale:0.9; */
-        height:90px;
     }
 
-    form{
+    #lupa {
+        width: 100%;
+    }
+
+    .daftar {
+        height: 100%;
+    }
+
+    img {
+        height: 90px;
+    }
+
+    form {
         padding: 10px;
     }
-    .card-body{
+
+    .card-body {
         padding: 10px;
     }
-   
-    .fs-8{
-        font-size:16px;
+
+    .fs-8 {
+        font-size: 0.8rem;
+        padding: 0;
     }
-    .col-md-6{
+
+    .col-md-6 {
         margin-top: 30px !important;
     }
+
+    footer .fw-bold {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        height: 100%;
+
+    }
+
+   
 }

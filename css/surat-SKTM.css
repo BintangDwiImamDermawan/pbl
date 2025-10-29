@@ -41,13 +41,14 @@ nav{
     height: 50px;
 
 }
-body{
-    background-image: url(../assets/ikn2.jpeg);
-    height: 125vh;
-    background-size: 190%;
-    background-position: center;
-    background-repeat: no-repeat;
-    
+.logo:hover img {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+body {
+    background: url('../assets/ikn2.jpeg') center/cover no-repeat;
+    height: 100%;
+
 }
 input.form-control{
     background-color: rgb(219, 218, 218);
