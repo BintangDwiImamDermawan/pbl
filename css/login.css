@@ -47,7 +47,7 @@ form {
 p {
     color: white;
 }
-#login{
+.loginBtn{
     background-color: rgb(31, 31, 31);
     border: none;
 }
