@@ -18,54 +18,61 @@
     <div class="row flex-nowrap">
       <div class="col-auto px-0 sidebar ">
         <div id="sidebar" class="collapse collapse-horizontal show  ">
+          <div class="d-flex container-fluid">
+            
           <a href="dashboard.html" class="text-black text-decoration-none">
             <img class="logo p-3" src="./assets/logo.svg" alt="logo" />
           </a>
+          <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse"
+          class="border fs-1  p-1 text-decoration-none text-light align-items-center border1"><i class="bi bi-x bi-lg py-2 p-1 "></i> 
+          </a>
+          </div>
+          
           <hr />
           <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
-            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start px-3"
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-sm-start px-3"
               id="menu">
               <li class="">
                 <a href="profil.html" class="nav-link align-middle px-0">
                   <i class="bi fs-5 bi-file-earmark-text"></i>
-                  <span class="ms-1 fs-5 d-none d-sm-inline">Profil</span>
+                  <span class="ms-1 fs-5 ">Profil</span>
                 </a>
               </li>
               <li class="">
                 <a href="./surat/surat-SKTM.html" class="nav-link align-middle px-0"
                   title="Surat Keterangan Tidak Mampu">
                   <i class="bi fs-5 bi-person"></i>
-                  <span class="ms-1 fs-5 d-none d-sm-inline">SKTM</span>
+                  <span class="ms-1 fs-5 ">SKTM</span>
                 </a>
               </li>
               <li class="">
-                <a href="./surat/surat-SKK.html" class="nav-link align-middle px-0" title="Surat Keterangan Kematian">
+                <a href="./surat/surat-SKK.html" class="nav-link  px-0" title="Surat Keterangan Kematian">
                   <i class="bi fs-5 bi-person"></i>
-                  <span class="ms-1 fs-5 d-none d-sm-inline">SKK</span>
+                  <span class="ms-1 fs-5 ">SKK</span>
                 </a>
               </li>
               <li class="">
                 <a href="surat-rumah.html" class="nav-link align-middle px-0" title="Surat Kepemilikan Rumah">
                   <i class="bi fs-5 bi-person"></i>
-                  <span class="ms-1 fs-5 d-none d-sm-inline">Surat Rumah</span>
+                  <span class="ms-1 fs-5 ">Surat Rumah</span>
                 </a>
               </li>
               <li class="">
                 <a href="./surat/surat-izin-usaha.html" class="nav-link align-middle px-0" title="Surat Izin Usaha">
                   <i class="bi fs-5 bi-briefcase"></i>
-                  <span class="ms-1 fs-5 d-none d-sm-inline">Izin Usaha</span>
+                  <span class="ms-1 fs-5 ">Izin Usaha</span>
                 </a>
               </li>
               <li class="">
                 <a href="./surat/surat-domisili.html" class="nav-link align-middle px-0" title="Surat Pindah Domisili">
                   <i class="bi fs-5 bi-geo-alt"></i>
-                  <span class="ms-1 fs-5 d-none d-sm-inline">Domisili</span>
+                  <span class="ms-1 fs-5 ">Domisili</span>
                 </a>
               </li>
               <li class="">
                 <a href="#riwayat" class="nav-link align-middle px-0">
                   <i class="bi fs-5 bi-clock-history"></i>
-                  <span class="ms-1 fs-5 d-none d-sm-inline">Riwayat</span>
+                  <span class="ms-1 fs-5 ">Riwayat</span>
                 </a>
               </li>
             </ul>
@@ -82,20 +89,27 @@
           class="border fs-1  p-1 text-decoration-none text-light border1"><i class="bi bi-list bi-lg py-2 p-1 "></i> 
           </a>
 
-          <h2>Riwayat Pengajuan Anda</h2>
+          
           <div class="profile">
             <a href="profil.html"> <i class="bi bi-person-circle text-light"></i></a>
           </div>
         </header>
 
         <section class="riwayat-section">
-          <div class="search-bar">
-            <input type="text" class="form-control" placeholder="Cari dokumen..." />
-            <button class="btn btn-primary">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
 
+          <div class="row">
+            <h2 class="col-md-6">Riwayat Pengajuan Anda</h2>
+            <div class="search-bar col-md-6">
+              <input type="text" class="form-control" placeholder="Cari dokumen..." />
+              <button class="btn btn-primary">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+
+          </div>
+          
+
+         
           <div class="riwayat-list">
             <div class="riwayat-card">
               <div class="riwayat-info">
