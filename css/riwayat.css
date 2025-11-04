@@ -108,6 +108,8 @@ main{
 
 /* ===== RIWAYAT SECTION ===== */
 .riwayat-section {
+  background-color: #3f2a1140;
+  backdrop-filter: blur( 2px);
   height: 100%;
   padding: 30px 30px 0 30px;
 }
@@ -158,9 +160,10 @@ main{
 }
 
 footer {
-  background-color: rgba(108, 85, 154, 0.7);
+  background-color: rgba(30, 25, 60, 0.9);
+  /* background-color: rgba(67, 31, 138, 0.252); */
   text-align: center;
-  padding: 8px;
+  padding: 5px;
   margin:0;
 }
 footer p {
