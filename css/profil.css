@@ -9,10 +9,7 @@
 
 body {
   background: url('../assets/ikn2.jpeg') center/cover no-repeat;
-  /* background-size: cover; */
-  /* background-position: cover; */
   color: rgb(216, 209, 209);
-  height: 100%;
 }
 
 /* ===== NAVBAR ===== */
@@ -64,7 +61,7 @@ body {
 .profil-container {
   background-color: rgba(80, 60, 80, 0.75);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 40px 60px;
   width: 90%;
   max-width: 1100px;
@@ -136,7 +133,8 @@ textarea.form-control {
 
 /* ===== FOOTER ===== */
 footer {
-  background-color: rgba(130, 99, 192, 0.62);
+  background-color: rgba(30, 25, 60, 0.9);
+  /* background-color: rgba(130, 99, 192, 0.62); */
   height: 50px;
   display: flex;
   align-items: center;
