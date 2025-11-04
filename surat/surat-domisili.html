@@ -15,7 +15,7 @@
   <nav class="navbar navbar-dark bg-dark fixed-top" id="navigasi">
     <div class="container-fluid">
       <div class="logo"><img src="../assets/logo.svg" alt="logo"></div>
-      <a href="profil.html" class="profile-icon">
+      <a href="../profil.html" class="profile-icon">
         <i class="bi bi-person-circle"></i>
       </a>
     </div>
@@ -36,11 +36,11 @@
               <div class="row mb-3">
                 <div class="col-md-6">
                   <label for="nik" class="form-label">Nomor Induk Kependudukan (NIK)</label>
-                  <input type="text" class="form-control" id="nik" placeholder="Masukkan NIK" />
+                  <input type="text" class="form-control" id="nik" placeholder="Masukkan NIK" required>
                 </div>
                 <div class="col-md-6">
                   <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="namaLengkap" placeholder="Masukkan nama lengkap" />
+                  <input type="text" class="form-control" id="namaLengkap" placeholder="Masukkan nama lengkap" required>
                 </div>
               </div>
 
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-4">
                   <label for="alamat" class="form-label">Alamat</label>
-                  <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat" />
+                  <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat" required>
                 </div>
               </div>
 
@@ -80,16 +80,16 @@
               <div class="row">
                 <div class="col-md-6 form-file-group">
                   <label for="foto" class="form-label">Pas Foto</label>
-                  <input class="form-control" type="file" id="foto" accept=".jpg,.jpeg,.png" />
+                  <input class="form-control" type="file" id="foto" accept=".jpg,.jpeg,.png" required>
                 </div>
                 <div class="col-md-6 form-file-group">
                   <label for="surat" class="form-label">Surat Pengantar Dari RT/RW</label>
-                  <input class="form-control" type="file" id="surat" accept=".jpg,.jpeg,.png" />
+                  <input class="form-control" type="file" id="surat" accept=".jpg,.jpeg,.png" required>
                 </div>
-              </div>
-              <div class="col-md-6 form-file-group">
-                <label for="kk" class="form-label">Kartu Keluarga (KK)</label>
-                <input class="form-control" type="file" id="kk" accept=".jpg,.jpeg,.png" />
+                <div class="col-md-6 form-file-group">
+                  <label for="kk" class="form-label">Kartu Keluarga (KK)</label>
+                  <input class="form-control" type="file" id="kk" accept=".jpg,.jpeg,.png" required>
+                </div>
               </div>
 
 
