@@ -20,13 +20,14 @@
 
   <!-- main -->
   <main class="daftar d-flex justify-content-center">
+    <!-- back icons -->
+    <a class="  text-light fw-bold p-3 back " href="index.html"><i class="bi bi-arrow-left-circle"></i></a>
     <!-- =======MODAL LUPA pASSWORD============ -->
-    <!-- <div class="lupa-container"> -->
     <div class="lupa" id="lupa">
       <div class="container-fluid warp-card text-black  d-flex align-items-center justify-content-center">
         <div class="card-body col-md-10 my-4 rounded-3 moll p-4 flex-column">
-          <label class="col-10 "><a >
-            <i class="text-white bi-x fs-1 fw-bold " onclick="lupa(event)"></i></a>
+          <label class="col-10 "><a>
+              <i class="text-white bi-x fs-1 fw-bold " onclick="lupa(event)"></i></a>
           </label>
 
           <label class="text-white col-10">Email</label>
@@ -40,10 +41,8 @@
         </div>
       </div>
     </div>
-<!-- </div> -->
     <!-- =======CONTENT================ -->
     <div class="container py-5">
-      <a class="btn btn-light  text-black fw-bold fs-6 " href="index.html">Kembali</a>
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="d-flex justify-content-center align-center">
@@ -63,7 +62,8 @@
                 <input type="password" name="password" id="password" class="form-control" required />
 
                 <div class="d-grid mt-5">
-                  <button title="login" class="btn btn-primary loginBtn" type="submit" name="kirim"  onclick="login(event)">
+                  <button title="login" class="btn btn-primary loginBtn" type="submit" name="kirim"
+                    onclick="login(event)">
                     Login
                   </button>
                 </div>
@@ -76,7 +76,7 @@
                     password</a>
                 </div>
 
-                
+
               </form>
             </div>
           </div>
@@ -121,8 +121,8 @@
       alertContainer.innerHTML = errorAlert;
     };
   };
- 
-// moadal lupa password
+
+  // moadal lupa password
   function lupa(event) {
     event.preventDefault();
     const lupa = document.getElementById("lupa");

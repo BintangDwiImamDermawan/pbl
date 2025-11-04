@@ -95,11 +95,15 @@ nav {
   color: #fff;
 }
 
+main {
+  background-color: rgba(88, 77, 111, 0.5);
+}
+
 /* ====================== DASHBOARD SECTION ====================== */
 .dashboard-content {
   min-height: 100vh;
   width: 100%;
-  background-color: rgba(88, 77, 111, 0.5);
+  /* background-color: rgba(88, 77, 111, 0.5); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,6 +123,8 @@ nav {
 }
 
 .wrap-dash {
+  padding: 0;
+  margin: 0;
   text-align: left;
 }
 
@@ -132,7 +138,7 @@ nav {
   font-size: 1rem;
   font-weight: 400;
   max-width: 850px;
-  margin: 0 auto 40px auto;
+  margin: 40px 0;
   line-height: 1.6;
   text-align: justify;
 }
@@ -155,21 +161,41 @@ nav {
 
 /* ====================== LAYANAN SECTION ====================== */
 .layanan {
-  padding: 80px 20px;
+  font-size: 4rem;
+    height: 100%;
+    padding: 80px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+  /* padding: 80px 20px;
   background-color: rgba(88, 77, 111, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: center; */
 }
 
 .layanan-dashboard {
-  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  background-color: rgba(148, 125, 125, 0.356);
+  height: 70%;
+  width: 85%;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 1000px;
+  box-shadow: 10px 9px 39px 0px rgba(0, 0, 0, 0.49);
+  -webkit-box-shadow: 10px 9px 39px 0px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 10px 9px 39px 0px rgba(0, 0, 0, 0.49);
+
+  /* background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   box-shadow: 0 8px 35px rgba(0, 0, 0, 0.4);
   padding: 40px 30px;
   max-width: 900px;
-  width: 90%;
+  width: 90%; */
 }
 
 .wrap-layanan {
