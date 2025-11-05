@@ -27,9 +27,11 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.95;
-    background-color: rgba(0, 0, 0, 0.5);
+   
 }
-
+.navbar{
+    /* background-color: rgba(230, 43, 43, 0.5) !important; */
+}
 .logo img {
     height: 60px;
     transition: transform 0.2s ease;
