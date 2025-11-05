@@ -19,7 +19,7 @@ body {
 
 }
 
-/* =========NaVIGASI========== */
+/* =========NAVBAR========== */
 
 nav {
     background-image: url('../assets/bg4.jpg');
@@ -27,7 +27,6 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.95;
-    /* background-color: red; */
    
 }
 
@@ -56,16 +55,16 @@ nav {
     box-shadow: none !important;
 }
 
-.nav-links {
+.nav-link {
     cursor: pointer;
 }
 
-.nav-links a {
+.nav-link a {
     font-size: 18px;
 }
 
 
-.nav-links a:hover {
+.nav-link a:hover {
     color: #fadbdbbd;
 }
 
@@ -86,10 +85,6 @@ nav {
     font-weight: 800;
 }
 
-.tombol {
-    color: black !important;
-    /* background-color: white !important; */
-}
 
 .tombol:hover {
     background-color: rgb(107, 99, 99) !important;
@@ -99,12 +94,13 @@ nav {
     border: none;
     text-decoration: none;
 }
+.nav-item .tombol:hover{
+    color:rgb(228, 156, 156) !important;
+}
 .nav-item a:hover{
     color: #615c5c !important;
 }
-.active:hover {
-    color: #ffffff !important;
-}
+
 
 
 /* =======MAIN CONTENT========== */
