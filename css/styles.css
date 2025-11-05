@@ -27,11 +27,10 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.95;
+    /* background-color: red; */
    
 }
-.navbar{
-    /* background-color: rgba(230, 43, 43, 0.5) !important; */
-}
+
 .logo img {
     height: 60px;
     transition: transform 0.2s ease;
@@ -89,7 +88,7 @@ nav {
 
 .tombol {
     color: black !important;
-    background-color: white !important;
+    /* background-color: white !important; */
 }
 
 .tombol:hover {
@@ -100,9 +99,11 @@ nav {
     border: none;
     text-decoration: none;
 }
-
+.nav-item a:hover{
+    color: #615c5c !important;
+}
 .active:hover {
-    color: #7c7878 !important;
+    color: #ffffff !important;
 }
 
 
@@ -159,8 +160,8 @@ main {
     text-align: justify;
 }
 
-.btn-primary {
-    background-color: white;
+.tombolMasuk {
+    /* background-color: white; */
     padding: 12px 24px;
     border-radius: 8px;
     border: none;
@@ -170,7 +171,7 @@ main {
     transition: all 0.55s ease, transform 0.4s ease-in;
 }
 
-.btn-primary:hover {
+.tombolMasuk:hover {
     background-color: #7c7878;
     color: aliceblue;
 
