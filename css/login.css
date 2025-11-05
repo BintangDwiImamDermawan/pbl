@@ -17,7 +17,7 @@ body {
     /* background-size: 110%; */
 }
 
-.daftar {
+.daftar , main {
     width: 100%;
     background-color: #3529477c;
     height: 100%;
@@ -53,7 +53,7 @@ p {
     color: white;
 }
 .loginBtn{
-    background-color: rgb(31, 31, 31);
+    /* background-color: rgb(31, 31, 31); */
     border: none;
 }
 
