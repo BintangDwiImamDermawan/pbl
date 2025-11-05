@@ -27,3 +27,30 @@
 .petugas-pending
 .petugas-profil
 .petugas-riwayat
+
+
+PENTING
+
+1.	melengkapi siap pbl DEADLINE 7 NOVEMBER 2025
+⦁	edit dan upload video (video hasil di unggah ke youtube)
+⦁	upload file pendukung (laporan pada bagian Bab 1 dan 2)
+
+2. memperbaiki tampilan web agar lebih konsisten
+
+
+PAGE CODINGAN
+1.	halaman warga
+⦁	PADA SETIAP HALAMAN DARI JENIS SURAT DI TAMBAHKAN TOMBOL KEMBALI/BACK KE DASHBOARD/RIWAYAT
+⦁	pada halaman form surta pada button "kirim permohonan" di beri alert
+⦁	pada halaman form surat ada ikon profil arah link di perbaiki lagi
+⦁	apakah pada halaman dashboard untuk bagian section layanan semua tombol akan langsung mengarahkan ke bagian surat atau warga di haruskan mengisi data diri terlebih dahulu?
+untuk bagian ini sebenarnya lebih baik warga di arahkan mengisi data diri terlebih dahulu tetapi akan membutuhkan page baru lagi yang dimana nantinya setelah warga mengisi data diri tombol dokumen pada section layanan baru akan bisa mengarahkan ke form dokumen dan ini akan berpengaruh juga untuk di bagian navbar "lacak pengajuan".
+⦁	menambahkan tanda pop up seperti di figma agar warga mengisi data diri terlebih dahulu
+⦁	pada halaman profil warga untuk buttom kembali dan logout di perbaiki agar tampilan kosisten dan perbaiki arah link "kembali" agar menuju dashboard, menambahkan alert pada timbol "simpan"
+⦁	pada halaman riwayat tombol surat rumah di bagian navba arah link di perbaiki
+⦁	PADA HALAMAN RIWAYAT BAGIAN NAVBAR APAKAH TOMBOL RIWAYAT DI PERLUKAN ATAU TIDAK???
+
+2. halaman petugas (REVISI SEMUA)
+⦁	setelah login arah link di ubah ke "petugas-pending"
+⦁	ubah tampilan agar konsisten terutama pada bagian navigasi
+⦁	untuk profil petugas coba di pikirkan lagi kek mana
