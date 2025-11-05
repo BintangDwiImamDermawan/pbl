@@ -14,7 +14,6 @@
 .login.html ok
 .profil.html ok
 .dashboard.html ok
-.profil.html ok
 .riwayat.html ok
 .surat-domisili ok (cek)
 .surat-skk ok (cek)
