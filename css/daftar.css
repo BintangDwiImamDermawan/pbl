@@ -10,7 +10,7 @@
 
 body {
     background: url('../assets/ikn2.jpeg') top/cover no-repeat;
-    height: 130vh;
+    height: 100%;
     /* background-size: 110%; */
     width: 100%;
 }
@@ -55,7 +55,7 @@ form {
 }
 
 .masukBtn{
-    background-color: rgb(31, 31, 31);
+    /* background-color: rgb(31, 31, 31); */
     border: none;
 }
 

@@ -12,7 +12,7 @@
 
 body {
     background: url('../assets/ikn2.jpeg') top/cover no-repeat;
-    height: 130vh;
+    height: 100%;
     width: 100%;
     /* background-size: 110%; */
 }
@@ -91,9 +91,6 @@ footer p {
     height: 100%;
     margin-top:  160px;
     display: none;
-    /* top: 200px; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
     align-items: center;
 }
 
