@@ -1,14 +1,5 @@
-
-========> 5 november 2025  NOTE UNTUK PBL_PETUGAS DAN DASHBOARD
-1. bikin sidebar untuk petugas
-2. tambah icons untuk tiap sidebar
-3. perbaikan alur dari aplikasi
-4. perbaikan tampilan dari setiap header SURAT
-5. penambahan alert (JS) dari setiap aksi yang akan dilakukan(advance)
--faleft(note)
-
-======> 5 november 2025 10:28
-1. responsive 
+======> 6 november 2025 08:07
+1. DONE 
 .index.html ok
 .daftar.html ok
 .login.html ok
@@ -20,13 +11,27 @@
 .surat-sktm ok (cek)
 .surat-usaha ok (cek)
 .surat-rumah ok (cek)
+.petugas-riwayat ok (cek)+
 
 >on-progress
 .petugas-disetujui
 .petugas-lihat
 .petugas-pending
 .petugas-profil
-.petugas-riwayat
+
+
+======> 6 November 2025 (note)(done)
+1. .petugas-riwayat (perbaikan)
+2. .riwayat.html +alert, +icons
+
+======> 6 November 2025 (note)(on-progress)
+1. surat +alert, fix, ux, ui
+2. cek alur logika sampai gila
+
+
+
+
+
 
 
 
