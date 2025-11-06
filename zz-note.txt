@@ -25,15 +25,13 @@
 2. .riwayat.html +alert, +icons
 
 ======> 6 November 2025 (note)(on-progress)
-1. surat +alert, fix, ux, ui
-2. cek alur logika sampai gila
+1. surat +alert, +back button, fix, ux, ui
+2. pastikan alert berfungsi
+3. cek alur logika sampai gila
 
-
-
-
-
-
-
+perbaikan beberapa fitur yang belum berfungsi DEADLINE mungkin today wkwkw
+ gila
+ya mungkin cek figma sigma ligma alpha teta beta yunus yazrid 
 
 ======> REVISI DAN FIX
 PENTING
