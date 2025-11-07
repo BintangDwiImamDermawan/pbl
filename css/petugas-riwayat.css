@@ -24,7 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: fixed;
+  /* position: fixed; */
   z-index: 100;
   left: 0;
   top: 0;
@@ -93,6 +93,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  height: 65px;
 }
 
 .content-overlay {

@@ -22,7 +22,7 @@ body {
   background-color: rgba(30, 25, 60, 0.9);
   backdrop-filter: blur(10px);
   min-height: 100vh;
-  position: fixed;
+  /* position: fixed; */
   z-index: 1000;
 
 }
@@ -98,6 +98,7 @@ hr{
   position: sticky;
   top: 0;
   z-index: 10;
+  height:65px;
 }
 
 .profile a i {

@@ -33,7 +33,7 @@ form {
     font-size: 40px;
     position: absolute;
     left:0;
-    
+    cursor: pointer;
 }
 /* ========CARD======== */
 .card {

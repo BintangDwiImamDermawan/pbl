@@ -17,35 +17,35 @@
 
   <!-- navigasi -->
   <nav class="navbar navbar-dark fixed-top" id="navigasi">
-    <div class="container-fluid">
-      <div class="logo">
-        <a href="dashboard.html" class="logo-link">
-          <img src="./assets/logo.svg" alt="logo">
-        </a>
-      </div>
-      <div class="nav-links d-flex justify-content-between">
-        <a href="riwayat.html" class="btn btn-light text-black me-4">Kembali</a>
-        <a href="index.html" class="btn  btn-danger  ">Logout</a>
-      </div>
+    <div class="logo">
+      <a onclick="history.back()" class=" text-black  "><i
+          class="fs-2 px-3 fw-bold text-light bi bi-arrow-left-circle"></i></a>
+      <a class="logo-link">
+        <img src="./assets/logo.svg" alt="logo">
+      </a>
+    </div>
+    <div class="nav-links d-flex justify-content-between">
+
+      <a class="fs-7  fw-medium align-items-center btn btn-danger" onclick="keluar()"> <i
+          class="bi bi-box-arrow-right p-1"></i>Keluar</a>
     </div>
   </nav>
 
 
   <section class="profil-section ">
-    <div class="profil-container  mt-5">
+    <div class="profil-container  ">
       <h1 class="text-light">DATA DIRI</h1>
       <div class="profil-content">
 
-        <!-- icon profile -->
-        <div class="profil-side">
-          <div class="profil-avatar">
-            <i class="bi bi-person-circle"></i>
-          </div>
-          <h3 class="text-light">Halo User</h3>
-        </div>
-
         <!-- data diri form -->
         <div class="profil-form">
+          <!-- icon profile -->
+          <div class="profil-side">
+            <div class="profil-avatar">
+              <i class="bi bi-person-circle "></i>
+            </div>
+            <h3 class="text-light">Halo {NAMA}</h3>
+          </div>
           <form>
             <div class="mb-2">
               <label>Nama Lengkap</label>
@@ -120,7 +120,7 @@
               </div>
             </div>
             <!-- tombol kirim -->
-            <button class="btn btn-success float-end mt-3" >Simpan</button>
+            <button onclick="konfirm()" class="btn btn-success float-end mt-3" >Simpan</button>
           </form>
         </div>
 
@@ -133,4 +133,24 @@
     <p class="fw-bold">AJUK - Copyright © 2025. All rights reserved.</p>
   </footer>
 </body>
+<script>
+  function keluar() {
+    let keluar = confirm('Apakah anda yakin ingin keluar');
+    if (keluar) {
+      window.location.href = "index.html"
+
+    } else {
+
+    }
+  }
+  function konfirm() {
+    let konfirm = confirm('Apakah anda yakin ingin meyimpan');
+    if (konfirm) {
+      // alert('Data anda tersimpan')
+
+    } else {
+
+    }
+  }
+</script>
 </html>

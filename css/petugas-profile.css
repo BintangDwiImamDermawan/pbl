@@ -8,10 +8,7 @@
 }
 
 body {
-  background-image: url('../assets/ikn2.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: url('../assets/ikn2.jpeg') center/cover no-repeat;
   color: white;
 }
 
@@ -21,17 +18,19 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.9;
+  opacity: 1;
+  height: 65px;
+  display: flex;
+  align-items: center;
 }
 
 #navigasi a {
   color: #fff !important;
   font-weight: 700;
-  font-size: 18px;
 }
 
-/* ===== CONTAINER ===== */
 /* ======== LOGO NAVBAR ======== */
+
 .logo img {
   height: 60px;
   /* ukuran logo */
@@ -41,30 +40,41 @@ body {
   /* biar tidak gepeng */
 }
 
-/* Pastikan elemen navbar tidak membuat logo melebar */
-.navbar .container-fluid {
+.logo img:hover {
+  transition: all .2s ease-in;
+  transform: scale(1.05);
+
+}
+.logo .fs-2{
+  cursor: pointer;
+}
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 0 30px;
 }
 
+/* =====================main container======== */
 .profil-section {
-  padding-top: 100px;
+  height: 100%;
+  padding-top: 140px;
   padding-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   background-color: #584d6f8d;
+
 }
 
 .profil-container {
   background-color: rgba(80, 60, 80, 0.75);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 40px 60px;
-  width: 90%;
+  padding: 40px 50px;
+  width: 75%;
   max-width: 1100px;
+  border: 1px solid rgba(110, 222, 132, 0.216);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -73,36 +83,6 @@ body {
   font-weight: 800;
   font-size: 2.2rem;
   margin-bottom: 40px;
-}
-
-/* Tombol Logout */
-.logout-btn {
-  background-color: #dc3545;
-  /* Merah */
-  color: #fff;
-  /* Teks putih */
-  border: 2px solid #b02a37;
-  /* Border merah tua */
-  padding: 6px 14px;
-  /* Spasi dalam */
-  border-radius: 8px;
-  /* Sudut membulat */
-  font-weight: 600;
-  text-decoration: none;
-  /* Hilangkan underline */
-  transition: all 0.3s ease;
-  /* Animasi hover */
-}
-
-/* Efek hover */
-.logout-btn:hover {
-  background-color: #b02a37;
-  /* Merah tua saat dihover */
-  border-color: #dc3545;
-  /* Border berubah jadi merah muda */
-  color: #fff;
-  transform: scale(1.05);
-  /* Sedikit membesar */
 }
 
 
@@ -164,7 +144,6 @@ button.btn {
   border: none;
   font-weight: 600;
   border-radius: 10px;
-  padding: 10px 20px;
   transition: 0.3s ease;
 }
 
@@ -174,16 +153,24 @@ button.btn:hover {
 
 /* ===== FOOTER ===== */
 footer {
-  background-color: rgba(108, 85, 154, 0.7);
+  background-color: rgba(30, 25, 60, 0.9);
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
 }
 
 footer p {
   color: white;
   margin: 0;
   font-size: 14px;
+}
+
+/* ========RESPONSIVE======== */
+@media screen and (max-width: 500px) {
+  .profil-container{
+    width:90%;
+    padding:30px 20px;
+  }
+ 
 }
