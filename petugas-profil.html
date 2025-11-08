@@ -16,10 +16,11 @@
   <!-- navbar -->
   <nav class="navbar navbar-dark fixed-top" id="navigasi">
     <div class="logo d-flex align-items-center">
-        <a onclick="history.back()" class=" text-black"><i class="fs-2 px-3 fw-bold text-light bi bi-arrow-left-circle"></i>
-        </a>
-          <img src="./assets/logo.svg" alt="logo">
-       
+      <a onclick="history.back()" class=" text-black"><i
+          class="fs-2 px-3 fw-bold text-light bi bi-arrow-left-circle"></i>
+      </a>
+      <img src="./assets/logo.svg" alt="logo">
+
     </div>
     <div class="nav-links">
       <!-- keluar -->
@@ -28,7 +29,7 @@
     </div>
   </nav>
 
-<!-- main section -->
+  <!-- main section -->
   <section class="profil-section">
     <div class="profil-container ">
       <h1>DATA DIRI</h1>
@@ -45,43 +46,44 @@
           <form>
             <div class="mb-2">
               <label>Nama Lengkap</label>
-              <input type="text" class="form-control" required>
+              <input type="text" class="form-control" value="Anto" readonly>
             </div>
 
             <div class="mb-2">
               <label>Foto Profil</label>
-              <input type="file" class="form-control" required>
+              <input type="file" class="form-control" >
             </div>
 
             <div class="mb-2">
               <label>Nomor Petugas</label>
-              <input type="text" class="form-control" required>
+              <input type="text" class="form-control" value="0895370748811" readonly>
             </div>
 
             <div class="mb-2">
               <label>Email</label>
-              <input type="email" class="form-control" required>
+              <input type="email" class="form-control" value="petugas@gmailcom" readonly>
             </div>
 
             <div class="row">
               <div class="col-md-6 mb-2">
                 <label>Tempat Lahir</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" value="Batam" readonly>
               </div>
               <div class="col-md-6 mb-2">
                 <label>Tanggal Lahir</label>
-                <input type="date" class="form-control" required>
+                <input type="text" class="form-control" value="12/07/1000" readonly>
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-6 mb-2">
                 <label>Jenis Kelamin</label>
-                <select class="form-control" required>
+                <input type="text" class="form-control" value="Laki-laki" readonly>
+                <!-- <select class="form-control" value="Laki-laki" readonly>
                   <option>Pilih</option>
                   <option>Laki-laki</option>
                   <option>Perempuan</option>
-                </select>
+                </select> -->
               </div>
 
             </div>
@@ -119,4 +121,5 @@
     }
   }
 </script>
+
 </html>
