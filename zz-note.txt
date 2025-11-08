@@ -22,7 +22,7 @@
 
 note updt, fix: 
 penambahan bebrapa adjust pada surat domisili ok, 
-memperbaiki profil petugas hanya bisa melihat saja, 
+memperbaiki profil petugas hanya bisa melihat saja dan menambah profile, 
 memperbaiki beberapa navbar height ke 65px,
 memperbaiki sidebar agar bisa lebih responsive,
 menambahkan tombol back dan menggunkan JS tidak menggunkan href,
