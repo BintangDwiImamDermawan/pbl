@@ -1,3 +1,37 @@
+======> 8 november 2025 08:06
+1. DONE 
+.index.html ok
+.daftar.html ok
+.login.html ok
+.profil.html ok
+.dashboard.html ok
+.riwayat.html ok
+.surat-domisili ok 
+
+.surat-skk ok (cek)
+.surat-sktm ok (cek)
+.surat-usaha ok (cek)
+.surat-rumah ok (cek)
+.petugas-riwayat ok (cek)
+
+>on-progress
+.petugas-disetujui
+.petugas-lihat
+.petugas-pending
+.petugas-profil
+
+note updt, fix: 
+penambahan bebrapa adjust pada surat domisili ok, 
+memperbaiki profil petugas hanya bisa melihat saja, 
+memperbaiki beberapa navbar height ke 65px,
+memperbaiki sidebar agar bisa lebih responsive,
+menambahkan tombol back dan menggunkan JS tidak menggunkan href,
+
+
+
+
+
+
 ======> 6 november 2025 08:07
 1. DONE 
 .index.html ok
@@ -29,9 +63,6 @@
 2. pastikan alert berfungsi
 3. cek alur logika sampai gila
 
-perbaikan beberapa fitur yang belum berfungsi DEADLINE mungkin today wkwkw
- gila
-ya mungkin cek figma sigma ligma alpha teta beta yunus yazrid 
 
 ======> REVISI DAN FIX
 PENTING
