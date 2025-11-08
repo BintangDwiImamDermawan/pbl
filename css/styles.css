@@ -27,9 +27,12 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.95;
+    /* height: 65px; */
    
 }
-
+.navbar{
+    padding: 0;
+}
 .logo img {
     height: 60px;
     transition: transform 0.2s ease;

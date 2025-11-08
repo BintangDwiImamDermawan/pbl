@@ -27,7 +27,12 @@ nav {
   opacity: 0.95;
   transition: background 0.3s ease;
   border: none;
-  padding: 10px 20px;
+  
+  /* height: 65px; */
+}
+.navbar{
+ 
+  padding: 0 ;
 }
 
 .navbar>.container-fluid {
@@ -250,9 +255,7 @@ footer p {
     gap: 15px;
   }
 
-  .dashboard-content {
-    margin-top: 80px;
-  }
+ 
 
   .dashboard-content h1 {
     font-size: 2rem;
@@ -281,9 +284,6 @@ footer p {
     display: none;
   }
 
-  .container-fluid {
-    padding: 0 10px !important;
-  }
 
   .layanan-dashboard {
     /* border-radius: 0; */
