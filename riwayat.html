@@ -14,12 +14,12 @@
 
 <body>
   
-  <div class="container-fluid">
-    <div class="row flex-nowrap">
+  <div class="container-fluid ">
+    <div class="row flex-nowrap ">
       <!-- sidebar  -->
       <div class="col-auto px-0 sidebar ">
         <div id="sidebar" class="collapse collapse-horizontal show  ">
-          <div class="d-flex container-fluid">
+          <div class="d-flex container-fluid ">
             
           <a href="dashboard.html" class="text-black text-decoration-none">
             <img class="logo p-3" src="./assets/logo.svg" alt="logo" />
@@ -36,48 +36,38 @@
               <li class="">
                 <a href="profil.html" class="nav-link align-middle ">
                   <i class="bi  bi-person"></i>Profil
-                  <!-- <span class="ms-1  "></span> -->
                 </a>
               </li>
               <li class="">
                 <a href="./surat/surat-SKTM.html" class="nav-link "
                   title="Surat Keterangan Tidak Mampu">
                   <i class="bi  bi-coin"></i>SKTM
-                  <!-- <span class="ms-1  "></span> -->
                 </a>
               </li>
               <li class="">
                 <a href="./surat/surat-SKK.html" class="nav-link  " title="Surat Keterangan Kematian">
-                  <i class="bi  bi-file-person"></i>
-                  <span class="ms-1  ">SKK</span>
+                  <i class="bi  bi-file-person"></i>SKK
                 </a>
               </li>
               <li class="">
                 <a href="surat-rumah.html" class="nav-link " title="Surat Kepemilikan Rumah">
-                  <i class="bi  bi-house"></i>
-                  <span class="ms-1  ">Surat Rumah</span>
+                  <i class="bi  bi-house"></i>Surat Rumah
                 </a>
               </li>
               <li class="">
                 <a href="./surat/surat-izin-usaha.html" class="nav-link " title="Surat Izin Usaha">
-                  <i class="bi  bi-briefcase"></i>
-                  <span class="ms-1  ">Izin Usaha</span>
+                  <i class="bi  bi-briefcase"></i>Izin Usaha
                 </a>
               </li>
               <li class="">
                 <a href="./surat/surat-domisili.html" class="nav-link " title="Surat Pindah Domisili">
-                  <i class="bi  bi-geo-alt"></i>
-                  <span class="ms-1  ">Domisili</span>
+                  <i class="bi  bi-geo-alt"></i>Domisili
                 </a>
               </li>
-              <!-- <li class="">
-                <a href="#riwayat" class="nav-link align-middle px-0">
-                  <i class="bi fs-5 bi-clock-history"></i>
-                  <span class="ms-1 fs-5 ">Riwayat</span>
-                </a>
-              </li> -->
+             
             </ul>
           </div>
+          
         </div>
       </div>
 
@@ -138,17 +128,32 @@
                 </button>
               </div>
             </div>
+
+            <div class="riwayat-card">
+              <div class="riwayat-info">
+                <h5>Pengajuan Surat Domisili</h5>
+                <p>Tanggal: 12 Januari 2025</p>
+                <p>Status: <span class="status bg-danger">Ditolak</span></p>
+              </div>
+              <div class="riwayat-actions">
+                <button class="btn btn-outline-light">
+                  <i class="bi bi-eye"></i> lihat
+                </button>
+              </div>
+            </div>
           </div>
+          
         </section>
 
-        <footer>
+        <footer  class="container-fluid" >
           <p>AJUK - Copyright © 2025. All rights reserved.</p>
         </footer>
       </main>
+      
     </div>
     
   </div>
-  
+ 
 </body>
 <script src="./bootstrap/js/bootstrap.min.js"></script>
 
