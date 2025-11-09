@@ -10,16 +10,15 @@
 .petugas-profil ok
 .surat-usaha ok +
 .petugas-disetujui ok +
+.petugas-riwayat ok +
 
 .surat-skk ok (cek)
 .surat-sktm ok (cek)
 .surat-rumah ok (cek)
-.petugas-riwayat ok (cek)
 
 >on-progress
 .petugas-lihat
 .petugas-pending
-
 
 
 note updt:
@@ -63,8 +62,7 @@ memperbaiki sidebar agar bisa lebih responsive,
 menambahkan tombol back dan menggunkan JS tidak menggunkan href,
 
 
-
-
+======> 7 November 2025 {libur}
 
 
 ======> 6 november 2025 08:07
@@ -87,7 +85,6 @@ menambahkan tombol back dan menggunkan JS tidak menggunkan href,
 .petugas-lihat
 .petugas-pending
 .petugas-profil
-
 
 ======> 6 November 2025 (note)(done)
 1. .petugas-riwayat (perbaikan)
