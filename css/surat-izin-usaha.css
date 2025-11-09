@@ -114,3 +114,17 @@ form {
     background: rgba(255, 255, 255, 0.35);
     color: #fff;
   }
+
+  @media screen and (max-width: 576px) {
+
+
+    .container-fluid {
+        padding:0 20px !important;
+    }
+
+}
+
+textarea{
+    resize: none;
+}
+ 

@@ -16,7 +16,11 @@ nav{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.90;
+    opacity: 1;
+}
+.navbar{
+    padding:0 ;
+    height: 65px;
 }
 .navbar-toggler{ 
     background-color: rgb(255, 255, 255);
@@ -37,13 +41,21 @@ nav{
     padding: 0 40px;
 }
 .logo img{
-    height: 50px;
+    height: 60px;
 
 }
 .logo:hover img {
     transform: scale(1.05);
     cursor: pointer;
 }
+.logo a i {
+    font-size: 28px;
+    cursor: pointer;
+  }
+  .profile a i {
+    font-size: 28px;
+    cursor: pointer;
+  }
 .iconPer{
     padding: 10px;
     background-color: rgba(240, 248, 255, 0.341);
@@ -58,7 +70,7 @@ nav{
     
 }
 .card{
-     background-color: rgba(77, 171, 238, 0.319);
+    background-color: rgba(59, 59, 60, 0.319);
      border-radius: 20px;
      border: 1px solid white;
 }
@@ -68,9 +80,9 @@ form{
 input.form-control{
     background-color: rgb(219, 218, 218);
 }
-.btn-success{
+/* .btn-success{
     border:1px solid rgb(21, 237, 89);
-}
+} */
 /* avatar icons */
 
 .profile-icon {
@@ -90,3 +102,16 @@ input.form-control{
     background: rgba(255, 255, 255, 0.35);
     color: #fff;
   }
+
+  textarea{
+    resize: none;
+}
+ 
+@media screen and (max-width: 576px) {
+
+
+    .container-fluid {
+        padding:0 20px !important;
+    }
+
+}
