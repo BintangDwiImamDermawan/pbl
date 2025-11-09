@@ -310,17 +310,9 @@ footer p {
 
 @media screen and (max-width: 576px) {
 
-   
-
-}
-
-@media screen and (max-width: 320px) {
-    .logo {
-        height: 100px;
-    }
 
     .container-fluid {
-        padding: 10px !important;
+        padding:0 20px !important;
     }
 
 }
