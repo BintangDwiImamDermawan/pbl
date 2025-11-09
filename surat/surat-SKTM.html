@@ -13,6 +13,21 @@
   </head>
   <body>
     <nav class="navbar navbar-dark bg-dark fixed-top" id="navigasi">
+    <div class="container-fluid justify-content-between">
+      <div class="logo d-flex align-items-center ">
+        <a onclick="history.back()" class=" text-black"><i
+            class="fs-2 px-3 fw-bold text-light bi bi-arrow-left-circle"></i>
+        </a>
+        <img src="../assets/logo.svg" alt="logo">
+
+      </div>
+      <div class="profile">
+        <a class="d-flex align-items-center text-decoration-none text-light fw-bold " href="../profil.html"> Halo, Andi<i
+            class="bi bi-person-circle text-light ms-2 "></i></a>
+      </div>
+    </div>
+  </nav>
+    <!-- <nav class="navbar navbar-dark bg-dark fixed-top" id="navigasi">
       <div class="container-fluid">
         <div class="logo"><img src="../assets/logo.svg" alt="logo"></div>
         <a href="../profil.html" class="profile-icon">
@@ -20,20 +35,23 @@
       </a>
       </div>
       </div>
-    </nav>
+    </nav> -->
     <main class="dokumen1">
       <div class="container py-5">
         <div class="container form-container">
-          <div class="text-center">
+          <div class="text-center py-5">
+          <h2 class="mb-3 mt-3 fw-bold text-light">SURAT KETERANGAN TIDAK MAMPU</h2>
+        </div>
+          <!-- <div class="text-center">
             <img src="../assets/logo.svg" alt="logo" />
-          </div>
+          </div> -->
           <div class="card">
-            <div class="card-body ">
+            <div class="card-body p-4">
               <form action="" method="post">
-                <h6 class="mb-3 fw-bold">SURAT KETERANGAN TIDAK MAMPU</h6>
+                <!-- <h6 class="mb-3 fw-bold">SURAT KETERANGAN TIDAK MAMPU</h6> -->
 
-                <div class="row mb-3 mt-3">
-                  <div class="col-md-6 mt-3">
+                <div class="row mb-3 ">
+                  <div class="col-md-6 ">
                     <label for="nik" class="form-label"
                       >Nomor Induk Kependudukan (NIK)</label
                     >
@@ -44,7 +62,7 @@
                       placeholder="Masukkan NIK"
                     required>
                   </div>
-                  <div class="col-md-6 mt-3">
+                  <div class="col-md-6 ">
                     <label for="namaLengkap" class="form-label"
                       >Nama Lengkap</label
                     >
@@ -57,8 +75,8 @@
                   </div>
                 </div>
 
-                <div class="row mb-3 mt-3">
-                  <div class="col-md-4">
+                <div class="row mb-3 ">
+                  <div class="col-md-6">
                     <label for="agama" class="form-label">Agama</label>
                     <select class="form-select" id="agama">
                       <option selected disabled>Agama</option>
@@ -70,7 +88,7 @@
                       <option value="6">Konghucu</option>
                     </select>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <label for="Pekerjaan" class="form-label">Pekerjaan</label>
                     <select class="form-select" id="desa">
                       <option selected disabled>Pilih Pekerjaan</option>
@@ -79,7 +97,12 @@
                       <option value="3">Arsitek</option>
                     </select>
                   </div>
-                  <div class="col-md-4">
+                   <div class="col-md-12 mt-5 ">
+                  <label for="alamat" class="form-label fw-bold">Alamat</label>
+                  <textarea name="" cols="5" rows="5" class="form-control" placeholder="Masukkan alamat" id="alamat"
+                    required></textarea>
+                </div>
+                  <!-- <div class="col-md-4">
                     <label for="alamat" class="form-label">Alamat</label>
                     <input
                       type="text"
@@ -87,7 +110,7 @@
                       id="alamat"
                       placeholder="Masukkan alamat"
                     required>
-                  </div>
+                  </div> -->
                 </div>
 
                 <h6 class="mb-3 fw-bold">BERKAS ADMINISTRASI</h6>
@@ -158,12 +181,16 @@
                   </div>
                 </div>
 
-                <button
+                <button type="submit" class="btn mt-5 px-4 btn-success float-end" >
+                Kirim Permohonan
+              </button>
+
+                <!-- <button
                   type="submit"
                   class="btn btn-send mt-5 px-4 btn-success text-white fs-7"
                 >
                   Kirim Permohonan
-                </button>
+                </button> -->
               </form>
             </div>
           </div>
@@ -171,4 +198,18 @@
       </div>
     </main>
   </body>
+  <script>
+  function konfirm (){
+    let konfirm = confirm('yakin ingin keluar');
+    if (konfirm) {
+      // alert('Anda keluar');
+      window.location.href='index.html';
+
+    }else{
+      // alert('tidak');
+    }
+  }
+</script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
 </html>

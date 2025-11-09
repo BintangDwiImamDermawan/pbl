@@ -12,7 +12,11 @@ nav{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.90;
+    opacity: 1;
+}
+.navbar{
+    padding:0 ;
+    height: 65px;
 }
 .navbar-toggler{ 
     background-color: rgb(255, 255, 255);
@@ -38,13 +42,21 @@ nav{
     border-radius: 50%;
 }
 .logo img{
-    height: 50px;
+    height: 60px;
 
 }
 .logo:hover img {
     transform: scale(1.05);
     cursor: pointer;
 }
+.logo a i {
+    font-size: 28px;
+    cursor: pointer;
+  }
+  .profile a i {
+    font-size: 28px;
+    cursor: pointer;
+  }
 body {
     background: url('../assets/ikn2.jpeg') center/cover no-repeat;
     height: 100%;
@@ -62,16 +74,16 @@ input.form-control{
     
 }
 .card{
-     background-color: rgba(77, 171, 238, 0.319);
+    background-color: rgba(59, 59, 60, 0.319);
      border-radius: 20px;
      border: 1px solid white;
 }
 form{
     color: white;
 }
-.btn-success{
+/* .btn-success{
     border:1px solid rgb(21, 237, 89);
-}
+} */
 .profile-icon {
     width: 50px;
     height: 50px;
@@ -89,3 +101,16 @@ form{
     background: rgba(255, 255, 255, 0.35);
     color: #fff;
   }
+
+  textarea{
+    resize: none;
+}
+ 
+@media screen and (max-width: 576px) {
+
+
+    .container-fluid {
+        padding:0 20px !important;
+    }
+
+}
