@@ -22,11 +22,11 @@ body {
 /* =========NAVBAR========== */
 
 nav {
-    background-image: url('../assets/bg4.jpg');
+    background-image: url(../assets/bg4.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.95;
+    opacity: 1;
     /* height: 65px; */
    
 }
@@ -258,7 +258,7 @@ footer p {
     }
 
     .dashboard-content {
-        margin-top: 90px;
+        /* margin-top: 90px; */
     }
 
     .dashboard-content h1 {
@@ -266,7 +266,7 @@ footer p {
     }
 
     .dashcont {
-        margin-top: 20px;
+        /* margin-top: 20px; */
         width: 90%;
         padding: 40px 30px;
     }
@@ -303,14 +303,14 @@ footer p {
         font-size: 1.8rem;
         text-align: center;
     }
-
+    .kol{
+        padding:20px 5px;
+    }
 }
 
 @media screen and (max-width: 576px) {
 
-    body {
-        background-size: 800%;
-    }
+   
 
 }
 
