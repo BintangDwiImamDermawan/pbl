@@ -28,7 +28,9 @@ sidebar petugas disetujui, macam macam surat
 *NOTE untuk NEXT updt:
 login, daftar, surat ditambah validasi menggunakan JS,
 untuk petugas riwayat tambah label berwarna pada status,
-sedikit penyempurnaan di bagian petugas tombol
+sedikit penyempurnaan di bagian petugas tombol,
+menambah kan page lihat untuk setiap jenis surat,
+penyempurnaan JS dan page petugas
 
 
 ======> 8 november 2025 08:06
