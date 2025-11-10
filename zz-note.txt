@@ -11,9 +11,9 @@
 .surat-usaha ok +
 .petugas-disetujui ok +
 .petugas-riwayat ok +
-.surat-skk ok 
-.surat-sktm ok 
-.surat-rumah ok 
+.surat-skk ok +
+.surat-sktm ok +
+.surat-rumah ok +
 
 >on-progress
 .petugas-lihat
