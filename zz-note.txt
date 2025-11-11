@@ -8,6 +8,39 @@
 .riwayat.html ok
 .surat-domisili ok 
 .petugas-profil ok
+.surat-usaha ok 
+.petugas-disetujui ok 
+.petugas-riwayat ok 
+.surat-skk ok 
+.surat-sktm ok 
+.surat-rumah ok 
+.petugas-pending ok +
+
+
+>on-progress
+.petugas-lihat
+
+
+*NOTE untuk NEXT updt:
+login, daftar, surat ditambah validasi menggunakan JS,
+sedikit penyempurnaan di bagian petugas tombol,
+menambah kan page lihat untuk setiap jenis surat,
+penyempurnaan JS dan page petugas
+
+
+
+======> 10 November 2025 {libur}
+
+======> 9 november 2025 21:34
+1. DONE 
+.index.html ok
+.daftar.html ok
+.login.html ok
+.profil.html ok
+.dashboard.html ok
+.riwayat.html ok
+.surat-domisili ok 
+.petugas-profil ok
 .surat-usaha ok +
 .petugas-disetujui ok +
 .petugas-riwayat ok +
