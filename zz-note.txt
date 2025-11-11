@@ -1,4 +1,4 @@
-======> 9 november 2025 21:34
+======> 11 november 2025 15:50
 1. DONE 
 .index.html ok
 .daftar.html ok
@@ -20,16 +20,28 @@
 >on-progress
 .petugas-lihat
 
+note : 
+menambah sidebar petugas pending,
+memperbaiki beberapa kesalahan pada pembuatan kode sebelumnya,
+menambah label warna pada halaman petugas riwayat,
+
+
+
+KHUSUS UNTUK PENAMBAHAN PADA PETUGAS :
+MENAMBAHKAN  LIHAT DOKUMEN PADA 4 SURAT   
+
+
 
 *NOTE untuk NEXT updt:
 login, daftar, surat ditambah validasi menggunakan JS,
 sedikit penyempurnaan di bagian petugas tombol,
-menambah kan page lihat untuk setiap jenis surat,
+
 penyempurnaan JS dan page petugas
 
 
 
 ======> 10 November 2025 {libur}
+
 
 ======> 9 november 2025 21:34
 1. DONE 
