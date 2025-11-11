@@ -45,9 +45,9 @@ nav{
     height: 60px;
 
 }
-.logo:hover img {
+.logo img:hover {
     transform: scale(1.05);
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .logo a i {
     font-size: 28px;
