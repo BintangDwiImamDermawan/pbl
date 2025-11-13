@@ -52,9 +52,9 @@ body {
     height: 60px;
 
 }
-.logo:hover img {
+.logo img:hover {
     transform: scale(1.05);
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .logo a i {
@@ -119,7 +119,9 @@ form {
   textarea{
     resize: none;
 }
-
+input.form-control{
+    background-color: rgb(219, 218, 218);
+}
 @media screen and (max-width: 576px) {
 
 

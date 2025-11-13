@@ -130,7 +130,9 @@ form {
 textarea{
     resize: none;
 }
- 
+input.form-control{
+    background-color: rgb(219, 218, 218);
+}
 @media screen and (max-width: 576px) {
 
 
