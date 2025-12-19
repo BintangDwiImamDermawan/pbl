@@ -21,6 +21,8 @@ body {
   /* height: 400vh; */
 }
 
+/*======= akhir ========*/
+
 /* ===== SIDEBAR ===== */
 .sidebar {
   background-color: rgba(30, 25, 60, 0.9);
@@ -94,13 +96,10 @@ hr {
 
 /* ===== MAIN CONTENT ===== */
 
-.main-cons{
-  /* height: 500vh; */
-}
 
 .main-content{
-  /* height:300vh; */
-height: auto;
+  /* height:2000px; */
+  height: auto;
 
 }
 .topbar {
@@ -130,7 +129,7 @@ height: auto;
   background-color: #42414071;
   backdrop-filter: blur(2px);
   height:200vh;
-  padding: 50px 30px 20px 30px;
+  padding: 51px 30px 20px 30px;
 }
 
 .search-bar {
@@ -194,6 +193,12 @@ footer {
 footer p {
   margin: 0;
 }
+
+
+.card{
+  height: 250px;
+}
+
 
 @media screen and (max-width: 980px) {
   .logo {

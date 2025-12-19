@@ -79,9 +79,13 @@ nav {
 }
 
 /* ======== PROFILE BUTTON ======== */
-.profile-btn {
-  margin-left: 15px;
-}
+/* .profile-btn { */
+  /* margin-left: 15px; */
+  /* width: 200px; */
+/*   display: flex; */
+/*   flex-direction: row; */
+/* } */
+
 .profile-icon {
   width: 50px;
   height: 50px;
@@ -218,7 +222,7 @@ main {
 
 /* ====================== FOOTER ====================== */
 footer {
-  background-color: rgba(108, 85, 154, 0.7);
+  background-color: #1c1c1c;
   height: 55px;
   display: flex;
   align-items: center;

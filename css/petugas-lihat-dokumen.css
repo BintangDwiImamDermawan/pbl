@@ -25,6 +25,14 @@
     /* Support for IE. */
     font-feature-settings: 'liga';
 }
+.navbar{
+  height:65px !important;
+  align-items: center;
+  padding: 0 !important;
+}
+.navbar>.container-fluid {
+  padding: 0 40px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -33,9 +41,7 @@
     font-weight: 800;
 }
 body {
-    background: url('../assets/ikn2.jpeg') center/cover no-repeat;
-    background-position: center;
-    background-repeat: no-repeat;
+  background: url('../assets/ikn2.jpeg') center/cover no-repeat fixed;
     /* width: 100%; */
 
 }
@@ -47,7 +53,7 @@ nav {
     /* opacity: 0.8; */
 }
 .logo img {
-    height: 70px;
+    height: 60px;
 }
 footer {
     background-color: rgba(108, 85, 154, 0.6);
@@ -66,22 +72,30 @@ footer p {
     font-size: 50px;
     color: #b78aeee2;
     margin: 30px;
+
 }   
+.kol{
+    background-color: #584d72ae !important;
+
+}
 .conta{
-    width: 100%;
-   background-color: #584d6f8d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    height: 100%;
+   background-color: #584d6f8d;     
+
 }
 .container {
-    padding: 150px !important;
-    /* margin: 0; */
+    padding: 100px 0;
     height: 100%;
     width: 100% !important;
-    /* margin-bottom: 80px; */
+    /* background-color: #584d6f8d; */
     
 }
 .card{
     background-color: rgba(255, 255, 255, 0.234) !important;
-    border: 1px solid white;
+      border: 1px solid white;
 }
 h2{
     color: #ffffff;
@@ -100,6 +114,6 @@ table{
     border-collapse: separate;
     border-spacing: 0 10px;
 }
-a{
+a {
     text-decoration: none;
-}
+  }
