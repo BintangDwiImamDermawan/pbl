@@ -1,14 +1,33 @@
-# PBL - Project Based Learning
+# 🏛️ Aplikasi Web Pengajuan Dokumen Warga Digital (E-Kelurahan)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/BintangDwiImamDermawan/pbl)
-![GitHub contributors](https://img.shields.io/github/contributors/BintangDwiImamDermawan/pbl)
-![GitHub last commit](https://img.shields.io/github/last-commit/BintangDwiImamDermawan/pbl)
+[![GitHub repo size](https://img.shields.io/github/repo-size/BintangDwiImamDermawan/pbl?color=blue)](https://github.com/BintangDwiImamDermawan/pbl)
+[![GitHub contributors](https://img.shields.io/github/contributors/BintangDwiImamDermawan/pbl?color=green)](https://github.com/BintangDwiImamDermawan/pbl)
+[![License](https://img.shields.io/badge/license-MIT-informational)](LICENSE)
 
-## 📝 Deskripsi Projek
-Aplikasi Web Pengajuan Dokumen Warga Secara Digital yang berfungsi untuk memudahkan warga dalam pengajuan surat-surat administrasi. Aplikasi ini dapat mempercepat proses pengurusan dan pembuatan dokumen tanpa harus langsung pergi ke kantor kelurahan, aplikasi ini dapat digunakan untuk mengajukan beberapa jenis-jenis dokumen pengajuan yang dapat dipilih oleh warga. Warga hanya mengisi form dan menambahkan dokumen pendukung secara daring, data yang telah diisi lalu dikirim oleh warga bisa langsung diperiksa oleh para petugas, petugas akan melakukan pengecekan dan pemeriksaan kelengkapan. Jika data yang diperiksa sudah sesuai, petugas akan memberikan akses untuk mencetak dokumen yang sudah jadi dalam bentuk PDF. Aplikasi ini hanya akan mencakup pengajuan dokumen dalam lingkup kelurahan saja. 
-Aplikasi ini memungkinkan warga untuk mengurus surat-surat yang ada di kelurahan seperti Surat  Keterangan Usaha (SKU), Surat Keterangan Pindah Domisili, Surat Keterangan Kepemilikan Rumah, Surat Keterangan Kematian, dan Surat Keterangan Tidak Mampu. Warga dapat mengurus surat-surat ini secara daring tanpa harus langsung pergi ke kantor kelurahan. Lebih efektif dan efisien dari segi waktu.
+Aplikasi berbasis web yang dirancang untuk memodernisasi layanan administrasi di tingkat **Kelurahan**. Dengan sistem ini, warga dapat mengajukan berbagai surat keterangan secara daring tanpa perlu mengantre di kantor kelurahan, menjadikannya lebih efektif dan efisien dari segi waktu.
 
+---
 
+## 🌟 Fitur Utama
+
+* **Pengajuan Mandiri:** Warga dapat mengisi formulir dan mengunggah dokumen pendukung secara digital.
+* **Beragam Jenis Dokumen:** Mendukung pembuatan berbagai surat keterangan:
+    * Surat Keterangan Usaha (SKU)
+    * Surat Keterangan Pindah Domisili
+    * Surat Keterangan Kepemilikan Rumah
+    * Surat Keterangan Kematian
+    * Surat Keterangan Tidak Mampu (SKTM)
+* **Verifikasi Petugas:** Sistem manajemen bagi petugas kelurahan untuk memeriksa kelengkapan data secara real-time.
+* **E-Output (PDF):** Setelah dokumen diverifikasi dan disetujui, warga diberikan akses untuk mengunduh dan mencetak dokumen dalam format PDF secara mandiri.
+
+---
+
+## 🛠️ Alur Kerja Sistem
+
+1.  **Input:** Warga memilih jenis surat dan mengisi data serta lampiran dokumen.
+2.  **Review:** Petugas menerima notifikasi pengajuan dan melakukan pengecekan validitas data.
+3.  **Approval:** Jika data sesuai, petugas menyetujui pengajuan.
+4.  **Output:** Warga mendapatkan akses unduh file PDF yang sudah diproses.
 
 ---
 
