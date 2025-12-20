@@ -5,14 +5,10 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/BintangDwiImamDermawan/pbl)
 
 ## 📝 Deskripsi Projek
-Projek ini merupakan bagian dari kegiatan **Project-Based Learning (PBL)**. Fokus utama dari repositori ini adalah untuk [masukkan tujuan singkat projek di sini, contoh: mengembangkan aplikasi web untuk manajemen tugas].
+Aplikasi Web Pengajuan Dokumen Warga Secara Digital yang berfungsi untuk memudahkan warga dalam pengajuan surat-surat administrasi. Aplikasi ini dapat mempercepat proses pengurusan dan pembuatan dokumen tanpa harus langsung pergi ke kantor kelurahan, aplikasi ini dapat digunakan untuk mengajukan beberapa jenis-jenis dokumen pengajuan yang dapat dipilih oleh warga. Warga hanya mengisi form dan menambahkan dokumen pendukung secara daring, data yang telah diisi lalu dikirim oleh warga bisa langsung diperiksa oleh para petugas, petugas akan melakukan pengecekan dan pemeriksaan kelengkapan. Jika data yang diperiksa sudah sesuai, petugas akan memberikan akses untuk mencetak dokumen yang sudah jadi dalam bentuk PDF. Aplikasi ini hanya akan mencakup pengajuan dokumen dalam lingkup kelurahan saja. 
+Aplikasi ini memungkinkan warga untuk mengurus surat-surat yang ada di kelurahan seperti Surat  Keterangan Usaha (SKU), Surat Keterangan Pindah Domisili, Surat Keterangan Kepemilikan Rumah, Surat Keterangan Kematian, dan Surat Keterangan Tidak Mampu. Warga dapat mengurus surat-surat ini secara daring tanpa harus langsung pergi ke kantor kelurahan. Lebih efektif dan efisien dari segi waktu.
 
----
 
-## 🚀 Fitur Utama
-* Fitur 1: [Penjelasan singkat]
-* Fitur 2: [Penjelasan singkat]
-* Fitur 3: [Penjelasan singkat]
 
 ---
 
@@ -28,34 +24,37 @@ Terima kasih kepada seluruh anggota tim yang telah berkontribusi dalam pengemban
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/username_teman_1">
-        <img src="https://github.com/username_teman_1.png" width="100px;" alt="Nama Teman 1"/><br />
-        <sub><b>Nama Teman 1</b></sub>
+        <a href="https://github.com/humayra19">
+        <img src="https://github.com/humayra19.png" width="100px;" alt="Devika Humayra"/><br />
+        <sub><b>Devika Humayra</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/username_teman_2">
-        <img src="https://github.com/username_teman_2.png" width="100px;" alt="Nama Teman 2"/><br />
-        <sub><b>Nama Teman 2</b></sub>
+      <a href="https://github.com/fajpras">
+        <img src="https://github.com/fajpras.png" width="100px;" alt="Fajpras"/><br />
+        <sub><b>Fajri Pras</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/username_teman_3">
-        <img src="https://github.com/username_teman_3.png" width="100px;" alt="Nama Teman 3"/><br />
-        <sub><b>Nama Teman 3</b></sub>
+      <a href="https://github.com/SwandyXtry">
+        <img src="https://github.com/SwandyXtry.png" width="100px;" alt="Swandy"/><br />
+        <sub><b>Swandy</b></sub>
+      </a>
+    </td>
+        <td align="center">
+      <a href="https://github.com/achel-silitonga">
+        <img src="https://github.com/achel-silitonga.png" width="100px;" alt="Achel"/><br />
+        <sub><b>Achel</b></sub>
       </a>
     </td>
   </tr>
 </table>
 
-> **Note:** Ganti `username_teman_x` dengan username GitHub asli anggota tim kamu agar foto profil mereka muncul secara otomatis.
 
----
 
 ## 🛠️ Teknologi yang Digunakan
-* **Language:** [Contoh: PHP, JavaScript]
-* **Framework:** [Contoh: Laravel, React]
-* **Database:** [Contoh: MySQL, PostgreSQL]
+* **Language:** [PHP, CSS, JavaScript]
+* **Database:** [MySQL]
 
 ---
 
