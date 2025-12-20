@@ -157,19 +157,23 @@ $has_error = !empty($email_eror) || !empty($pass_eror);
 <script>
     function lupa(event) {
         if(event) event.preventDefault();
-        const lupa = document.getElementById("lupa");
+        const modalLupa = document.getElementById("lupa");
         
-        if (lupa.style.display === "flex") {
-            lupa.style.display = "none";
+        // Cek apakah sedang tersembunyi atau tidak ada style display-nya
+        if (modalLupa.style.display === "flex") {
+            modalLupa.style.display = "none";
         } else {
-            lupa.style.justifyContent = "center";
+            modalLupa.style.display = "flex"; // INI YANG PENTING: Menampilkan modal
+            modalLupa.style.justifyContent = "center";
+            modalLupa.style.alignItems = "center"; // Tambahan agar modal benar-benar di tengah
         }
     }
 
+    // Menutup modal jika area di luar box putih diklik
     window.onclick = function(event) {
-        const lupa = document.getElementById("lupa");
-        if (event.target == lupa) {
-            lupa.style.display = "none";
+        const modalLupa = document.getElementById("lupa");
+        if (event.target == modalLupa) {
+            modalLupa.style.display = "none";
         }
     }
 </script>
