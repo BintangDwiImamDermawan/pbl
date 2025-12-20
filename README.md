@@ -55,8 +55,8 @@ Terima kasih kepada seluruh anggota tim yang telah berkontribusi dalam pengemban
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/SwandyXtry">
-        <img src="https://github.com/SwandyXtry.png" width="100px;" alt="Swandy"/><br />
+      <a href="https://github.com/swandyxtry-glitch">
+        <img src="https://github.com/swandyxtry-glitch.png" width="100px;" alt="Swandy"/><br />
         <sub><b>Swandy</b></sub>
       </a>
     </td>
