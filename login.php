@@ -138,7 +138,7 @@ $has_error = !empty($email_eror) || !empty($pass_eror);
                                     <p class="mb-0 fs-8 fw-medium">Belum Punya Akun? <a class="fs-8 fw-bold text-dark text-decoration-none" href="daftar.php">Daftar</a>
                                     </p>
 
-                                    <a class="koll text-black fs-8 fw-normal text-decoration-none" href="#" onclick="lupa(event)">Lupa Password?</a>
+                                    <a class="koll text-black fs-8 fw-normal text-decoration-none"  onclick="lupa(event)">Lupa Password?</a>
                                 </div>
 
                             </form>
