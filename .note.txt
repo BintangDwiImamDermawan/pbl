@@ -1,0 +1,2 @@
+alert nik yang sama 
+validasi dok minimal 1 MB
