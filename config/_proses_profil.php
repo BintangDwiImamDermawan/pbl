@@ -25,22 +25,23 @@ $id_warga = $_SESSION['id_warga'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // AMBIL DATA
-  $nama          = $_POST['nama'] ?? '';
-  $nik           = $_POST['nik'] ?? '';
-  $email         = $_POST['email'] ?? '';
-  $agama         = $_POST['agama'] ?? '';
-  $tempat_lahir  = $_POST['tempat_lahir'] ?? '';
-  $ttl           = $_POST['ttl'] ?? '';
-  $jk            = $_POST['jk'] ?? '';
-  $pekerjaan     = $_POST['pekerjaan'] ?? '';
-  $alamat        = $_POST['alamat'] ?? '';
-  $provinsi      = $_POST['provinsi'] ?? '';
-  $kota          = $_POST['kota'] ?? '';
-  $kecamatan     = $_POST['kecamatan'] ?? '';
-  $kelurahan     = $_POST['kelurahan'] ?? '';
+  $nama = $_POST['nama'] ?? '';
+  $nik = $_POST['nik'] ?? '';
+  $email = $_POST['email'] ?? '';
+  $agama = $_POST['agama'] ?? '';
+  $tempat_lahir = $_POST['tempat_lahir'] ?? '';
+  $ttl = $_POST['ttl'] ?? '';
+  $jk = $_POST['jk'] ?? '';
+  $pekerjaan = $_POST['pekerjaan'] ?? '';
+  $alamat = $_POST['alamat'] ?? '';
+  $provinsi = $_POST['provinsi'] ?? '';
+  $kota = $_POST['kota'] ?? '';
+  $kecamatan = $_POST['kecamatan'] ?? '';
+  $kelurahan = $_POST['kelurahan'] ?? '';
 
-  // validasi
-// $Cnik =CHAR_LENGTH($nik);
+
+
+
 
   $required = [$nama, $nik, $email, $agama, $tempat_lahir, $ttl, $jk, $pekerjaan, $alamat, $provinsi, $kota, $kecamatan, $kelurahan];
   foreach ($required as $item) {
@@ -58,8 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $oldData = null;
   if ($isUpdate) {
     $Q2 = mysqli_query($conn, "SELECT * FROM data_diri WHERE id_warga = $id_warga");
+
     $oldData = mysqli_fetch_assoc($Q2);
   }
+
 
 
   //foto
@@ -83,20 +86,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     return mysqli_real_escape_string($conn, $v);
   }
 
-  $nama      = esc($conn, $nama);
-  $email     = esc($conn, $email);
-  $alamat    = esc($conn, $alamat);
+  $nama = esc($conn, $nama);
+  $email = esc($conn, $email);
+  $alamat = esc($conn, $alamat);
 
 
   //isi dara langsung
   if (!$isUpdate) {
-
-    $sql = "INSERT INTO data_diri 
+    $cekknik = mysqli_query($conn, "SELECT nik FROM data_diri WHERE nik = '$nik'");
+    if (mysqli_num_rows($cekknik) > 0) {
+      echo "<script>
+        alert('NIK sudah terdaftar!');
+        history.back();
+                  </script>";
+    } else {
+      $sql = "INSERT INTO data_diri 
       (nama_lengkap, foto_profil, nik, email, agama, tempat_lahir, tanggal_lahir, jenis_kelamin, pekerjaan, alamat, provinsi, kabupaten, kecamatan, kelurahan, id_warga) 
       VALUES 
       ('$nama', '$file_name', '$nik', '$email', '$agama', '$tempat_lahir', '$ttl', '$jk', '$pekerjaan', '$alamat', '$provinsi', '$kota', '$kecamatan', '$kelurahan', '$id_warga')";
 
-    $insert = mysqli_query($conn, $sql);
+      $insert = mysqli_query($conn, $sql);
+
+    }
 
     if ($insert) {
       // update status_data_diri
@@ -104,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       echo "<script>
         alert('Data berhasil ditambahkan!');
-        history.back();
+        window.location.href = '../warga/riwayat.php';
                   </script>";
     } else {
       echo "<script>
@@ -140,12 +151,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($update) {
       echo "<script>
               alert('Data berhasil diperbarui!');
-              history.back();
+              window.location.href = '../warga/riwayat.php';
             </script>";
     } else {
       echo "<script>
               alert('Data Tidak Dapat Dibarui');
-              window.history.back();
+              history.back();
             </script>";
     }
   }
