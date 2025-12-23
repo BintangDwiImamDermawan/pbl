@@ -1,6 +1,6 @@
 <?php
 // --- 1. KONFIGURASI & AUTH ---
-include "../config/kol.php";
+include "../config/conn.php";
 include('../config/auth.php');
 
 // Matikan error reporting saat production

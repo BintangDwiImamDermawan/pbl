@@ -1,7 +1,7 @@
 <?php
 
 //link
-include "../config/kol.php";
+include "../config/conn.php";
 include('../config/auth.php');
 
 //err

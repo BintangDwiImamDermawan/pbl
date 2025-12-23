@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 //link
-include "../config/kol.php";
+include "../config/conn.php";
 include "../config/auth.php";
 
 ?>
@@ -89,40 +89,40 @@ include "../config/auth.php";
 
                 <h6 class="mb-3 fw-bold">BERKAS ADMINISTRASI</h6>
                 <p class="form-text form-text-small mb-3 text-light">
-                  Jenis Gambar yang dapat diunggah adalah JPG/JPEG/PNG dengan
+                  Jenis Gambar yang dapat diunggah adalah JPG/JPEG/PNG/PDF dengan
                   kapasitas maksimum 1Mb
                 </p>
 
                 <div class="row">
                   <div class="col-md-6 form-file-group">
                     <label for="suratPernyataan" class="form-label">Sertifikat Tanah</label>
-                    <input class="form-control" type="file" id="suratPernyataan" name="foto_sertifikat" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" type="file" id="suratPernyataan" name="foto_sertifikat" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group">
                     <label for="suratPengantar" class="form-label">Akta Jual-Beli/Ijin Mendirikan Bangunan</label>
-                    <input class="form-control" type="file" id="suratPengantar" name="foto_akta_mendirikan" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" type="file" id="suratPengantar" name="foto_akta_mendirikan" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6 form-file-group">
                     <label for="kk" class="form-label">Kartu Keluarga (KK)</label>
-                    <input name="foto_kk" class="form-control" type="file" id="kk" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input name="foto_kk" class="form-control" type="file" id="kk" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group">
                     <label for="ktp" class="form-label">Kartu Tanda Penduduk</label>
-                    <input class="form-control" type="file" id="ktp" name="foto_ktp" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" type="file" id="ktp" name="foto_ktp" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6 form-file-group">
                     <label for="pembayaranpajak" class="form-label">Bukti Pembayaran Pajak Bumi dan Bangunan</label>
-                    <input class="form-control" type="file" id="pembayaranpajak" name="foto_BPPBB" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" type="file" id="pembayaranpajak" name="foto_BPPBB" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group">
                     <label for="surattidaksengketa" class="form-label">Surat Pernyataan Tidak Sengketa</label>
-                    <input class="form-control" type="file" id="surattidaksengketa" name="foto_surat_tidak_sengketa" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" type="file" id="surattidaksengketa" name="foto_surat_tidak_sengketa" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                 </div>
 
@@ -137,7 +137,18 @@ include "../config/auth.php";
       </div>
     </main>
   </body>
+  <script>
 
+
+  function validateSize(input) {
+    const fileSize = input.files[0].size / 1024 / 1024; // dalam MB
+    if (fileSize > 1) {
+      alert('Ukuran file maksimal 1 MB');
+      input.value = ''; // Reset input
+    }
+  }
+  
+    </script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
 
 

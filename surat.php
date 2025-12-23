@@ -2,11 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Pastikan path config benar
-include "config/kol.php"; 
+include "config/conn.php"; 
 include "config/auth.php";
 
-// MENANGKAP PARAMETER DARI URL & SANITASI
 $id_surat    = isset($_GET['id']) ? mysqli_real_escape_string($conn, $_GET['id']) : '';
 $jenis_surat = isset($_GET['dok']) ? mysqli_real_escape_string($conn, $_GET['dok']) : '';
 $id_warga    = isset($_GET['idw']) ? mysqli_real_escape_string($conn, $_GET['idw']) : '';
@@ -14,7 +12,6 @@ $id_warga    = isset($_GET['idw']) ? mysqli_real_escape_string($conn, $_GET['idw
 $data_final = []; 
 $template_mode = '';
 
-// --- FUNGSI BANTUAN ---
 function tgl_indo($tanggal){
   if(empty($tanggal) || $tanggal == '0000-00-00') return "-";
   $bulan = array (1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');

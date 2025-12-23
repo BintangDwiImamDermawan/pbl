@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include("kol.php");
+include("conn.php");
 // Inisialisasi variabel
 $step = 1;
 $error = "";

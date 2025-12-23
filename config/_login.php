@@ -1,7 +1,7 @@
 <?php 
 
 //link
-include("kol.php");
+include("conn.php");
 
 //err
 error_reporting(E_ALL);

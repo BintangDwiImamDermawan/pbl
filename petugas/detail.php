@@ -1,6 +1,6 @@
 <?php
 // --- CONFIG & AUTH ---
-include "../config/kol.php";
+include "../config/conn.php";
 include('../config/auth.php');
 
 // Error Reporting

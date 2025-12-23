@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 //link
-include "../config/kol.php";
+include "../config/conn.php";
 include "../config/auth.php";
 
 
@@ -120,7 +120,7 @@ include "../config/auth.php";
               <!-- BERKAS ADMIN -->
               <h6 class="mb-3 fw-bold mt-3">BERKAS ADMINISTRASI</h6>
               <p class="form-text mb-3 text-light">
-                Jenis file harus JPG/JPEG/PNG maksimal 1MB
+                Jenis file harus JPG/JPEG/PNG/PDF maksimal 1MB
               </p>
 
               <div class="row">
@@ -128,13 +128,13 @@ include "../config/auth.php";
                 <div class="col-md-6 form-file-group mt-3">
                   <label for="skr" class="form-label">Surat Keterangan Rumah Sakit</label>
                   <input class="form-control" type="file" id="skr" name="surat_rumah_sakit"
-                    accept=".jpg,.jpeg,.png,.pdf" required>
+                    accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                 </div>
 
                 <div class="col-md-6 form-file-group mt-3">
                   <label for="ktp_pelapor" class="form-label">KTP Pelapor</label>
                   <input class="form-control" type="file" id="ktp_pelapor" name="ktp_pelapor"
-                    accept=".jpg,.jpeg,.png,.pdf" required>
+                    accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                 </div>
 
               </div>
@@ -144,13 +144,13 @@ include "../config/auth.php";
                 <div class="col-md-6 form-file-group mt-3">
                   <label for="pengantar" class="form-label">Surat Pengantar RT/RW</label>
                   <input class="form-control" type="file" id="pengantar" name="surat_pengantar"
-                    accept=".jpg,.jpeg,.png,.pdf" required>
+                    accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                 </div>
 
                 <div class="col-md-6 form-file-group mt-3">
                   <label for="akte_nikah" class="form-label">Akte Nikah Alm (Jika Ada)</label>
                   <input class="form-control" type="file" id="akte_nikah" name="akte_nikah"
-                    accept=".jpg,.jpeg,.png,.pdf">
+                    accept=".jpg,.jpeg,.png,.pdf" onchange="validateSize(this)">
                 </div>
 
               </div>
@@ -169,7 +169,18 @@ include "../config/auth.php";
       </div>
     </div>
   </main>
+  <script>
 
+
+function validateSize(input) {
+  const fileSize = input.files[0].size / 1024 / 1024; // dalam MB
+  if (fileSize > 1) {
+    alert('Ukuran file maksimal 1 MB');
+    input.value = ''; // Reset input
+  }
+}
+
+  </script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
 
 </body>

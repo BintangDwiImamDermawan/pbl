@@ -1,6 +1,6 @@
 <?php
 //link
-include("../config/kol.php");
+include("../config/conn.php");
 include('../config/auth.php');
 //ambil data diri
 $id = $_SESSION['id_warga'];

@@ -1,7 +1,7 @@
 <?php 
 //link
 include ('../config/auth.php') ;
-include "../config/kol.php";
+include "../config/conn.php";
 //err
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

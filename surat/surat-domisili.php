@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 //link
-include "../config/kol.php";
+include "../config/conn.php";
 include "../config/auth.php";
 
 ?>
@@ -98,7 +98,7 @@ include "../config/auth.php";
 
                 <h6 class="mb-3 fw-bold mt-3">BERKAS ADMINISTRASI</h6>
                 <p class="form-text form-text-small mb-3 text-light fw-medium">
-                  Jenis Gambar yang dapat diunggah adalah JPG/JPEG/PNG dengan kapasitas maksimum 1Mb
+                  Jenis Gambar yang dapat diunggah adalah JPG/JPEG/PNG/PDF dengan kapasitas maksimum 1Mb
                 </p>
 
                 <div class="row">

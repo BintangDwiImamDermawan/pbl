@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 //link
-include "../config/kol.php";
+include "../config/conn.php";
 include "../config/auth.php";
 
 
@@ -119,7 +119,7 @@ include "../config/auth.php";
 
                 <h6 class="mb-3 fw-bold">BERKAS ADMINISTRASI</h6>
                 <p class="form-text form-text-small mb-3 text-light">
-                  Jenis Gambar yang dapat diunggah adalah JPG/JPEG/PNG dengan
+                  Jenis Gambar yang dapat diunggah adalah JPG/JPEG/PNG/PDF dengan
                   kapasitas maksimum 1Mb
                 </p>
 
@@ -135,7 +135,7 @@ include "../config/auth.php";
                       type="file"
                       id="suratPernyataan"
                       accept=".jpg,.jpeg,.png,.pdf"
-                      required>
+                      required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group mt-3">
                     <label for="fotorumah" class="form-label"
@@ -147,7 +147,7 @@ include "../config/auth.php";
                       name="fotorumah"
                       id="fotorumah"
                       accept=".jpg,.jpeg,.png,.pdf"
-                      required>
+                      required onchange="validateSize(this)">
                   </div>
                 </div>
 
@@ -162,7 +162,7 @@ include "../config/auth.php";
                       id="kk"
                       name="fotokk"
                       accept=".jpg,.jpeg,.png,.pdf"
-                      required>
+                      required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group mt-3">
                     <label for="slip" class="form-label">Slip Gaji</label>
@@ -171,8 +171,8 @@ include "../config/auth.php";
                       type="file"
                       name="fotoslip"            
                       id="slip"
-                      accept=".jpg,.jpeg,.png"
-                      required>
+                      accept=".jpg,.jpeg,.png,.pdf"
+                      required onchange="validateSize(this)">
                   </div>
                 </div>
 
@@ -187,7 +187,7 @@ include "../config/auth.php";
                       name="fototagihan"              
                       id="listrik"
                       accept=".jpg,.jpeg,.png,.pdf"
-                      required>
+                      required onchange="validateSize(this)">
                   </div>
                 </div>
 
@@ -204,6 +204,15 @@ include "../config/auth.php";
     </main>
   </body>
   <script>
+
+
+function validateSize(input) {
+  const fileSize = input.files[0].size / 1024 / 1024; // dalam MB
+  if (fileSize > 1) {
+    alert('Ukuran file maksimal 1 MB');
+    input.value = ''; // Reset input
+  }
+}
 
   </script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>

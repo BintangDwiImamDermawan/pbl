@@ -2,7 +2,7 @@
 
 //link
 include 'config/auth.php';
-include "config/kol.php";
+include "config/conn.php";
 
 //err
 error_reporting(E_ALL);

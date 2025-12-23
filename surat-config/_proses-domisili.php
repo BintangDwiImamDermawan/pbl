@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 //link
-include "../config/kol.php";
+include "../config/conn.php";
 include "../config/auth.php";
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
