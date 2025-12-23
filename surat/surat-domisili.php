@@ -104,15 +104,16 @@ include "../config/auth.php";
                 <div class="row">
                   <div class="col-md-6 form-file-group">
                     <label for="foto" class="form-label fw-bold">Pas Foto</label>
-                    <input class="form-control" type="file" name="foto_pas" id="foto" accept=".jpg,.jpeg,.png,.pdf" required />
+
+<input class="form-control" type="file" name="foto_pas" id="foto" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)"/>
                   </div>
                   <div class="col-md-6 form-file-group">
                     <label for="surat" class="form-label fw-bold">Surat Pengantar Dari RT/RW</label>
-                    <input class="form-control" type="file" name="foto_surat_pengantar" id="surat" accept=".jpg,.jpeg,.png,.pdf" required />
+                    <input class="form-control" type="file" name="foto_surat_pengantar" id="surat" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)"/>
                   </div>
                   <div class="col-md-6 form-file-group ">
                     <label for="kk" class="form-label fw-bold">Kartu Keluarga (KK)</label>
-                    <input class="form-control" type="file" name="foto_kk" id="kk" accept=".jpg,.jpeg,.png,.pdf" required />
+                    <input class="form-control" type="file" name="foto_kk" id="kk" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)"/>
                   </div>
 
                 </div>
@@ -135,6 +136,15 @@ include "../config/auth.php";
 
   </body>
   <script>
+
+
+function validateSize(input) {
+  const fileSize = input.files[0].size / 1024 / 1024; // dalam MB
+  if (fileSize > 1) {
+    alert('Ukuran file maksimal 1 MB');
+    input.value = ''; // Reset input
+  }
+}
 
   </script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>

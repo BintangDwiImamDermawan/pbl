@@ -104,10 +104,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       echo "<script>
         alert('Data berhasil ditambahkan!');
-      window.location = '../dashboard.php';
+        history.back();
                   </script>";
     } else {
-      die("Insert Error: " . mysqli_error($conn));
+      echo "<script>
+        alert('Data Tidak Dapat ditambahkan!');
+        history.back();
+                  </script>";
     }
   }
 
@@ -137,10 +140,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($update) {
       echo "<script>
               alert('Data berhasil diperbarui!');
-            window.location.href = '../dashboard.php';
+              history.back();
             </script>";
     } else {
-      die("Update Error: " . mysqli_error($conn));
+      echo "<script>
+              alert('Data Tidak Dapat Dibarui');
+              window.history.back();
+            </script>";
     }
   }
 }

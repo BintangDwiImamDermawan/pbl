@@ -107,33 +107,33 @@ include "../config/auth.php";
                   <div class="col-md-6 form-file-group">
                     <label for="suratPernyataan" class="form-label">Nomor Pokok Wajib Pajak (NPWP),
                     </label>
-                    <input class="form-control" name="foto_npwp" type="file" id="suratPernyataan" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" name="foto_npwp" type="file" id="suratPernyataan" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group">
                     <label for="suratPengantar"  class="form-label">Surat pengantar dari RT/RW</label>
-                    <input class="form-control" name="foto_pengantar" type="file" id="suratPengantar" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" name="foto_pengantar" type="file" id="suratPengantar" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6 form-file-group">
                     <label for="kk" class="form-label">Kartu Keluarga (KK)</label>
-                    <input class="form-control" name="foto_kk" type="file" id="kk" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" name="foto_kk" type="file" id="kk" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group">
                     <label for="ktp" class="form-label">Kartu Tanda Penduduk</label>
-                    <input class="form-control" type="file" name="foto_ktp" id="ktp" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" type="file" name="foto_ktp" id="ktp" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6 form-file-group">
                     <label for="pembayaranpajak" class="form-label">Bukti Pembayaran Pajak Bumi dan Bangunan</label>
-                    <input class="form-control" name="foto_bukti" type="file" id="pembayaranpajak" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" name="foto_bukti" type="file" id="pembayaranpajak" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                   <div class="col-md-6 form-file-group">
                     <label for="suratdomisili" class="form-label">Surat Keterangan Domisili</label>
-                    <input class="form-control" name="foto_surat_domisili" type="file" id="suratdomisili" accept=".jpg,.jpeg,.png,.pdf" required>
+                    <input class="form-control" name="foto_surat_domisili" type="file" id="suratdomisili" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
                   </div>
                 </div>
 
@@ -147,7 +147,18 @@ include "../config/auth.php";
       </div>
     </main>
   </body>
+  <script>
 
+
+function validateSize(input) {
+  const fileSize = input.files[0].size / 1024 / 1024; // dalam MB
+  if (fileSize > 1) {
+    alert('Ukuran file maksimal 1 MB');
+    input.value = ''; // Reset input
+  }
+}
+
+  </script>
 
   <script src="../bootstrap/js/bootstrap.min.js"></script>
 

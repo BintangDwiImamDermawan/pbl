@@ -1,78 +1,96 @@
 <?php 
-// err
+// error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-//link
+// link config
 include "../config/kol.php";
 include "../config/auth.php";
 
-
-//ambil dari form
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   $id = $_SESSION['id_warga'];
   $nik = $_POST['nik'];
 
-  //validasi nik terdaftar
+  // 1. Validasi NIK terdaftar
   $Q_nik = mysqli_query($conn, "select nik from dokumen_izin_usaha where nik = $nik");
   if(mysqli_num_rows($Q_nik) > 0 ){
     echo "<script>
-      alert('NIK SUDAH TERDAFTAR SEBELUMNYA')
-      window.location.href = ' ../surat/surat-izin-usaha.php';</script>";
-    
+      alert('NIK SUDAH TERDAFTAR SEBELUMNYA');
+      window.history.back();
+    </script>";
+    exit;
   }
 
-  //ambil data
+  // 2. LOGIKA VALIDASI UKURAN FILE (MAKS 1 MB)
+  $max_size = 1 * 1024 * 1024; // 1 MB dalam bytes
+  
+  // Daftar semua file yang wajib diperiksa
+  $files_to_check = [
+    'NPWP' => $_FILES['foto_npwp'],
+    'Surat Pengantar' => $_FILES['foto_pengantar'],
+    'KK' => $_FILES['foto_kk'],
+    'KTP' => $_FILES['foto_ktp'],
+    'Surat Domisili' => $_FILES['foto_surat_domisili'],
+    'Bukti' => $_FILES['foto_bukti']
+  ];
+
+  foreach ($files_to_check as $label => $file) {
+      // Cek jika ukuran melebihi 1MB
+      if ($file['size'] > $max_size) {
+          echo "<script>
+            alert('Gagal! Ukuran file $label terlalu besar (Maksimal 1 MB)');
+            window.history.back();
+          </script>";
+          exit;
+      }
+      // Cek jika file gagal upload atau kosong
+      if ($file['error'] !== UPLOAD_ERR_OK) {
+          echo "<script>
+            alert('Gagal! File $label bermasalah atau belum dipilih.');
+            window.history.back();
+          </script>";
+          exit;
+      }
+  }
+
+  // Ambil data form
   $nama = $_POST['nama_lengkap'];
   $nama_kbli = $_POST['nama_kbli'];
   $nomor_kbli = $_POST['nomor_kbli'];
   $kecamatan = $_POST['kecamatan'];
   $desa = $_POST['desa'];
   $alamat = $_POST['alamat'];
+
+  // Baca konten file
   $foto_npwp = addslashes(file_get_contents($_FILES['foto_npwp']['tmp_name']));
-  $foto_pengantar=  addslashes(file_get_contents($_FILES['foto_pengantar']['tmp_name']));
-  $foto_kk=  addslashes(file_get_contents($_FILES['foto_kk']['tmp_name']));
-  $foto_ktp=  addslashes(file_get_contents($_FILES['foto_ktp']['tmp_name'])); 
-  $foto_surat_domisili =  addslashes(file_get_contents($_FILES['foto_surat_domisili']['tmp_name'])); 
-  $foto_bukti=  addslashes(file_get_contents($_FILES['foto_bukti']['tmp_name'])); 
+  $foto_pengantar = addslashes(file_get_contents($_FILES['foto_pengantar']['tmp_name']));
+  $foto_kk = addslashes(file_get_contents($_FILES['foto_kk']['tmp_name']));
+  $foto_ktp = addslashes(file_get_contents($_FILES['foto_ktp']['tmp_name'])); 
+  $foto_surat_domisili = addslashes(file_get_contents($_FILES['foto_surat_domisili']['tmp_name'])); 
+  $foto_bukti = addslashes(file_get_contents($_FILES['foto_bukti']['tmp_name'])); 
 
-  //masukkan data ke surat_izin_usaha
-  $query = "INSERT INTO `dokumen_izin_usaha`(`nik`, `nama_lengkap`, `nama_kbli`, `nomor_kbli`, `kecamatan`, `desa`, `alamat`, `foto_npwp`, `foto_pengantar`, `foto_kk`, `foto_ktp`, `foto_surat_domisili`, foto_bukti) VALUES ('$nik','$nama','$nama_kbli','$nomor_kbli','$kecamatan','$desa','$alamat','$foto_npwp','$foto_pengantar','$foto_kk','$foto_ktp','$foto_surat_domisili','$foto_bukti')";
+  // Query insert
+  $query = "INSERT INTO `dokumen_izin_usaha`(`nik`, `nama_lengkap`, `nama_kbli`, `nomor_kbli`, `kecamatan`, `desa`, `alamat`, `foto_npwp`, `foto_pengantar`, `foto_kk`, `foto_ktp`, `foto_surat_domisili`, `foto_bukti`) VALUES ('$nik','$nama','$nama_kbli','$nomor_kbli','$kecamatan','$desa','$alamat','$foto_npwp','$foto_pengantar','$foto_kk','$foto_ktp','$foto_surat_domisili','$foto_bukti')";
 
-  //masukkan log ke tabel dokumens
   $validasi = mysqli_query($conn, $query);
+  
   if($validasi){
-
-    //ambil id $ masukkan ke tabel dokumens
-    $ambil_id_surat = mysqli_query($conn,"SELECT * FROM dokumen_izin_usaha where nik = $nik");
-
-    $array_ambil= mysqli_fetch_assoc($ambil_id_surat);
-    $id_surat = $array_ambil['id_surat'];
+    // Ambil ID otomatis yang baru saja diinsert
+    $id_surat = mysqli_insert_id($conn);
 
     $qry_dokumen = "INSERT INTO `dokumens`( `nama_dokumen`, `id_warga`, `nama_warga`,`id_surat`,`status`) VALUES ('SIU','$id','$nama','$id_surat' ,'PENDING')";
-
-    $cek_petugas = mysqli_query($conn,$qry_dokumen);
+    mysqli_query($conn, $qry_dokumen);
 
     echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';
-
-  }else{
+  } else {
     echo "<script> 
-      alert('Data Yang Anda Masukkan Tidak Sesuai')
+      alert('Data Gagal Disimpan ke Database');
+      window.history.back();
     </script>";
-    header("Location:../surat/surat-izin-usaha.php");
   }
 
-}else {
-  echo "<script> 
-    alert('Data Yang Anda Masukkan Tidak Sesuai')
-     </script>";
+} else {
     header("Location:../surat/surat-izin-usaha.php");
-
-
-
-
-
-  }
-
-
+}
+?>
