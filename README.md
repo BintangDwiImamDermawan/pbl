@@ -98,6 +98,7 @@ Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbar
 
 > Klik pada foto untuk melihat detail profil.
 
+---
 
 ## ⚙️ Cara Instalasi
 1. Clone repositori ini:
