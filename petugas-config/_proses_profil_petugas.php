@@ -7,7 +7,7 @@ include ('../config/auth.php') ;
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//validasi login
+//auth  login
 if (!isset($_SESSION['id_petugas'])) {
   echo "<script>alert('Anda tidak memiliki akses ke halaman ini!'); window.location='../login.php';</script>";
   exit();

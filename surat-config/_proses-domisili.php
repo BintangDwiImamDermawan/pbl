@@ -14,6 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   // alidasi nik
   $Q_nik = mysqli_query($conn, "select nik from dokumen_domisili where nik = $nik");
+
   if(mysqli_num_rows($Q_nik) > 0 ){
     echo "<script>alert('NIK SUDAH TERDAFTAR SEBELUMNYA'); window.location.href = '../surat/surat-domisili.php';</script>";
     exit; 
@@ -24,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $agama = $_POST['agama'];
   $pekerjaan = $_POST['pekerjaan'];
   $alamat = $_POST['alamat'];
-  
+
   // Baca konten file
   $foto_surat_pengantar = addslashes(file_get_contents($_FILES['foto_surat_pengantar']['tmp_name']));
   $foto_kk =  addslashes(file_get_contents($_FILES['foto_kk']['tmp_name']));
@@ -32,15 +33,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   // Query insert
   $query = "INSERT INTO `dokumen_domisili`(`nik`, `nama_lengkap`, `agama`, `pekerjaan`, `alamat`, `foto_surat_pengantar`, `foto_kk`, `foto_pas`) VALUES ('$nik','$nama','$agama','$pekerjaan','$alamat','$foto_surat_pengantar','$foto_kk','$foto_pas')";
+
   $validasi = mysqli_query($conn, $query);
 
+// memasukkan data ke tabel dokumens
   if($validasi){
-    $id_surat = mysqli_insert_id($conn); // Cara lebih singkat ambil ID yang baru saja masuk
+    $id_surat = mysqli_insert_id($conn); 
 
     $qry_dokumen = "INSERT INTO `dokumens`( `nama_dokumen`, `id_warga`, `nama_warga`,`id_surat`,`status`) VALUES ('SDM','$id','$nama','$id_surat' ,'PENDING')";
+
     mysqli_query($conn, $qry_dokumen);
 
     echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';
+    
   } else {
     echo "<script>alert('Data Gagal Disimpan'); window.location.href='../surat/surat-domisili.php';</script>";
   }
