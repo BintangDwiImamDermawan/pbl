@@ -83,17 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     move_uploaded_file($_FILES['profil']['tmp_name'], $upload_dir);
   }
 
-  // ESCAPE
-  function esc($conn, $v)
-  {
-    return mysqli_real_escape_string($conn, $v);
-  }
-
-  $nama = esc($conn, $nama);
-  $email = esc($conn, $email);
-  $alamat = esc($conn, $alamat);
-
-
   //isi dara langsung
   if (!$isUpdate) {
     $cekknik = mysqli_query($conn, "SELECT nik FROM data_diri WHERE nik = '$nik'");
