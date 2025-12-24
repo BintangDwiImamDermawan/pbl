@@ -66,21 +66,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-  //foto
-  $file_name = $oldData['foto_profil'] ?? null;
+ // foto logic
+  $file_name = $oldData['foto_profil'] ?? null; // Default pakai foto lama
+
   if (!empty($_FILES['profil']['name'])) {
+    $file_tmp = $_FILES['profil']['tmp_name'];
+    $file_size = $_FILES['profil']['size'];
     $ext = pathinfo($_FILES['profil']['name'], PATHINFO_EXTENSION);
     $allowed = ['jpg', 'jpeg', 'png', 'webp'];
+
+    // Validasi 1MB
+    if ($file_size > 1048576) {
+        die("<script>alert('Gagal! Foto maksimal 1 MB');history.back();</script>");
+    }
 
     if (!in_array(strtolower($ext), $allowed)) {
       die("<script>alert('Format foto tidak valid!');history.back();</script>");
     }
 
-    // ubah nama file tergantung sama nik
-    $file_name = $nik . "." . $ext;
+    // Nama file unik: NIK_timestamp agar tidak bentrok saat update berkali-kali
+    $file_name = $nik . "_" . time() . "." . $ext;
     $upload_dir = "../uploads/" . $file_name;
-    // upload ke local dir
-    move_uploaded_file($_FILES['profil']['tmp_name'], $upload_dir);
+
+    // Proses pindah file ke lokal
+    if (move_uploaded_file($file_tmp, $upload_dir)) {
+        // Hapus foto lama jika ada (opsional agar tidak memenuhi memori laptop kentang)
+        if (!empty($oldData['foto_profil']) && file_exists("../uploads/" . $oldData['foto_profil'])) {
+            unlink("../uploads/" . $oldData['foto_profil']);
+        }
+    } else {
+        die("<script>alert('Gagal mengunggah foto ke folder!');history.back();</script>");
+    }
   }
 
   //isi dara langsung

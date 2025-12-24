@@ -138,7 +138,7 @@ if (!isset($_SESSION['id_petugas'])) {
                         </button></a>
 
 
-                        <a class="" href="../surat.php?id=' . $row['id_surat'] . '&dok=' . $nama_dokumen . '&idw=' . $row['id_warga'] . '"><button class="btn-lihat btn btn-info"><i class="bi bi-eye me-2"></i>Lihat</button></a></td>
+                        <a style="display:none;" href="../surat.php?id=' . $row['id_surat'] . '&dok=' . $nama_dokumen . '&idw=' . $row['id_warga'] . '"><button class="btn-lihat btn btn-info"><i class="bi bi-eye me-2"></i>Lihat</button></a></td>
 
                         </tr>
 

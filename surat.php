@@ -38,7 +38,7 @@ if($id_surat && $jenis_surat && $id_warga) {
 
     $q_urutan = mysqli_query($conn, "SELECT COUNT(nama_dokumen) as no_urut FROM dokumens WHERE nama_dokumen = '$jenis_surat' AND status = 'SELESAI'  ");
     $r_urutan = mysqli_fetch_assoc($q_urutan);
-    $no_urut_str = sprintf("%03d", $r_urutan['no_urut'] +1 );
+    $no_urut_str = sprintf("%03d", $r_urutan['no_urut']  );
     $hasil_no_surat = $no_urut_str . " / " . $jenis_surat . " / " . $romawi . " / " . $tahun_surat;
   } else {
     $hasil_no_surat = "000 / XXX / X / " . date('Y');
