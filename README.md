@@ -105,14 +105,15 @@ Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbar
    git clone https://github.com/BintangDwiImamDermawan/pbl.git
 
 2. Buat file koneksi didalam file
-  ```bash
+    ```mermaid
     buat file dengan nama conn.php 
 
-  /pbl/ 
-    └─config/
-        └─conn.php
-      
-  ```bash
+    /pbl/ 
+      └─config/
+          └─conn.php
+
+3. Koneksi
+    ```bash
     <?php
     $db = 'pbl';
     $user = 'root';
