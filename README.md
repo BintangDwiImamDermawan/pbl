@@ -2,7 +2,6 @@
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/BintangDwiImamDermawan/pbl?color=blue)](https://github.com/BintangDwiImamDermawan/pbl)
 [![GitHub contributors](https://img.shields.io/github/contributors/BintangDwiImamDermawan/pbl?color=green)](https://github.com/BintangDwiImamDermawan/pbl)
-[![License](https://img.shields.io/badge/license-MIT-informational)](LICENSE)
 
 Aplikasi berbasis web yang dirancang untuk memodernisasi layanan administrasi di tingkat **Kelurahan**. Dengan sistem ini, warga dapat mengajukan berbagai surat keterangan secara daring tanpa perlu mengantre di kantor kelurahan, menjadikannya lebih efektif dan efisien dari segi waktu.
 
@@ -31,7 +30,7 @@ Aplikasi berbasis web yang dirancang untuk memodernisasi layanan administrasi di
 
 ---
 
-## 👥 Kontributor
+## 👥 Anggota Tim PBL-TRPL-104-B4
 Terima kasih kepada seluruh anggota tim yang telah berkontribusi dalam pengembangan projek ini:
 
 <table align="center">
@@ -72,7 +71,7 @@ Terima kasih kepada seluruh anggota tim yang telah berkontribusi dalam pengemban
 
 
 ## 🛠️ Teknologi yang Digunakan
-* **Language:** [PHP, CSS, JavaScript]
+* **Language:** [PHP, CSS Bootstrap, JavaScript]
 * **Database:** [MySQL]
 
 ---
@@ -87,31 +86,19 @@ Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbar
 | **Last Commit** | ![GitHub last commit](https://img.shields.io/github/last-commit/BintangDwiImamDermawan/pbl?style=flat-square) |
 | **Total Files** | ![GitHub repo size](https://img.shields.io/github/repo-size/BintangDwiImamDermawan/pbl?style=flat-square) |
 | **Open Issues** | ![GitHub issues](https://img.shields.io/github/issues/BintangDwiImamDermawan/pbl?style=flat-square) |
-| **License** | ![GitHub license](https://img.shields.io/github/license/BintangDwiImamDermawan/pbl?style=flat-square) |
+
 
 ---
 
 ## 🏆 Top Contributors
 
-Berikut adalah daftar orang-orang yang paling banyak berkontribusi (berdasarkan jumlah commit):
-
-
 <a href="https://github.com/BintangDwiImamDermawan/pbl/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=BintangDwiImamDermawan/pbl" />
 </a>
 
-> **Catatan:** Klik pada gambar di atas untuk melihat detail kontribusi masing-masing individu.
-
----
-
-
-## 🏆 Kontributor Teraktif
-
-<a href="https://github.com/BintangDwiImamDermawan/pbl/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=BintangDwiImamDermawan/pbl&max=3&columns=3&anon=true" />
-</a>
-
 > Klik pada foto untuk melihat detail profil.
+
+
 ## ⚙️ Cara Instalasi
 1. Clone repositori ini:
    ```bash
