@@ -105,17 +105,13 @@ Berikut adalah daftar orang-orang yang paling banyak berkontribusi (berdasarkan 
 ---
 
 
-## 📈 Aktivitas Kontributor
+## 🏆 Kontributor Teraktif
 
-**@BintangDwiImamDermawan**
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BintangDwiImamDermawan&theme=github-light-compact&hide_border=true)
+<a href="https://github.com/BintangDwiImamDermawan/pbl/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BintangDwiImamDermawan/pbl&max=3&columns=3&anon=true" />
+</a>
 
-**@fajpras**
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=fajpras&theme=github-light-compact&hide_border=true)
-
-**@humayra19**
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=humayra19&theme=github-light-compact&hide_border=true)
-
+> Klik pada foto untuk melihat detail profil.
 ## ⚙️ Cara Instalasi
 1. Clone repositori ini:
    ```bash
