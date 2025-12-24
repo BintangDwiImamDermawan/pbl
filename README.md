@@ -76,6 +76,39 @@ Terima kasih kepada seluruh anggota tim yang telah berkontribusi dalam pengemban
 * **Database:** [MySQL]
 
 ---
+# 🚀 Project Dashboard
+
+Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbaru dan kontributor utama.
+
+## 📊 Status Repositori
+
+| Detail | Status |
+| :--- | :--- |
+| **Last Commit** | ![GitHub last commit](https://img.shields.io/github/last-commit/USER_NAME/REPO_NAME?style=flat-square) |
+| **Total Files** | ![GitHub repo size](https://img.shields.io/github/repo-size/USER_NAME/REPO_NAME?style=flat-square) |
+| **Open Issues** | ![GitHub issues](https://img.shields.io/github/issues/USER_NAME/REPO_NAME?style=flat-square) |
+| **License** | ![GitHub license](https://img.shields.io/github/license/USER_NAME/REPO_NAME?style=flat-square) |
+
+---
+
+## 🏆 Top Contributors
+
+Berikut adalah daftar orang-orang yang paling banyak berkontribusi (berdasarkan jumlah commit):
+
+
+<a href="https://github.com/BintangDwiImamDermawan/pbl/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BintangDwiImamDermawan/pbl" />
+</a>
+
+> **Catatan:** Klik pada gambar di atas untuk melihat detail kontribusi masing-masing individu.
+
+---
+
+
+
+## 📈 Statistik Aktivitas
+
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BintangDwiImamDermawan&repo=pbl&theme=github&bg_color=ffffff&hide_border=true)
 
 ## ⚙️ Cara Instalasi
 1. Clone repositori ini:
