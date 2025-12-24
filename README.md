@@ -103,3 +103,20 @@ Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbar
 1. Clone repositori ini:
    ```bash
    git clone https://github.com/BintangDwiImamDermawan/pbl.git
+
+2. Buat file koneksi didalam file
+   > pbl/
+    >    |
+     > config/
+      >    conn.php
+      
+  ```bash
+    <?php
+    $db = 'pbl';
+    $user = 'root';
+    $host = 'localhost';
+    $pass = '';
+    $conn = mysqli_connect($host, $user, $pass, $db);
+    ?>
+   
+
