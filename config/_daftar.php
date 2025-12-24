@@ -18,12 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // validasi simbol
   if (!preg_match($pattern, $password)) {
     $errpass = 'Silahkan masukkan sesuai dengan ketentuan (A-Z, 0-9, panjang 6)';
-
     header('Location: ../daftar.php?err=' . urlencode($errpass) . '&email=' . urlencode($email) . '&nama=' . urlencode($nama));
   } else {
     // enkripsi pass
     $Password = password_hash($password, PASSWORD_DEFAULT);
-
     // cek email
     $cekEmail = mysqli_query($conn, "SELECT * FROM `warga` WHERE email = '$email'");
 
@@ -32,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       // aman insert warga
       mysqli_query($conn, "INSERT INTO warga (nama, email, password) VALUES ('$nama', '$email', '$Password')");
-
-      // aksi
       header('Location:../login.php');
       echo "<script>alert('email tersimpan');</script> ";
     }

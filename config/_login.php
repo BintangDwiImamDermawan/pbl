@@ -62,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // cek email warga
   } elseif (mysqli_num_rows($cekWarga) > 0) {
     // jika email warga
-    if (mysqli_num_rows($cekWarga) === 1) {
       $dataWarga = mysqli_fetch_assoc($cekWarga);
 
       // cek pass
@@ -84,7 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errpass = 'Password anda salah';
         header('Location:../login.php?errpass=' . urlencode($errpass));
       }
-    }
 
     // cek email petugas
   } elseif (mysqli_num_rows($cekAdmin) === 1) {
