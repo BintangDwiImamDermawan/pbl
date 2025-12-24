@@ -108,8 +108,7 @@ Berikut adalah daftar orang-orang yang paling banyak berkontribusi (berdasarkan 
 
 ## 📈 Statistik Aktivitas
 
-![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BintangDwiImamDermawan&repo=pbl&theme=github&bg_color=ffffff&hide_border=true)
-
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BintangDwiImamDermawan&repo=pbl&theme=github)
 ## ⚙️ Cara Instalasi
 1. Clone repositori ini:
    ```bash
