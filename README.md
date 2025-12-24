@@ -84,10 +84,10 @@ Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbar
 
 | Detail | Status |
 | :--- | :--- |
-| **Last Commit** | ![GitHub last commit](https://img.shields.io/github/last-commit/USER_NAME/REPO_NAME?style=flat-square) |
-| **Total Files** | ![GitHub repo size](https://img.shields.io/github/repo-size/USER_NAME/REPO_NAME?style=flat-square) |
-| **Open Issues** | ![GitHub issues](https://img.shields.io/github/issues/USER_NAME/REPO_NAME?style=flat-square) |
-| **License** | ![GitHub license](https://img.shields.io/github/license/USER_NAME/REPO_NAME?style=flat-square) |
+| **Last Commit** | ![GitHub last commit](https://img.shields.io/github/last-commit/BintangDwiImamDermawan/pbl?style=flat-square) |
+| **Total Files** | ![GitHub repo size](https://img.shields.io/github/repo-size/BintangDwiImamDermawan/pbl?style=flat-square) |
+| **Open Issues** | ![GitHub issues](https://img.shields.io/github/issues/BintangDwiImamDermawan/pbl?style=flat-square) |
+| **License** | ![GitHub license](https://img.shields.io/github/license/BintangDwiImamDermawan/pbl?style=flat-square) |
 
 ---
 
