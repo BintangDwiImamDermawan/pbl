@@ -105,32 +105,17 @@ Berikut adalah daftar orang-orang yang paling banyak berkontribusi (berdasarkan 
 ---
 
 
+## 📈 Aktivitas Kontributor
 
+**@BintangDwiImamDermawan**
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BintangDwiImamDermawan&theme=github-light-compact&hide_border=true)
 
-## 👥 Tim Pengembang
+**@fajpras**
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=fajpras&theme=github-light-compact&hide_border=true)
 
-<table border="0">
-  <tr>
-    <td align="center">
-      <a href="https://github.com/fajpras">
-        <img src="https://github-readme-stats.vercel.app/api?username=fajpras&show_icons=true&theme=tokyonight&hide_border=true" width="300px"/><br />
-        <b>Nama Kontributor 1</b>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/BintangDwiImamDermawan">
-        <img src="https://github-readme-stats.vercel.app/api?username=BintangDwiImamDermawan&show_icons=true&theme=tokyonight&hide_border=true" width="300px"/><br />
-        <b>Nama Kontributor 2</b>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/humayra19">
-        <img src="https://github-readme-stats.vercel.app/api?username=humayra19&show_icons=true&theme=tokyonight&hide_border=true" width="300px"/><br />
-        <b>Nama Kontributor 3</b>
-      </a>
-    </td>
-  </tr>
-</table>
+**@humayra19**
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=humayra19&theme=github-light-compact&hide_border=true)
+
 ## ⚙️ Cara Instalasi
 1. Clone repositori ini:
    ```bash
