@@ -1,16 +1,16 @@
 <?php
 
-//PAGE UNUTK MENAMPILKAN SURAT YANG DISETUJUI
+// PAGE UNUTK MENAMPILKAN SURAT YANG DISETUJUI
 
-//link
-include "../config/conn.php";
-include('../config/auth.php');
+// link
+include '../config/conn.php';
+include ('../config/auth.php');
 
-//err
+// err
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//validasi login petugas
+// validasi login petugas
 if (!isset($_SESSION['id_petugas'])) {
   echo "<script>alert('Anda tidak memiliki akses ke halaman ini!'); window.location='../login.php';</script>";
   exit();
@@ -99,30 +99,26 @@ if (!isset($_SESSION['id_petugas'])) {
                       <?php
                       $n = 1;
 
-                      //ambil data dokumen yang di setujui
+                      // ambil data dokumen yang di setujui
                       $query = "select date_format(tanggal, '%d %M %Y') as date, nama_dokumen,  status, id_warga, nama_warga, id_surat from dokumens where status = 'DISETUJUI' order by date DESC";
                       $validasi = mysqli_query($conn, $query);
 
-
-                      //tampilkan data yang disetujiu sesuai dengan nama
+                      // tampilkan data yang disetujiu sesuai dengan nama
                       if (mysqli_num_rows($validasi) > 0) {
-
                         while ($row = mysqli_fetch_assoc($validasi)) {
-
-                          //validasi per dokumen
+                          // validasi per dokumen
                           $nama_dokumen = $row['nama_dokumen'];
                           if ($nama_dokumen == 'SKTM') {
-                            $dok_title = "Surat Keterangan Tidak Mampu";
+                            $dok_title = 'Surat Keterangan Tidak Mampu';
                           } elseif ($nama_dokumen == 'SKK') {
-                            $dok_title = "Surat Keterangan Kematian";
+                            $dok_title = 'Surat Keterangan Kematian';
                           } elseif ($nama_dokumen == 'SRM') {
-                            $dok_title = "Surat Rumah";
+                            $dok_title = 'Surat Rumah';
                           } elseif ($nama_dokumen == 'SIU') {
-                            $dok_title = "Surat Izin Usaha";
+                            $dok_title = 'Surat Izin Usaha';
                           } else {
-                            $dok_title = "Surat Domisili";
+                            $dok_title = 'Surat Domisili';
                           }
-
 
                           echo '
                         <tr>

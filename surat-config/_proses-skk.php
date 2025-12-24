@@ -39,14 +39,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $foto_akte_nikah =  addslashes(file_get_contents($_FILES['akte_nikah']['tmp_name'])); 
 
   // Query insert ke dokumen_skk
-  $query = "INSERT INTO `dokumen_skk`( `nik`,`nama_lengkap`, `jenis_kelamin`, `pekerjaan`, `alamat`, `penyebab`, `tanggal_kematian`, `foto_surat_RS`, `foto_ktp_pelapor`, `foto_surat_pengantar`, `foto_akte_nikah`) VALUES ('$nik','$nama','$jenis_kelamin','$pekerjaan','$alamat','$penyebab','$tanggal','$foto_surat_rs','$foto_ktp','$foto_surat_pengantar','$foto_akte_nikah')";
+  $query = "INSERT INTO `dokumen_skk`( `nik`,`nama_lengkap`, `jenis_kelamin`, 
+  `pekerjaan`, `alamat`, `penyebab`, `tanggal_kematian`, `foto_surat_RS`, 
+  `foto_ktp_pelapor`, `foto_surat_pengantar`, `foto_akte_nikah`) VALUES ('$nik','$nama',
+  '$jenis_kelamin','$pekerjaan','$alamat','$penyebab','$tanggal','$foto_surat_rs',
+  '$foto_ktp','$foto_surat_pengantar','$foto_akte_nikah')";
 
   $sql = mysqli_query($conn, $query);
 
   if($sql){
     $id_surat = mysqli_insert_id($conn);
+
     // Masukkan log ke tabel dokumens
-    $Q_inDoks = "INSERT INTO `dokumens`( `nama_dokumen`, `id_warga`,`id_surat`, `nama_warga`,`status`) VALUES ('SKK','$id' ,'$id_surat','$nama' ,'PENDING')";
+    $Q_inDoks = "INSERT INTO `dokumens`( `nama_dokumen`, `id_warga`,`id_surat`, 
+    `nama_warga`,`status`) VALUES ('SKK','$id' ,'$id_surat','$nama' ,'PENDING')";
     mysqli_query($conn, $Q_inDoks);
 
     echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';

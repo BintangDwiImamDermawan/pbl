@@ -1,14 +1,14 @@
-<?php 
-//link
-include ('../config/auth.php') ;
-include "../config/conn.php";
+<?php
+// link
+include ('../config/auth.php');
+include '../config/conn.php';
 
 // //err
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//alert
-if(isset($_GET['note'])){
+// alert
+if (isset($_GET['note'])) {
   echo "<script>alert('Data Berhasil di simpan')</script>";
 }
 
@@ -154,10 +154,10 @@ $id = $_SESSION['id_warga'];
               <h2 class="col-md-12">Riwayat Pengajuan Anda</h2>
             </div>
 
-            <?php 
+            <?php
             $Q_cekDok = mysqli_query($conn, "select * from dokumens where id_warga = $id");
-            if(mysqli_num_rows($Q_cekDok) == 0 ){
-            echo '<div class="riwayat-list">
+            if (mysqli_num_rows($Q_cekDok) == 0) {
+              echo '<div class="riwayat-list">
             <div class="riwayat-card mt-3">
             <div class="riwayat-info">
             <h5>Anda Belum Ada Mengajukan Dokumen</h5>
@@ -169,86 +169,86 @@ $id = $_SESSION['id_warga'];
 
             <?php
 
-            //Query ambil date nama status
+            // Query ambil date nama status
             $query = "select *, date_format(tanggal, '%d %M %Y') as date, nama_dokumen, status, id_warga, komentar from dokumens where id_warga = $id";
             $sql = mysqli_query($conn, $query);
 
-            //tampil list dokumens
-            if(mysqli_num_rows($sql) > 0){
+            // tampil list dokumens
+            if (mysqli_num_rows($sql) > 0) {
+              while ($row = mysqli_fetch_assoc($sql)) {
+                $get_status = $row['status'];
+                $id_surat = $row['id_surat'];
+                $nama_dokumen = $row['nama_dokumen'];
+                $nama_petugas = $row['nama_petugas'];
+                $alasan = isset($row['komentar']) ? $row['komentar'] : 'Tidak ada keterangan.';
 
-            while ($row = mysqli_fetch_assoc($sql)) {
+                // merubah Judul Dokumen
+                if ($nama_dokumen == 'SKTM')
+                  $dok_title = 'Surat Keterangan Tidak Mampu';
+                elseif ($nama_dokumen == 'SKK')
+                  $dok_title = 'Surat Keterangan Kematian';
+                elseif ($nama_dokumen == 'SRM')
+                  $dok_title = 'Surat Rumah';
+                elseif ($nama_dokumen == 'SIU')
+                  $dok_title = 'Surat Izin Usaha';
+                else
+                  $dok_title = 'Surat Domisili';
 
-            $get_status = $row['status'];
-            $id_surat = $row['id_surat'];
-            $nama_dokumen = $row['nama_dokumen'];
-            $nama_petugas = $row['nama_petugas'];              
-            $alasan = isset($row['komentar']) ? $row['komentar'] : 'Tidak ada keterangan.';
+                // Tombol
+                $tombol_aksi = '';
 
-            // merubah Judul Dokumen
-            if($nama_dokumen == 'SKTM') $dok_title = "Surat Keterangan Tidak Mampu";
-            elseif ($nama_dokumen == 'SKK') $dok_title = "Surat Keterangan Kematian";
-            elseif ($nama_dokumen == 'SRM') $dok_title = "Surat Rumah";
-            elseif ($nama_dokumen == 'SIU') $dok_title = "Surat Izin Usaha";
-            else $dok_title = "Surat Domisili";
+                // PENDING label kuning
+                if ($get_status == 'PENDING') {
+                  $status_label = 'Diperiksa';
+                  $warna = 'bg-warning text-black';
+                  $tombol_aksi = '<button class="btn btn-secondary btn-sm" disabled>Diproses</button>';
 
-            // Tombol
-            $tombol_aksi = ""; 
+                  // DISETUJUI label kuning
+                } elseif ($get_status == 'DISETUJUI') {
+                  $status_label = 'Diperiksa';
+                  $warna = 'bg-warning text-black';
+                  $tombol_aksi = '<button class="btn btn-secondary btn-sm" disabled>Diproses</button>';
 
-
-            //PENDING label kuning
-            if ($get_status == 'PENDING' ){
-            $status_label = "Diperiksa";
-            $warna = "bg-warning text-black";
-            $tombol_aksi = '<button class="btn btn-secondary btn-sm" disabled>Diproses</button>';
-
-
-            //DISETUJUI label kuning
-            }elseif ($get_status == 'DISETUJUI' ){
-            $status_label = "Diperiksa";
-            $warna = "bg-warning text-black";
-            $tombol_aksi = '<button class="btn btn-secondary btn-sm" disabled>Diproses</button>';
-
-            //SELESAI label hijau 
-            } elseif ($get_status == "SELESAI") {
-            $status_label = "Disetujui";
-            $warna = "bg-success";
-            $link = "../surat.php?id=$id_surat&dok=$nama_dokumen&idw=$id";
-            $tombol_aksi = '<a href="'.$link.'" class="btn btn-outline-light btn-sm"> 
+                  // SELESAI label hijau
+                } elseif ($get_status == 'SELESAI') {
+                  $status_label = 'Disetujui';
+                  $warna = 'bg-success';
+                  $link = "../surat.php?id=$id_surat&dok=$nama_dokumen&idw=$id";
+                  $tombol_aksi = '<a href="' . $link . '" class="btn btn-outline-light btn-sm"> 
             <i class="bi bi-download"></i> Download 
             </a>';
-
-            } else {
-            //DITOLAK label merah
-            $status_label = "Ditolak";
-            $warna = "bg-danger";
-            $tombol_aksi = '<button type="button" 
+                } else {
+                  // DITOLAK label merah
+                  $status_label = 'Ditolak';
+                  $warna = 'bg-danger';
+                  $tombol_aksi = '<button type="button" 
             class="btn btn-outline-light btn-sm"
             onclick="openReasonPopup(this)"
-            data-judul="'.$dok_title.'"
-            data-tgl="'.$row['date'].'"
-            data-alasan="'.$alasan.'"
-            data-nama="'.$nama_petugas.'">
+            data-judul="' . $dok_title . '"
+            data-tgl="' . $row['date'] . '"
+            data-alasan="' . $alasan . '"
+            data-nama="' . $nama_petugas . '">
             <i class="bi bi-eye"></i> Lihat Alasan
             </button>';
-            }
+                }
 
-            //menampilkan list nya
-            echo '
+                // menampilkan list nya
+                echo '
             <div class="riwayat-list">
             <div class="riwayat-card mt-3">
             <div class="riwayat-info">
-            <h5>'.$dok_title.'</h5>
+            <h5>' . $dok_title . '</h5>
             <p>Tanggal Pengajuan : ' . $row['date'] . '</p>
             <p>
-            Status: <span class="status '.$warna.' ">' . $status_label . '</span>
+            Status: <span class="status ' . $warna . ' ">' . $status_label . '</span>
             </p>
             </div>
             <div class="riwayat-actions">
-            '.$tombol_aksi.'
+            ' . $tombol_aksi . '
             </div>
             </div>
             </div>';
-            } 
+              }
             }
             ?>
 

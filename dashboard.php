@@ -1,23 +1,23 @@
 <?php
 
-//link
+// link
 include 'config/auth.php';
-include "config/conn.php";
+include 'config/conn.php';
 
 // //err
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//validasi data diri
+// validasi data diri
 $id = $_SESSION['id_warga'];
 $S_cekSta = mysqli_query($conn, "select status_data_diri from warga where id_warga = $id");
 $data = mysqli_fetch_assoc($S_cekSta);
 
-//jika ada maka ke riwayat ! ke halaman profil
+// jika ada maka ke riwayat ! ke halaman profil
 if (!empty($data['status_data_diri'])) {
-  $warga = "warga/riwayat.php";
+  $warga = 'warga/riwayat.php';
 } else {
-  $daftar = "warga/profil.php";
+  $daftar = 'warga/profil.php';
 }
 
 ?>

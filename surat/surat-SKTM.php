@@ -1,11 +1,9 @@
 
 <?php
 
-//link
-include "../config/conn.php";
-include "../config/auth.php";
-
-
+// link
+include '../config/conn.php';
+include '../config/auth.php';
 
 ?>
 
@@ -33,7 +31,7 @@ include "../config/auth.php";
 
         </div>
         <div class="profile">
-          <a class="d-flex align-items-center text-decoration-none text-light fw-bold " href="../warga/profil.php"> Halo, <?= $_SESSION['nama']?><i
+          <a class="d-flex align-items-center text-decoration-none text-light fw-bold " href="../warga/profil.php"> Halo, <?= $_SESSION['nama'] ?><i
             class="bi bi-person-circle text-light ms-2 "></i></a>
         </div>
       </div>
@@ -51,7 +49,7 @@ include "../config/auth.php";
 
               <?php
 
-              //ambil nik dan nama dari table data_diri
+              // ambil nik dan nama dari table data_diri
               $id = $_SESSION['id_warga'];
               $dari_data_diri = mysqli_query($conn, "SELECT nik, nama_lengkap from data_diri where id_warga = $id");
               $data_diri = mysqli_fetch_assoc($dari_data_diri);
@@ -65,7 +63,7 @@ include "../config/auth.php";
                     >Nomor Induk Kependudukan (NIK)</label
                     >
                     <input
-                      value="<?= $data_diri['nik']?>" readonly
+                      value="<?= $data_diri['nik'] ?>" readonly
                       name="nik"
                       type="number"
                       class="form-control"
@@ -78,7 +76,7 @@ include "../config/auth.php";
                     >Nama Lengkap</label
                     >
                     <input
-                      value="<?= $data_diri['nama_lengkap']?>"
+                      value="<?= $data_diri['nama_lengkap'] ?>"
                       readonly
                       type="text"
                       name="nama_lengkap"

@@ -1,29 +1,27 @@
 <?php
 
 /*
-INI PROSES DATA DIRI WARGA
+ * INI PROSES DATA DIRI WARGA
  */
 
-
-//err
+// err
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//link
-include("conn.php");
-include("../config/auth.php");
+// link
+include ('conn.php');
+include ('../config/auth.php');
 
 // pastikan login
 if (!isset($_SESSION['id_warga'])) {
-  header("Location: ../login.php");
+  header('Location: ../login.php');
   exit();
 }
 
 $id_warga = $_SESSION['id_warga'];
 
-//ambil dari form 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+// ambil dari form
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // AMBIL DATA
   $nama = $_POST['nama'] ?? '';
   $nik = $_POST['nik'] ?? '';
@@ -39,14 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $kecamatan = $_POST['kecamatan'] ?? '';
   $kelurahan = $_POST['kelurahan'] ?? '';
 
-
-
-
-
   // validasi harus terpenuhi
   $required = [$nama, $nik, $email, $agama, $tempat_lahir, $ttl, $jk, $pekerjaan, $alamat, $provinsi, $kota, $kecamatan, $kelurahan];
   foreach ($required as $item) {
-    if ($item === "") {
+    if ($item === '') {
       die("<script>alert('Semua field wajib diisi!');history.back();</script>");
     }
   }
@@ -56,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $R = mysqli_fetch_assoc($Q);
   $isUpdate = ($R['status_data_diri'] == 1);
 
-  //jika ambil data warg
+  // jika ambil data warg
   $oldData = null;
   if ($isUpdate) {
     $Q2 = mysqli_query($conn, "SELECT * FROM data_diri WHERE id_warga = $id_warga");
@@ -64,10 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $oldData = mysqli_fetch_assoc($Q2);
   }
 
-
-
- // foto logic
-  $file_name = $oldData['foto_profil'] ?? null; // Default pakai foto lama
+  // foto logic
+  $file_name = $oldData['foto_profil'] ?? null;  // Default pakai foto lama
 
   if (!empty($_FILES['profil']['name'])) {
     $file_tmp = $_FILES['profil']['tmp_name'];
@@ -77,29 +69,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validasi 1MB
     if ($file_size > 1048576) {
-        die("<script>alert('Gagal! Foto maksimal 1 MB');history.back();</script>");
+      die("<script>alert('Gagal! Foto maksimal 1 MB');history.back();</script>");
     }
 
     if (!in_array(strtolower($ext), $allowed)) {
       die("<script>alert('Format foto tidak valid!');history.back();</script>");
     }
 
-    // Nama file unik: NIK_timestamp agar tidak bentrok saat update berkali-kali
-    $file_name = $nik . "_" . time() . "." . $ext;
-    $upload_dir = "../uploads/" . $file_name;
+    // menggunakan NIk untuk sebagau nama dari nama foto
+    $file_name = $nik . '_' . time() . '.' . $ext;
+    $upload_dir = '../uploads/' . $file_name;
 
     // Proses pindah file ke lokal
     if (move_uploaded_file($file_tmp, $upload_dir)) {
-        // Hapus foto lama jika ada (opsional agar tidak memenuhi memori laptop kentang)
-        if (!empty($oldData['foto_profil']) && file_exists("../uploads/" . $oldData['foto_profil'])) {
-            unlink("../uploads/" . $oldData['foto_profil']);
-        }
+      // Hapus foto lama jika ada (opsional agar tidak memenuhi memori laptop kentang)
+      if (!empty($oldData['foto_profil']) && file_exists('../uploads/' . $oldData['foto_profil'])) {
+        unlink('../uploads/' . $oldData['foto_profil']);
+      }
     } else {
-        die("<script>alert('Gagal mengunggah foto ke folder!');history.back();</script>");
+      die("<script>alert('Gagal mengunggah foto ke folder!');history.back();</script>");
     }
   }
 
-  //isi dara langsung
+  // isi dara langsung
   if (!$isUpdate) {
     $cekknik = mysqli_query($conn, "SELECT nik FROM data_diri WHERE nik = '$nik'");
     if (mysqli_num_rows($cekknik) > 0) {
@@ -109,12 +101,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </script>";
     } else {
       $sql = "INSERT INTO data_diri 
-      (nama_lengkap, foto_profil, nik, email, agama, tempat_lahir, tanggal_lahir, jenis_kelamin, pekerjaan, alamat, provinsi, kabupaten, kecamatan, kelurahan, id_warga) 
+      (nama_lengkap, 
+      foto_profil, nik, email, agama, tempat_lahir, tanggal_lahir, jenis_kelamin, 
+      pekerjaan, alamat, provinsi, kabupaten, kecamatan, kelurahan, id_warga) 
       VALUES 
-      ('$nama', '$file_name', '$nik', '$email', '$agama', '$tempat_lahir', '$ttl', '$jk', '$pekerjaan', '$alamat', '$provinsi', '$kota', '$kecamatan', '$kelurahan', '$id_warga')";
+      ('$nama', '$file_name', '$nik', '$email', '$agama', '$tempat_lahir', '$ttl', '$jk', 
+      '$pekerjaan', '$alamat', '$provinsi', '$kota', '$kecamatan', '$kelurahan', 
+      '$id_warga')";
 
       $insert = mysqli_query($conn, $sql);
-
     }
 
     if ($insert) {
@@ -132,11 +127,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </script>";
     }
   }
-
-
-  //update data
+  // update data
   else {
-
     $Q_upData = "UPDATE data_diri SET
             nama_lengkap   = '$nama',
             foto_profil    = '$file_name',
@@ -169,4 +161,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 }
-

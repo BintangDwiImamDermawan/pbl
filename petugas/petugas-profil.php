@@ -1,14 +1,14 @@
 <?php
 
-//link
-include "../config/conn.php";
-include('../config/auth.php');
+// link
+include '../config/conn.php';
+include ('../config/auth.php');
 
-//err
+// err
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//validasi login
+// validasi login
 if (!isset($_SESSION['id_petugas'])) {
   echo "<script>alert('Anda tidak memiliki akses ke halaman ini!'); window.location='../login.php';</script>";
   exit();
@@ -17,14 +17,13 @@ if (!isset($_SESSION['id_petugas'])) {
 $id = $_SESSION['id_petugas'];
 $nama = $_SESSION['nama_petugas'];
 
-//ambil unutuk tampilkan data diri petugas
+// ambil unutuk tampilkan data diri petugas
 $Q_DataDiriP = "SELECT * FROM data_diri_petugas where  id_petugas = $id ";
 $mysql = mysqli_query($conn, $Q_DataDiriP);
 $data = mysqli_fetch_array($mysql);
 
-$read = "readonly" ;
-$dis = "disabled" ;
-
+$read = 'readonly';
+$dis = 'disabled';
 
 ?>
 
@@ -71,7 +70,7 @@ $dis = "disabled" ;
           <div class="profil-side">
             <div class="profil-avatar">
               <!-- <i class="bi bi-person-circle"></i> -->
-              <img style="border-radius:50%;" src="../uploads-petugas/<?= $data['foto_profil'] ?? ''?> " height="100" width="100">
+              <img style="border-radius:50%;" src="../uploads-petugas/<?= $data['foto_profil'] ?? '' ?> " height="100" width="100">
             </div>
             <h3>Halo <?= $nama ?></h3>
           </div>
@@ -84,7 +83,7 @@ $dis = "disabled" ;
 
             <div class="mb-2">
               <label>Foto Profil</label>
-              <input type="file" placeholder="<?= $data['foto_profil'] ?? "" ?> " name="foto_profil_petugas" class="form-control">
+              <input type="file" placeholder="<?= $data['foto_profil'] ?? '' ?> " name="foto_profil_petugas" class="form-control">
             </div>
 
             <div class="mb-2">

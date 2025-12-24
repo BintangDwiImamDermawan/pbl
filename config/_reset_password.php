@@ -2,24 +2,23 @@
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-include("conn.php");
+include ('conn.php');
 // Inisialisasi variabel
 
 $step = 1;
-$error = "";
-$username_found = "";
+$error = '';
+$username_found = '';
 
 // LOGIKA UTAMA
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username_reset']) && isset($_POST['email_reset'])) {
         $username = mysqli_real_escape_string($conn, $_POST['username_reset']);
         $email = mysqli_real_escape_string($conn, $_POST['email_reset']);
 
         // Cek di tabel warga
-        $query = "SELECT * FROM warga WHERE nama = ? AND email = ?";
+        $query = 'SELECT * FROM warga WHERE nama = ? AND email = ?';
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $username, $email);
+        $stmt->bind_param('ss', $username, $email);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -27,11 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $step = 2;
             $username_found = $username;
         } else {
-            header("Location: ../login.php?email_eror=Data tidak ditemukan!");
+            header('Location: ../login.php?email_eror=Data tidak ditemukan!');
             exit();
         }
     }
-
     // --- KONDISI B: PENGGUNA MENGIRIM PASSWORD BARU (Proses Update) ---
     elseif (isset($_POST['btn_update_pass'])) {
         $user_to_update = $_POST['hidden_username'];
@@ -43,9 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashed_password = password_hash($pass1, PASSWORD_DEFAULT);
 
             // Update Database
-            $update_query = "UPDATE warga SET password = ? WHERE nama = ?";
+            $update_query = 'UPDATE warga SET password = ? WHERE nama = ?';
             $stmt = $conn->prepare($update_query);
-            $stmt->bind_param("ss", $hashed_password, $user_to_update);
+            $stmt->bind_param('ss', $hashed_password, $user_to_update);
 
             if ($stmt->execute()) {
                 // Berhasil, kembali ke login
@@ -55,19 +53,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </script>";
                 exit();
             } else {
-                $error = "Gagal mengupdate database.";
-                $step = 2; // Tetap di form
+                $error = 'Gagal mengupdate database.';
+                $step = 2;  // Tetap di form
                 $username_found = $user_to_update;
             }
         } else {
-            $error = "Password konfirmasi tidak sama!";
-            $step = 2; // Tetap di form
+            $error = 'Password konfirmasi tidak sama!';
+            $step = 2;  // Tetap di form
             $username_found = $user_to_update;
         }
     }
 } else {
     // Jika user mencoba buka file ini langsung tanpa lewat form
-    header("Location: login.php");
+    header('Location: login.php');
     exit();
 }
 ?>

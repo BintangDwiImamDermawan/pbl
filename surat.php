@@ -2,31 +2,35 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include "config/conn.php"; 
-include "config/auth.php";
+include 'config/conn.php';
+include 'config/auth.php';
 
-$id_surat    = isset($_GET['id']) ? mysqli_real_escape_string($conn, $_GET['id']) : '';
+$id_surat = isset($_GET['id']) ? mysqli_real_escape_string($conn, $_GET['id']) : '';
 $jenis_surat = isset($_GET['dok']) ? mysqli_real_escape_string($conn, $_GET['dok']) : '';
-$id_warga    = isset($_GET['idw']) ? mysqli_real_escape_string($conn, $_GET['idw']) : '';
+$id_warga = isset($_GET['idw']) ? mysqli_real_escape_string($conn, $_GET['idw']) : '';
 
-$data_final = []; 
+$data_final = [];
 $template_mode = '';
 
-function tgl_indo($tanggal){
-  if(empty($tanggal) || $tanggal == '0000-00-00') return "-";
-  $bulan = array (1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+function tgl_indo($tanggal)
+{
+  if (empty($tanggal) || $tanggal == '0000-00-00')
+    return '-';
+  $bulan = array(1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
   $pecahkan = explode('-', $tanggal);
-  if(count($pecahkan) < 3) return $tanggal;
-  return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+  if (count($pecahkan) < 3)
+    return $tanggal;
+  return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
 }
 
-function getRomawi($bln){
-  $romawi = array("", "I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII");
-  return isset($romawi[(int)$bln]) ? $romawi[(int)$bln] : "";
+function getRomawi($bln)
+{
+  $romawi = array('', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII');
+  return isset($romawi[(int) $bln]) ? $romawi[(int) $bln] : '';
 }
 
 // LOGIKA PENGAMBILAN DATA (Sama seperti sebelumnya)
-if($id_surat && $jenis_surat && $id_warga) {
+if ($id_surat && $jenis_surat && $id_warga) {
   $q_main = mysqli_query($conn, "SELECT pada, tanggal FROM dokumens WHERE id_surat = '$id_surat'");
   $r_main = mysqli_fetch_assoc($q_main);
 
@@ -34,50 +38,65 @@ if($id_surat && $jenis_surat && $id_warga) {
     $tgl_basis = !empty($r_main['pada']) ? $r_main['pada'] : ($r_main['tanggal'] ?? date('Y-m-d'));
     $bulan_surat = date('n', strtotime($tgl_basis));
     $tahun_surat = date('Y', strtotime($tgl_basis));
-    $romawi      = getRomawi($bulan_surat);
+    $romawi = getRomawi($bulan_surat);
 
     $q_urutan = mysqli_query($conn, "SELECT COUNT(nama_dokumen) as no_urut FROM dokumens WHERE nama_dokumen = '$jenis_surat' AND status = 'SELESAI'  ");
     $r_urutan = mysqli_fetch_assoc($q_urutan);
-    $no_urut_str = sprintf("%03d", $r_urutan['no_urut']  );
-    $hasil_no_surat = $no_urut_str . " / " . $jenis_surat . " / " . $romawi . " / " . $tahun_surat;
+    $no_urut_str = sprintf('%03d', $r_urutan['no_urut']);
+    $hasil_no_surat = $no_urut_str . ' / ' . $jenis_surat . ' / ' . $romawi . ' / ' . $tahun_surat;
   } else {
-    $hasil_no_surat = "000 / XXX / X / " . date('Y');
+    $hasil_no_surat = '000 / XXX / X / ' . date('Y');
   }
 
   $q_profil = mysqli_query($conn, "SELECT * FROM data_diri WHERE id_warga = '$id_warga'");
   $row_profil = mysqli_fetch_assoc($q_profil);
 
-  $tabel_surat = "";
+  $tabel_surat = '';
   switch ($jenis_surat) {
-    case 'SKK': $tabel_surat = "dokumen_skk"; break;
-    case 'SKTM': $tabel_surat = "dokumen_sktm"; break;
-    case 'SIU': $tabel_surat = "dokumen_izin_usaha"; break;
-    case 'SRM': $tabel_surat = "dokumen_rumah"; break;
-    case 'SDM': $tabel_surat = "dokumen_domisili"; break;
+    case 'SKK':
+      $tabel_surat = 'dokumen_skk';
+      $nama_surat='Surat Keterangan Kematian';
+      break;
+    case 'SKTM':
+      $tabel_surat = 'dokumen_sktm';
+      $nama_surat='Surat Keterangan Tak Mampu';
+      break;
+    case 'SIU':
+      $tabel_surat = 'dokumen_izin_usaha';
+      $nama_surat='Surat Izin Usaha';
+      break;
+    case 'SRM':
+      $tabel_surat = 'dokumen_rumah';
+      $nama_surat='Surat Kepemilikan Rumah';
+      break;
+    case 'SDM':
+      $tabel_surat = 'dokumen_domisili';
+      $nama_surat='Surat Domisili';
+      break;
   }
 
   $row_surat = [];
-  if($tabel_surat) {
+  if ($tabel_surat) {
     $q_surat = mysqli_query($conn, "SELECT * FROM $tabel_surat WHERE id_surat = '$id_surat'");
     $row_surat = mysqli_fetch_assoc($q_surat);
   }
 
-  if($row_profil || $row_surat) {
-    $nama       = $row_profil['nama_lengkap'] ?? $row_surat['nama_lengkap'] ?? '-';
-    $nik        = $row_profil['nik'] ?? $row_surat['nik'] ?? '-';
-    $pekerjaan  = $row_profil['pekerjaan'] ?? $row_surat['pekerjaan'] ?? '-';
-    $agama      = $row_profil['agama'] ?? $row_surat['agama'] ?? '-';
-    $alamat     = $row_profil['alamat'] ?? $row_surat['alamat'] ?? '-';
-    $jk         = $row_profil['jenis_kelamin'] ?? $row_surat['jenis_kelamin'] ?? '-';
+  if ($row_profil || $row_surat) {
+    $nama = $row_profil['nama_lengkap'] ?? $row_surat['nama_lengkap'] ?? '-';
+    $nik = $row_profil['nik'] ?? $row_surat['nik'] ?? '-';
+    $pekerjaan = $row_profil['pekerjaan'] ?? $row_surat['pekerjaan'] ?? '-';
+    $agama = $row_profil['agama'] ?? $row_surat['agama'] ?? '-';
+    $alamat = $row_profil['alamat'] ?? $row_surat['alamat'] ?? '-';
+    $jk = $row_profil['jenis_kelamin'] ?? $row_surat['jenis_kelamin'] ?? '-';
 
-    $tmp_lahir  = $row_profil['tempat_lahir'] ?? '';
-    $tgl_lahir  = tgl_indo($row_profil['tanggal_lahir'] ?? '');
+    $tmp_lahir = $row_profil['tempat_lahir'] ?? '';
+    $tgl_lahir = tgl_indo($row_profil['tanggal_lahir'] ?? '');
     $ttl_gabung = "$tmp_lahir, $tgl_lahir";
 
     $umur = '-';
-    if(isset($row_profil['tanggal_lahir']) && $row_profil['tanggal_lahir'] != '0000-00-00') {
+    if (isset($row_profil['tanggal_lahir']) && $row_profil['tanggal_lahir'] != '0000-00-00') {
       $diff = (new DateTime())->diff(new DateTime($row_profil['tanggal_lahir']));
-      $umur = $diff->y . " Tahun";
+      $umur = $diff->y . ' Tahun';
     }
 
     $data_umum = [
@@ -88,14 +107,26 @@ if($id_surat && $jenis_surat && $id_warga) {
     ];
 
     switch ($jenis_surat) {
-      case 'SKK': $template_mode = 'kematian';
-        $data_final = array_merge($data_umum, ['tgl_wafat' => isset($row_surat['tanggal_kematian']) ? tgl_indo($row_surat['tanggal_kematian']) : '-', 'penyebab' => $row_surat['penyebab'] ?? '-']); break;
-      case 'SKTM': $template_mode = 'sktm'; $data_final = $data_umum; break;
-      case 'SIU': $template_mode = 'usaha';
-        $data_final = array_merge($data_umum, ['Jenis usaha' => $row_surat['nama_kbli'] ?? '-', 'Kode KBLI' => $row_surat['nomor_kbli'] ?? '-', 'Nama KBLI' => $row_surat['nama_kbli'] ?? '-']); break;
-      case 'SRM': $template_mode = 'rumah'; $data_final = $data_umum; break;
-      case 'SDM': $template_mode = 'pindah';
-        $data_final = array_merge($data_umum, ['Alamat Asal' => $alamat, 'Pindah Ke' => $row_surat['alamat_pindah'] ?? '-']); break;
+      case 'SKK':
+        $template_mode = 'kematian';
+        $data_final = array_merge($data_umum, ['tgl_wafat' => isset($row_surat['tanggal_kematian']) ? tgl_indo($row_surat['tanggal_kematian']) : '-', 'penyebab' => $row_surat['penyebab'] ?? '-']);
+        break;
+      case 'SKTM':
+        $template_mode = 'sktm';
+        $data_final = $data_umum;
+        break;
+      case 'SIU':
+        $template_mode = 'usaha';
+        $data_final = array_merge($data_umum, ['Jenis usaha' => $row_surat['nama_kbli'] ?? '-', 'Kode KBLI' => $row_surat['nomor_kbli'] ?? '-', 'Nama KBLI' => $row_surat['nama_kbli'] ?? '-']);
+        break;
+      case 'SRM':
+        $template_mode = 'rumah';
+        $data_final = $data_umum;
+        break;
+      case 'SDM':
+        $template_mode = 'pindah';
+        $data_final = array_merge($data_umum, ['Alamat Asal' => $alamat, 'Pindah Ke' => $row_surat['alamat_pindah'] ?? '-']);
+        break;
     }
   }
 }
@@ -156,10 +187,10 @@ if($id_surat && $jenis_surat && $id_warga) {
     <div class="ui-controls">
       <div>
         <button class="btn btn-back" onclick="history.back()">&#8592; Kembali</button>
-        <?php if(empty($data_final)): ?>
+        <?php if (empty($data_final)): ?>
         <span style="color: #ff6b6b; margin-left: 10px;">Data Kosong!</span>
         <?php else: ?>
-        <span style="margin-left: 10px;">Surat: <strong><?php echo $jenis_surat; ?></strong></span>
+        <span style="margin-left: 10px;"><strong><?php echo $nama_surat; ?></strong></span>
         <?php endif; ?>
       </div>
       <button class="btn btn-download" onclick="downloadPDF()">Download PDF</button>

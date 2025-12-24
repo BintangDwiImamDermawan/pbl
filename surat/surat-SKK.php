@@ -1,9 +1,8 @@
-<?php 
+<?php
 
-//link
-include "../config/conn.php";
-include "../config/auth.php";
-
+// link
+include '../config/conn.php';
+include '../config/auth.php';
 
 ?>
 
@@ -34,7 +33,7 @@ include "../config/auth.php";
 
       <div class="profile">
         <a class="d-flex align-items-center text-decoration-none text-light fw-bold" href="../warga/profil.php">
-        Halo, <?php echo $_SESSION['nama']?><i class="bi bi-person-circle text-light ms-2"></i>
+        Halo, <?php echo $_SESSION['nama'] ?><i class="bi bi-person-circle text-light ms-2"></i>
         </a>
       </div>
     </div>
@@ -52,11 +51,12 @@ include "../config/auth.php";
           <div class="card-body p-4">
           <?php
 
-            //ambil nik dan nama dari table data_diri
-            $id = $_SESSION['id_warga'];
-            $dari_data_diri = mysqli_query($conn, "SELECT nik, 
+          // ambil nik dan nama dari table data_diri
+          $id = $_SESSION['id_warga'];
+          $dari_data_diri = mysqli_query($conn, "SELECT nik, 
             nama_lengkap from data_diri where id_warga = $id");
-              $data_diri = mysqli_fetch_assoc($dari_data_diri);?>
+          $data_diri = mysqli_fetch_assoc($dari_data_diri);
+          ?>
             <form action="../surat-config/_proses-skk.php" method="post" enctype="multipart/form-data">
 
               <!-- DATA IDENTITAS JENAZAH -->

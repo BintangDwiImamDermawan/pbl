@@ -1,23 +1,22 @@
 <?php
-//link
-include("../config/conn.php");
-include('../config/auth.php');
-//ambil data diri
+// link
+include ('../config/conn.php');
+include ('../config/auth.php');
+// ambil data diri
 
 $id = $_SESSION['id_warga'];
-$sql = mysqli_query($conn,  "SELECT * FROM data_diri where  id_warga = $id ");
+$sql = mysqli_query($conn, "SELECT * FROM data_diri where  id_warga = $id ");
 
-
-//ini deteksi ada data diri apa tidak
+// ini deteksi ada data diri apa tidak
 if (mysqli_num_rows($sql) === 1) {
-  $read = "readonly";
-  $dis = "disabled";
+  $read = 'readonly';
+  $dis = 'disabled';
 } else {
-  $dis = "";
-  $pilih = "Pilih";
+  $dis = '';
+  $pilih = 'Pilih';
 }
 
-//ambil data unutk di tampilkan
+// ambil data unutk di tampilkan
 $data = mysqli_fetch_array($sql);
 
 ?>
@@ -66,26 +65,26 @@ $data = mysqli_fetch_array($sql);
             <div class="profil-side">
               <div class="profil-avatar">
 
-                <?php if(mysqli_num_rows($sql) > 0){ ?>
-                <img style="border-radius:50%;" src=" ../uploads/<?= $data['foto_profil'] ?? "../assets/logo.svg"?>" height="100" width="100">
-                <?php }else{?>
+                <?php if (mysqli_num_rows($sql) > 0) { ?>
+                <img style="border-radius:50%;" src=" ../uploads/<?= $data['foto_profil'] ?? '../assets/logo.svg' ?>" height="100" width="100">
+                <?php } else { ?>
                   <img style="border-radius:50%;" src=" ../assets/logo.svg" height="100" width="100">
-                <?php };?>
+                <?php }; ?>
 
               </div>
-              <h3 class="text-light">Halo <?php echo $_SESSION['nama']??"" ?>
+              <h3 class="text-light">Halo <?php echo $_SESSION['nama'] ?? '' ?>
 
             </div>
             <form action="../config/_proses_profil.php" method="POST" enctype="multipart/form-data">
               <div class="mb-2">
                 <label>Nama Lengkap</label>
-                <input type="text" class="form-control" <?= $read ??"" ?> value="<?= $data['nama_lengkap'] ??"" ?>" name="nama"
+                <input type="text" class="form-control" <?= $read ?? '' ?> value="<?= $data['nama_lengkap'] ?? '' ?>" name="nama"
                   required>
               </div>
 
               <div class="mb-2">
                 <label>Foto Profil</label>
-                <input type="file" class="form-control" value="<?= $data['foto_profil']??"" ?>" <?= $dis??"" ?> name="profil">
+                <input type="file" class="form-control" value="<?= $data['foto_profil'] ?? '' ?>" <?= $dis ?? '' ?> name="profil">
               </div>
 
               <div class="mb-2">
@@ -94,8 +93,8 @@ $data = mysqli_fetch_array($sql);
     type="text" 
     class="form-control" 
     name="nik" 
-    value="<?= $data['nik'] ?? "" ?>" 
-    <?= $read ?? "" ?> 
+    value="<?= $data['nik'] ?? '' ?>" 
+    <?= $read ?? '' ?> 
     required 
     inputmode="numeric"
     pattern="\d{16}" 
@@ -107,7 +106,7 @@ $data = mysqli_fetch_array($sql);
                 <div class="col-md-6">
 
                   <label>Email</label>
-                  <input type="email" class="form-control" name="email" value="<?= $_SESSION['email']??"" ?>" readonly required>
+                  <input type="email" class="form-control" name="email" value="<?= $_SESSION['email'] ?? '' ?>" readonly required>
                 </div>
                 <div class="col-md-6">
                   <label for="agama" class="form-label fw-bold">Agama</label>
@@ -125,12 +124,12 @@ $data = mysqli_fetch_array($sql);
               <div class="row">
                 <div class="col-md-6 mb-2">
                   <label>Tempat Lahir</label>
-                  <input type="text" class="form-control" value="<?= $data['tempat_lahir']??"" ?>" <?= $read??"" ?>
+                  <input type="text" class="form-control" value="<?= $data['tempat_lahir'] ?? '' ?>" <?= $read ?? '' ?>
                     name="tempat_lahir" required>
                 </div>
                 <div class="col-md-6 mb-2">
                   <label>Tanggal Lahir</label>
-                  <input type="date" class="form-control" value="<?= $data['tanggal_lahir']??"" ?>" <?= $read??"" ?> name="ttl"
+                  <input type="date" class="form-control" value="<?= $data['tanggal_lahir'] ?? '' ?>" <?= $read ?? '' ?> name="ttl"
                     required>
                 </div>
               </div>
@@ -146,26 +145,26 @@ $data = mysqli_fetch_array($sql);
                 </div>
                 <div class="col-md-6 mb-2">
                   <label>Pekerjaan</label>
-                  <input type="text" class="form-control" value="<?= $data['pekerjaan']??"" ?>" name="pekerjaan" <?= $read??"" ?>
+                  <input type="text" class="form-control" value="<?= $data['pekerjaan'] ?? '' ?>" name="pekerjaan" <?= $read ?? '' ?>
                     required>
                 </div>
               </div>
 
               <div class="mb-2">
                 <label>Alamat</label>
-                <textarea class="form-control" value="" <?= $read??"" ?> required
-                  name="alamat"><?= $data['alamat']??"" ?> </textarea>
+                <textarea class="form-control" value="" <?= $read ?? '' ?> required
+                  name="alamat"><?= $data['alamat'] ?? '' ?> </textarea>
               </div>
 
               <div class="row">
                 <div class="col-md-6 mb-2">
                   <label>Provinsi</label>
-                  <input type="text" class="form-control" value="<?= $data['provinsi']??"" ?>" <?= $read??"" ?> name="provinsi"
+                  <input type="text" class="form-control" value="<?= $data['provinsi'] ?? '' ?>" <?= $read ?? '' ?> name="provinsi"
                     required>
                 </div>
                 <div class="col-md-6 mb-2">
                   <label>Kabupaten / Kota</label>
-                  <input type="text" class="form-control" value="<?= $data['kabupaten']??"" ?>" <?= $read??"" ?> name="kota"
+                  <input type="text" class="form-control" value="<?= $data['kabupaten'] ?? '' ?>" <?= $read ?? '' ?> name="kota"
                     required>
                 </div>
               </div>
@@ -173,12 +172,12 @@ $data = mysqli_fetch_array($sql);
               <div class="row">
                 <div class="col-md-6 mb-2">
                   <label>Kecamatan</label>
-                  <input type="text" class="form-control" name="kecamatan" value="<?= $data['kecamatan']??"" ?>" <?= $read??"" ?>
+                  <input type="text" class="form-control" name="kecamatan" value="<?= $data['kecamatan'] ?? '' ?>" <?= $read ?? '' ?>
                     required>
                 </div>
                 <div class="col-md-6 mb-2">
                   <label>Desa / Kelurahan</label>
-                  <input type="text" class="form-control" name="kelurahan" value="<?= $data['kelurahan']??"" ?>" <?= $read??"" ?>
+                  <input type="text" class="form-control" name="kelurahan" value="<?= $data['kelurahan'] ?? '' ?>" <?= $read ?? '' ?>
                     required>
                 </div>
               </div>

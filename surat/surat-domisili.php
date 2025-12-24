@@ -1,8 +1,8 @@
 <?php
 
-//link
-include "../config/conn.php";
-include "../config/auth.php";
+// link
+include '../config/conn.php';
+include '../config/auth.php';
 
 ?>
 
@@ -31,7 +31,7 @@ include "../config/auth.php";
 
         </div>
         <div class="profile">
-          <a class="d-flex align-items-center text-decoration-none text-light fw-bold " href="../warga/profil.php"> Halo, <?= $_SESSION['nama']?><i
+          <a class="d-flex align-items-center text-decoration-none text-light fw-bold " href="../warga/profil.php"> Halo, <?= $_SESSION['nama'] ?><i
             class="bi bi-person-circle text-light ms-2 "></i></a>
         </div>
       </div>
@@ -46,7 +46,7 @@ include "../config/auth.php";
             <div class="card-body p-4">
               <?php
 
-              //ambil nik dan nama dari table data_diri
+              // ambil nik dan nama dari table data_diri
               $id = $_SESSION['id_warga'];
               $dari_data_diri = mysqli_query($conn, "SELECT nik, nama_lengkap from data_diri where id_warga = $id");
               $data_diri = mysqli_fetch_assoc($dari_data_diri);
@@ -57,11 +57,11 @@ include "../config/auth.php";
                 <div class="row mb-3">
                   <div class="col-md-6">
                     <label for="nik" class="form-label fw-bold">Nomor Induk Kependudukan (NIK)</label>
-                    <input type="text" class="form-control" name="nik" id="nik" placeholder="Masukkan NIK" value="<?= $data_diri['nik']?>" readonly required />
+                    <input type="text" class="form-control" name="nik" id="nik" placeholder="Masukkan NIK" value="<?= $data_diri['nik'] ?>" readonly required />
                   </div>
                   <div class="col-md-6">
                     <label for="namaLengkap"  class="form-label fw-bold">Nama Lengkap</label>
-                    <input type="text" class="form-control" name="nama_lengkap" id="namaLengkap" placeholder="Masukkan nama lengkap" value="<?= $data_diri['nama_lengkap']?>" required readonly/>
+                    <input type="text" class="form-control" name="nama_lengkap" id="namaLengkap" placeholder="Masukkan nama lengkap" value="<?= $data_diri['nama_lengkap'] ?>" required readonly/>
                   </div>
                 </div>
 

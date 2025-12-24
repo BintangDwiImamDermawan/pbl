@@ -1,13 +1,13 @@
 <?php
-//link
-include "../config/conn.php";
-include('../config/auth.php');
+// link
+include '../config/conn.php';
+include ('../config/auth.php');
 
-//err
+// err
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//validasi login
+// validasi login
 if (!isset($_SESSION['id_petugas'])) {
   echo "<script>alert('Anda tidak memiliki akses ke halaman ini!'); window.location='../login.php';</script>";
   exit();
@@ -182,35 +182,34 @@ if (!isset($_SESSION['id_petugas'])) {
 
                       $id = $_SESSION['id_petugas'];
 
-                      //tampilkan data dari table dokumens dengan status dan label warna
-                      $Q_riwayat = "select *, date_format(tanggal, '%d %M %Y ') as tgl, date_format(pada, '%d-%m-%Y <br>%h:%i:%s') as kpn from dokumens  where status='SELESAI' or status='DITOLAK' order by id_dokumen DESC ";
+                      // tampilkan data dari table dokumens dengan status dan label warna
+                      $Q_riwayat = "SELECT *, date_format(tanggal, '%d %M %Y ') as tgl, date_format(pada, '%d-%m-%Y <br>%h:%i:%s') as kpn from dokumens  where status='SELESAI' or status='DITOLAK' order by id_dokumen DESC ";
                       $S_riwayat = mysqli_query($conn, $Q_riwayat);
 
-                      //tampilkan data list
+                      // tampilkan data list
                       if (mysqli_num_rows($S_riwayat) > 0) {
                         while ($row = mysqli_fetch_assoc($S_riwayat)) {
-
-                          //ini untuk merubah warna dan btn bergantung sama status
-                          if ($row['status'] == "PENDING") {
-                            $bg = "bg-warning text-black rounded-4 px-2";
-                            $dis = "disabled";
+                          // ini untuk merubah warna dan btn bergantung sama status
+                          if ($row['status'] == 'PENDING') {
+                            $bg = 'bg-warning text-black rounded-4 px-2';
+                            $dis = 'disabled';
 
                             // selesai
-                          } elseif ($row['status'] == "SELESAI") {
-                            $bg = "bg-success rounded-4 px-2";
-                            $dis = "";
+                          } elseif ($row['status'] == 'SELESAI') {
+                            $bg = 'bg-success rounded-4 px-2';
+                            $dis = '';
 
-                            //disetujui
-                          } elseif ($row['status'] == "DISETUJUI") {
-                            $bg = "bg-success text-black rounded-4 px-2";
-                            $dis = "";
+                            // disetujui
+                          } elseif ($row['status'] == 'DISETUJUI') {
+                            $bg = 'bg-success text-black rounded-4 px-2';
+                            $dis = '';
 
-                            //ditolak
+                            // ditolak
                           } else {
-                            $bg = "bg-danger rounded-4 px-2";
-                            $dis = "";
+                            $bg = 'bg-danger rounded-4 px-2';
+                            $dis = '';
                           }
-                          
+
                           $alasan = isset($row['komentar']) ? $row['komentar'] : '-';
 
                           echo '

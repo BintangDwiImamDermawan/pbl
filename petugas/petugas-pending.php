@@ -1,25 +1,25 @@
 <?php
-//link
-include "../config/conn.php";
-include('../config/auth.php');
+// link
+include '../config/conn.php';
+include ('../config/auth.php');
 
-//err
+// err
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-//validasi login
+// validasi login
 if (!isset($_SESSION['id_petugas'])) {
   echo "<script>alert('Anda tidak memiliki akses ke halaman ini!'); window.location='../login.php';</script>";
   exit();
 }
-//ambil nama petugas untuk 
+// ambil nama petugas untuk
 $nama_petugas = $_SESSION['nama_petugas'];
 
-//alert
-if (isset($_GET['status']) == "berhasil") {
+// alert
+if (isset($_GET['status']) == 'berhasil') {
   echo "<script> alert('Data Berhasil Di Ubah')</script>";
 } else {
-  $modal = "flex";
+  $modal = 'flex';
 }
 ?>
 
@@ -112,26 +112,24 @@ if (isset($_GET['status']) == "berhasil") {
                     <?php
                     //  MENAMPILKAN DATA DALAM BENTUK LIST
 
-                    //ambil data dari dokumen
+                    // ambil data dari dokumen
                     $query = "SELECT date_format(tanggal, '%d %M %Y') as date, nama_dokumen,  status, id_warga, nama_warga, id_surat from dokumens where status = 'PENDING' order by tanggal DESC";
                     $validasi = mysqli_query($conn, $query);
 
-                    // tampilkan data 
+                    // tampilkan data
                     if (mysqli_num_rows($validasi) > 0) {
-
                       while ($row = mysqli_fetch_assoc($validasi)) {
-
                         $nama_dokumen = $row['nama_dokumen'];
                         if ($nama_dokumen == 'SKTM') {
-                          $dok_title = "Surat Keterangan Tidak Mampu";
+                          $dok_title = 'Surat Keterangan Tidak Mampu';
                         } elseif ($nama_dokumen == 'SKK') {
-                          $dok_title = "Surat Keterangan Kematian";
+                          $dok_title = 'Surat Keterangan Kematian';
                         } elseif ($nama_dokumen == 'SRM') {
-                          $dok_title = "Surat Rumah";
+                          $dok_title = 'Surat Rumah';
                         } elseif ($nama_dokumen == 'SIU') {
-                          $dok_title = "Surat Izin Usaha";
+                          $dok_title = 'Surat Izin Usaha';
                         } else {
-                          $dok_title = "Surat Domisili";
+                          $dok_title = 'Surat Domisili';
                         }
                         echo '
                       <tr>
@@ -146,9 +144,9 @@ if (isset($_GET['status']) == "berhasil") {
 
                       <form class="" method="POST" action="../petugas-config/_proses_status.php" id="formAlasan">
 
-                      <input type="hidden" name="idPetugas" id="idPetugas" value="'. $_SESSION['id_petugas']. '">
-                      <input type="hidden" name="idSurat" id="idSurat" value="'. $row['id_surat']. '">
-                      <input type="hidden" name="nama_dokumen" id="nama_dokumen" value="'. $nama_dokumen . '">
+                      <input type="hidden" name="idPetugas" id="idPetugas" value="' . $_SESSION['id_petugas'] . '">
+                      <input type="hidden" name="idSurat" id="idSurat" value="' . $row['id_surat'] . '">
+                      <input type="hidden" name="nama_dokumen" id="nama_dokumen" value="' . $nama_dokumen . '">
 
                       <input type="hidden" name="petugas" id="hidden_petugas">
                       <input type="hidden" name="alasan" id="hidden_alasan">

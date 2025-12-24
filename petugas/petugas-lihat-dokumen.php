@@ -1,10 +1,10 @@
 <?php
 // --- 1. KONFIGURASI & AUTH ---
-include "../config/conn.php";
-include('../config/auth.php');
+include '../config/conn.php';
+include ('../config/auth.php');
 
 // Matikan error reporting saat production
-// error_reporting(0); 
+// error_reporting(0);
 
 // Validasi login
 if (!isset($_SESSION['id_petugas'])) {
@@ -12,44 +12,44 @@ if (!isset($_SESSION['id_petugas'])) {
     exit();
 }
 
-//ambil dari url dan get
+// ambil dari url dan get
 $id_dok = $_GET['id'];
-$dok    = $_GET['dok'];
+$dok = $_GET['dok'];
 
-$namaDokumen = "";
+$namaDokumen = '';
 $data = [];
-$query = "";
+$query = '';
 
-//ini jika dok yang di pilih == SKTM maka data yang di tampilkan sktm 
+// ini jika dok yang di pilih == SKTM maka data yang di tampilkan sktm
 switch ($dok) {
     case 'SKTM':
-        $namaDokumen = "Surat Keterangan Tidak Mampu";
+        $namaDokumen = 'Surat Keterangan Tidak Mampu';
         $query = "SELECT * FROM dokumen_sktm WHERE id_surat = $id_dok LIMIT 1";
         break;
     case 'SKK':
-        $namaDokumen = "Surat Keterangan Kematian";
+        $namaDokumen = 'Surat Keterangan Kematian';
         // Format tanggal langsung di query
         $query = "SELECT *, date_format(tanggal_kematian, '%d %M %Y') as tanggal FROM dokumen_skk WHERE id_surat = $id_dok LIMIT 1";
         break;
     case 'SRM':
-        $namaDokumen = "Surat Rumah";
+        $namaDokumen = 'Surat Rumah';
         $query = "SELECT * FROM dokumen_rumah WHERE id_surat = $id_dok LIMIT 1";
         break;
     case 'SIU':
-        $namaDokumen = "Surat Izin Usaha";
+        $namaDokumen = 'Surat Izin Usaha';
         $query = "SELECT * FROM dokumen_izin_usaha WHERE id_surat = $id_dok LIMIT 1";
         break;
     default:
         // Default ke Surat Domisili jika dok tidak dikenali atau kosong
-        $namaDokumen = "Surat Domisili";
-        $dok = "SDM"; // Standardisasi kode
+        $namaDokumen = 'Surat Domisili';
+        $dok = 'SDM';  // Standardisasi kode
         $query = "SELECT * FROM dokumen_domisili WHERE id_surat = $id_dok LIMIT 1";
         break;
 }
 
 // Eksekusi Query
 $Q_Surat = mysqli_query($conn, $query);
-$data  = mysqli_fetch_assoc($Q_Surat);
+$data = mysqli_fetch_assoc($Q_Surat);
 
 // Cek jika data tidak ditemukan
 if (!$data) {
@@ -58,12 +58,13 @@ if (!$data) {
 }
 
 /*
-    guna funsi tombolLihat untuk mempermudah penulisan html yang sangat panjang
-    nannti jika tombol ditekan maka akan di ARAHKAN KE HALAMAN detail.php
-*/
-function tombolLihat($id, $dok, $kode, $icon = 'bi-image') {
-    return '<a class="btn-link-file" href="detail.php?id='.$id.'&dok='.$dok.'&a='.$kode.'" target="_blank">
-                <i class="bi '.$icon.'"></i> Lihat File
+ * guna funsi tombolLihat untuk mempermudah penulisan html yang sangat panjang
+ * nannti jika tombol ditekan maka akan di ARAHKAN KE HALAMAN detail.php
+ */
+function tombolLihat($id, $dok, $kode, $icon = 'bi-image')
+{
+    return '<a class="btn-link-file" href="detail.php?id=' . $id . '&dok=' . $dok . '&a=' . $kode . '" target="_blank">
+                <i class="bi ' . $icon . '"></i> Lihat File
             </a>';
 }
 ?>
@@ -116,7 +117,7 @@ function tombolLihat($id, $dok, $kode, $icon = 'bi-image') {
                             <table class="table table-bordered table-hover align-middle">
                                 <tbody>
                                     
-                                    <?php if ($dok == "SKTM") : ?>
+                                    <?php if ($dok == 'SKTM'): ?>
                                         <tr><th>NIK</th> <td><?= htmlspecialchars($data['nik']) ?></td></tr>
                                         <tr><th>Nama Lengkap</th> <td><?= htmlspecialchars($data['nama_lengkap']) ?></td></tr>
                                         <tr><th>Agama</th> <td><?= htmlspecialchars($data['agama']) ?></td></tr>
@@ -128,7 +129,7 @@ function tombolLihat($id, $dok, $kode, $icon = 'bi-image') {
                                         <tr><th>Foto Slip Gaji</th> <td><?= tombolLihat($id_dok, $dok, 'fsg') ?></td></tr>
                                         <tr><th>Foto Tagihan</th> <td><?= tombolLihat($id_dok, $dok, 'ft') ?></td></tr>
 
-                                    <?php elseif ($dok == "SKK") : ?>
+                                    <?php elseif ($dok == 'SKK'): ?>
                                         <tr><th>NIK</th> <td><?= htmlspecialchars($data['nik']) ?></td></tr>
                                         <tr><th>Nama Lengkap</th> <td><?= htmlspecialchars($data['nama_lengkap']) ?></td></tr>
                                         <tr><th>Jenis Kelamin</th> <td><?= htmlspecialchars($data['jenis_kelamin']) ?></td></tr>
@@ -141,7 +142,7 @@ function tombolLihat($id, $dok, $kode, $icon = 'bi-image') {
                                         <tr><th>Surat Pengantar RT</th> <td><?= tombolLihat($id_dok, $dok, 'fsp') ?></td></tr>
                                         <tr><th>Foto Akta Nikah</th> <td><?= tombolLihat($id_dok, $dok, 'fan') ?></td></tr>
 
-                                    <?php elseif ($dok == "SRM") : ?>
+                                    <?php elseif ($dok == 'SRM'): ?>
                                         <tr><th>NIK</th> <td><?= htmlspecialchars($data['nik']) ?></td></tr>
                                         <tr><th>Nama Lengkap</th> <td><?= htmlspecialchars($data['nama_lengkap']) ?></td></tr>
                                         <tr><th>Kecamatan</th> <td><?= htmlspecialchars($data['kecamatan']) ?></td></tr>
@@ -154,7 +155,7 @@ function tombolLihat($id, $dok, $kode, $icon = 'bi-image') {
                                         <tr><th>Foto BPPBB</th> <td><?= tombolLihat($id_dok, $dok, 'fbp') ?></td></tr>
                                         <tr><th>Surat Tidak Sengketa</th> <td><?= tombolLihat($id_dok, $dok, 'fsts') ?></td></tr>
 
-                                    <?php elseif ($dok == "SIU") : ?>
+                                    <?php elseif ($dok == 'SIU'): ?>
                                         <tr><th>NIK</th> <td><?= htmlspecialchars($data['nik']) ?></td></tr>
                                         <tr><th>Nama Lengkap</th> <td><?= htmlspecialchars($data['nama_lengkap']) ?></td></tr>
                                         <tr><th>Nama KBLI</th> <td><?= htmlspecialchars($data['nama_kbli']) ?></td></tr>
@@ -172,14 +173,14 @@ function tombolLihat($id, $dok, $kode, $icon = 'bi-image') {
                                             <td><?= tombolLihat($id_dok, $dok, 'fpbb') ?></td>
                                         </tr>
 
-                                    <?php else : ?>
+                                    <?php else: ?>
                                         <tr><th>NIK</th> <td><?= htmlspecialchars($data['nik']) ?></td></tr>
                                         <tr><th>Nama Lengkap</th> <td><?= htmlspecialchars($data['nama_lengkap']) ?></td></tr>
                                         <tr><th>Agama</th> <td>
-                                            <?php 
+                                            <?php
                                             // Mapping Kode Agama (Opsional, sesuaikan dgn DB)
-                                            $agamaArr = [1=>'Islam', 2=>'Kristen', 3=>'Katholik', 4=>'Buddha', 5=>'Hindu', 6=>'Konghucu'];
-                                            echo isset($agamaArr[$data['agama']]) ? $agamaArr[$data['agama']] : $data['agama']; 
+                                            $agamaArr = [1 => 'Islam', 2 => 'Kristen', 3 => 'Katholik', 4 => 'Buddha', 5 => 'Hindu', 6 => 'Konghucu'];
+                                            echo isset($agamaArr[$data['agama']]) ? $agamaArr[$data['agama']] : $data['agama'];
                                             ?>
                                         </td></tr>
                                         <tr><th>Pekerjaan</th> <td><?= htmlspecialchars($data['pekerjaan']) ?></td></tr>

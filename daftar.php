@@ -4,6 +4,7 @@ $err = $_GET['err'] ?? '';
 $email = $_GET['email'] ?? '';
 $nama = $_GET['nama'] ?? '';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
