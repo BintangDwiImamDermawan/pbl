@@ -4,8 +4,8 @@ include "../config/conn.php";
 include('../config/auth.php');
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //validasi login
 if (!isset($_SESSION['id_petugas'])) {
@@ -179,15 +179,18 @@ if (!isset($_SESSION['id_petugas'])) {
                     <tbody>
                       <?php
                       $n = 1;
+
                       $id = $_SESSION['id_petugas'];
+
                       //tampilkan data dari table dokumens dengan status dan label warna
                       $Q_riwayat = "select *, date_format(tanggal, '%d %M %Y ') as tgl, date_format(pada, '%d-%m-%Y <br>%h:%i:%s') as kpn from dokumens  where status='SELESAI' or status='DITOLAK' order by id_dokumen DESC ";
-                      $F_riwatat = mysqli_query($conn, $Q_riwayat);
+                      $S_riwayat = mysqli_query($conn, $Q_riwayat);
 
                       //tampilkan data list
-                      if (mysqli_num_rows($F_riwatat) > 0) {
-                        while ($row = mysqli_fetch_assoc($F_riwatat)) {
+                      if (mysqli_num_rows($S_riwayat) > 0) {
+                        while ($row = mysqli_fetch_assoc($S_riwayat)) {
 
+                          //ini untuk merubah warna dan btn bergantung sama status
                           if ($row['status'] == "PENDING") {
                             $bg = "bg-warning text-black rounded-4 px-2";
                             $dis = "disabled";
@@ -201,12 +204,13 @@ if (!isset($_SESSION['id_petugas'])) {
                           } elseif ($row['status'] == "DISETUJUI") {
                             $bg = "bg-success text-black rounded-4 px-2";
                             $dis = "";
+
                             //ditolak
                           } else {
                             $bg = "bg-danger rounded-4 px-2";
                             $dis = "";
                           }
-
+                          
                           $alasan = isset($row['komentar']) ? $row['komentar'] : '-';
 
                           echo '
@@ -218,6 +222,7 @@ if (!isset($_SESSION['id_petugas'])) {
                         <td class=""><label class="' . $bg . '">' . $row['status'] . '</label></td>
                         <td>' . $row['kpn'] . '</td>
                         <td>
+                        
                         <button type="button" ' . $dis . '
                         class="btn btn-sm btn-light  text-black fw-bold"
                         onclick="openPopup(this)"

@@ -6,8 +6,8 @@ INI PROSES DATA DIRI WARGA
 
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //link
 include("conn.php");
@@ -39,9 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $kecamatan     = $_POST['kecamatan'] ?? '';
   $kelurahan     = $_POST['kelurahan'] ?? '';
 
-  // validasi
-// $Cnik =CHAR_LENGTH($nik);
 
+  // validasi harus terpenuhi
   $required = [$nama, $nik, $email, $agama, $tempat_lahir, $ttl, $jk, $pekerjaan, $alamat, $provinsi, $kota, $kecamatan, $kelurahan];
   foreach ($required as $item) {
     if ($item === "") {
@@ -62,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
 
-  //foto
+  
   $file_name = $oldData['foto_profil'] ?? null;
   if (!empty($_FILES['profil']['name'])) {
     $ext = pathinfo($_FILES['profil']['name'], PATHINFO_EXTENSION);
@@ -72,31 +71,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       die("<script>alert('Format foto tidak valid!');history.back();</script>");
     }
 
+    // ubah nama file tergantung sama nik
     $file_name = $nik . "." . $ext;
     $upload_dir = "../uploads/" . $file_name;
+    // upload ke local dir
     move_uploaded_file($_FILES['profil']['tmp_name'], $upload_dir);
   }
-
-  // ESCAPE
-  function esc($conn, $v)
-  {
-    return mysqli_real_escape_string($conn, $v);
-  }
-
-  $nama      = esc($conn, $nama);
-  $email     = esc($conn, $email);
-  $alamat    = esc($conn, $alamat);
 
 
   //isi dara langsung
   if (!$isUpdate) {
 
-    $sql = "INSERT INTO data_diri 
+    $Q_inData = "INSERT INTO data_diri 
       (nama_lengkap, foto_profil, nik, email, agama, tempat_lahir, tanggal_lahir, jenis_kelamin, pekerjaan, alamat, provinsi, kabupaten, kecamatan, kelurahan, id_warga) 
       VALUES 
       ('$nama', '$file_name', '$nik', '$email', '$agama', '$tempat_lahir', '$ttl', '$jk', '$pekerjaan', '$alamat', '$provinsi', '$kota', '$kecamatan', '$kelurahan', '$id_warga')";
 
-    $insert = mysqli_query($conn, $sql);
+    $insert = mysqli_query($conn, $Q_inData);
 
     if ($insert) {
       // update status_data_diri
@@ -118,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //update data
   else {
 
-    $sql = "UPDATE data_diri SET
+    $Q_upData = "UPDATE data_diri SET
             nama_lengkap   = '$nama',
             foto_profil    = '$file_name',
             nik            = '$nik',
@@ -135,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             kelurahan      = '$kelurahan'
             WHERE id_warga = '$id_warga'";
 
-    $update = mysqli_query($conn, $sql);
+    $update = mysqli_query($conn, $Q_upData);
 
     if ($update) {
       echo "<script>

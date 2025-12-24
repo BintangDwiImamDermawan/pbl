@@ -2,9 +2,10 @@
 //link
 include ('../config/auth.php') ;
 include "../config/conn.php";
-//err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
+// //err
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //alert
 if(isset($_GET['note'])){
@@ -168,14 +169,14 @@ $id = $_SESSION['id_warga'];
 
             <?php
 
-            //list dokumens 
+            //Query ambil date nama status
             $query = "select *, date_format(tanggal, '%d %M %Y') as date, nama_dokumen, status, id_warga, komentar from dokumens where id_warga = $id";
-            $validasi = mysqli_query($conn, $query);
+            $sql = mysqli_query($conn, $query);
 
-            //tampil isi dokumens
-            if(mysqli_num_rows($validasi) > 0){
+            //tampil list dokumens
+            if(mysqli_num_rows($sql) > 0){
 
-            while ($row = mysqli_fetch_assoc($validasi)) {
+            while ($row = mysqli_fetch_assoc($sql)) {
 
             $get_status = $row['status'];
             $id_surat = $row['id_surat'];
@@ -183,7 +184,7 @@ $id = $_SESSION['id_warga'];
             $nama_petugas = $row['nama_petugas'];              
             $alasan = isset($row['komentar']) ? $row['komentar'] : 'Tidak ada keterangan.';
 
-            // Judul Dokumen
+            // merubah Judul Dokumen
             if($nama_dokumen == 'SKTM') $dok_title = "Surat Keterangan Tidak Mampu";
             elseif ($nama_dokumen == 'SKK') $dok_title = "Surat Keterangan Kematian";
             elseif ($nama_dokumen == 'SRM') $dok_title = "Surat Rumah";
@@ -194,20 +195,20 @@ $id = $_SESSION['id_warga'];
             $tombol_aksi = ""; 
 
 
-            //PENDING
+            //PENDING label kuning
             if ($get_status == 'PENDING' ){
             $status_label = "Diperiksa";
             $warna = "bg-warning text-black";
             $tombol_aksi = '<button class="btn btn-secondary btn-sm" disabled>Diproses</button>';
 
 
-            //DISETUJUI
+            //DISETUJUI label kuning
             }elseif ($get_status == 'DISETUJUI' ){
             $status_label = "Diperiksa";
             $warna = "bg-warning text-black";
             $tombol_aksi = '<button class="btn btn-secondary btn-sm" disabled>Diproses</button>';
 
-            //SELESAI
+            //SELESAI label hijau 
             } elseif ($get_status == "SELESAI") {
             $status_label = "Disetujui";
             $warna = "bg-success";
@@ -217,7 +218,7 @@ $id = $_SESSION['id_warga'];
             </a>';
 
             } else {
-            //DITOLAK
+            //DITOLAK label merah
             $status_label = "Ditolak";
             $warna = "bg-danger";
             $tombol_aksi = '<button type="button" 
@@ -231,6 +232,7 @@ $id = $_SESSION['id_warga'];
             </button>';
             }
 
+            //menampilkan list nya
             echo '
             <div class="riwayat-list">
             <div class="riwayat-card mt-3">
@@ -259,6 +261,9 @@ $id = $_SESSION['id_warga'];
       </div>
     </div>
 
+
+    <!-- MODAL / POP UP UNUTK MENAMPILKAN ALASAN -->
+     
     <div class="popup-overlay" id="reasonOverlay" onclick="closeReasonPopup()"></div>
     <div class="popup-box" id="reasonPopup">
       <div class="popup-header">

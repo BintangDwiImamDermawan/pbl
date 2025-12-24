@@ -3,19 +3,22 @@
 include("../config/conn.php");
 include('../config/auth.php');
 //ambil data diri
+
 $id = $_SESSION['id_warga'];
-$mysql = mysqli_query($conn,  "SELECT * FROM data_diri where  id_warga = $id ");
+$sql = mysqli_query($conn,  "SELECT * FROM data_diri where  id_warga = $id ");
 
-$data = mysqli_fetch_array($mysql);
 
-//editable for input form 
-if (mysqli_num_rows($mysql) === 1) {
+//ini deteksi ada data diri apa tidak
+if (mysqli_num_rows($sql) === 1) {
   $read = "readonly";
   $dis = "disabled";
 } else {
   $dis = "";
   $pilih = "Pilih";
 }
+
+//ambil data unutk di tampilkan
+$data = mysqli_fetch_array($sql);
 
 ?>
 
@@ -63,7 +66,7 @@ if (mysqli_num_rows($mysql) === 1) {
             <div class="profil-side">
               <div class="profil-avatar">
 
-                <?php if(mysqli_num_rows($mysql) > 0){ ?>
+                <?php if(mysqli_num_rows($sql) > 0){ ?>
                 <img style="border-radius:50%;" src=" ../uploads/<?= $data['foto_profil'] ?? "../assets/logo.svg"?>" height="100" width="100">
                 <?php }else{?>
                   <img style="border-radius:50%;" src=" ../assets/logo.svg" height="100" width="100">

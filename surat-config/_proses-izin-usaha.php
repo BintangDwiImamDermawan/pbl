@@ -1,7 +1,7 @@
 <?php 
 // error reporting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 // link config
 include "../config/conn.php";
@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $id = $_SESSION['id_warga'];
   $nik = $_POST['nik'];
 
-  // 1. Validasi NIK terdaftar
+  // validasi nik
   $Q_nik = mysqli_query($conn, "select nik from dokumen_izin_usaha where nik = $nik");
   if(mysqli_num_rows($Q_nik) > 0 ){
     echo "<script>
@@ -22,37 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     exit;
   }
 
-  // 2. LOGIKA VALIDASI UKURAN FILE (MAKS 1 MB)
-  $max_size = 1 * 1024 * 1024; // 1 MB dalam bytes
-  
-  // Daftar semua file yang wajib diperiksa
-  $files_to_check = [
-    'NPWP' => $_FILES['foto_npwp'],
-    'Surat Pengantar' => $_FILES['foto_pengantar'],
-    'KK' => $_FILES['foto_kk'],
-    'KTP' => $_FILES['foto_ktp'],
-    'Surat Domisili' => $_FILES['foto_surat_domisili'],
-    'Bukti' => $_FILES['foto_bukti']
-  ];
 
-  foreach ($files_to_check as $label => $file) {
-      // Cek jika ukuran melebihi 1MB
-      if ($file['size'] > $max_size) {
-          echo "<script>
-            alert('Gagal! Ukuran file $label terlalu besar (Maksimal 1 MB)');
-            window.history.back();
-          </script>";
-          exit;
-      }
-      // Cek jika file gagal upload atau kosong
-      if ($file['error'] !== UPLOAD_ERR_OK) {
-          echo "<script>
-            alert('Gagal! File $label bermasalah atau belum dipilih.');
-            window.history.back();
-          </script>";
-          exit;
-      }
-  }
 
   // Ambil data form
   $nama = $_POST['nama_lengkap'];
@@ -73,14 +43,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   // Query insert
   $query = "INSERT INTO `dokumen_izin_usaha`(`nik`, `nama_lengkap`, `nama_kbli`, `nomor_kbli`, `kecamatan`, `desa`, `alamat`, `foto_npwp`, `foto_pengantar`, `foto_kk`, `foto_ktp`, `foto_surat_domisili`, `foto_bukti`) VALUES ('$nik','$nama','$nama_kbli','$nomor_kbli','$kecamatan','$desa','$alamat','$foto_npwp','$foto_pengantar','$foto_kk','$foto_ktp','$foto_surat_domisili','$foto_bukti')";
 
-  $validasi = mysqli_query($conn, $query);
+  $sql = mysqli_query($conn, $query);
   
-  if($validasi){
-    // Ambil ID otomatis yang baru saja diinsert
-    $id_surat = mysqli_insert_id($conn);
-
-    $qry_dokumen = "INSERT INTO `dokumens`( `nama_dokumen`, `id_warga`, `nama_warga`,`id_surat`,`status`) VALUES ('SIU','$id','$nama','$id_surat' ,'PENDING')";
-    mysqli_query($conn, $qry_dokumen);
+  if($sql){
+  $id_surat = mysqli_insert_id($conn);
+    $Q_inDoks = "INSERT INTO `dokumens`( `nama_dokumen`, `id_warga`, `id_surat`,`nama_warga`,`status`) VALUES ('SIU','$id','$id_surat','$nama' ,'PENDING')";
+    mysqli_query($conn, $Q_inDoks);
 
     echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';
   } else {

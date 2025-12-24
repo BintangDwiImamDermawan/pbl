@@ -4,8 +4,8 @@ include "../config/conn.php";
 include "../config/auth.php";
 
 //err log
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //notif ok
 if (isset($_GET['note']) && $_GET['note'] === "success") {
@@ -198,13 +198,16 @@ $id = $_SESSION['id_admin'];
                                 <tbody>
                                     <?php
                                     $n = 1;
+                                    //guna ini membuat list tabel dari tabel petugas 
                                     $F_riwatat = mysqli_query($conn, "select * from petugas order by id_petugas DESC");
 
+                                    //membuat looping dari tabel
                                     if (mysqli_num_rows($F_riwatat) > 0) {
                                         while ($row = mysqli_fetch_assoc($F_riwatat)) {
                                             $idP = $row['id_petugas'];
                                             $F_data_diri = mysqli_query($conn, "select id_petugas from data_diri_petugas where id_petugas =$idP");
 
+                                            //mematikan dan menghidupkan btn 
                                             if (mysqli_num_rows($F_data_diri) > 0) {
                                                 $dis = "disabled";
                                                 $btnClass = "btn-secondary";
@@ -215,6 +218,7 @@ $id = $_SESSION['id_admin'];
                                                 $icon = "bi-pencil-square";
                                             }
 
+                                            //menampilkan data
                                             echo '
                                             <tr>
                                                 <td class="text-center text-muted fw-bold">' . $n++ . '</td>

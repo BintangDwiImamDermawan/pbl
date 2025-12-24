@@ -4,8 +4,8 @@
 include("conn.php");
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 
 session_start();
@@ -16,20 +16,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-  //admin
-  $Q_admin = "SELECT * from admin where email = '$email'";
-  $F_admin = mysqli_query($conn, $Q_admin);
+  //cek admin
+  $QcekAdmin = "SELECT * from admin where email = '$email'";
+  $cekAdmin = mysqli_query($conn, $QcekAdmin);
 
-  //petugas
-  $cek_petugas = "  SELECT * FROM petugas  WHERE email = '$email'";
-  $cekk = mysqli_query($conn, $cek_petugas);
+  //cek petugas
+  $QcekPetugas = "  SELECT * FROM petugas  WHERE email = '$email'";
+  $cekPetugas = mysqli_query($conn, $QcekPetugas);
 
   //warga
-  $sql_warga = "SELECT * FROM warga  WHERE email = '$email' ";
-  $result = mysqli_query($conn, $sql_warga);
+  $QcekWarga = "SELECT * FROM warga  WHERE email = '$email' ";
+  $cekWarga = mysqli_query($conn, $QcekWarga);
 
-if (mysqli_num_rows($F_admin) == 0 && mysqli_num_rows($cekk) == 0 && mysqli_num_rows($result) == 0) {
-    // Jika salah satu kosong atau gagal, lempar ke daftar.php
+  //validasi email belum ada
+if (mysqli_num_rows($cekAdmin) == 0 && mysqli_num_rows($cekPetugas) == 0 && mysqli_num_rows($cekWarga) == 0) {
     echo '<script>
             alert("Email tidak di temukan."); 
             window.location.href="../daftar.php";
@@ -39,18 +39,18 @@ if (mysqli_num_rows($F_admin) == 0 && mysqli_num_rows($cekk) == 0 && mysqli_num_
 
 
   //cek email petuggas
-  if (mysqli_num_rows($cekk) > 0) {
-    $data_cek = mysqli_fetch_assoc($cekk);
-    $cek_email = $data_cek['email'];
+  if (mysqli_num_rows($cekPetugas) > 0) {
+    $dataAdmin = mysqli_fetch_assoc($cekPetugas);
 
     //jika petugas cek pass
-    if (password_verify($password, $data_cek['password_petugas'])){
+    if (password_verify($password, $dataAdmin['password_petugas'])){
 
-      $_SESSION['id_petugas'] = $data_cek['id_petugas'];
-      $_SESSION['nama_petugas'] = $data_cek['nama_petugas'];
-      $_SESSION['email'] = $data_cek['email'];
+      $_SESSION['id_petugas'] = $dataAdmin['id_petugas'];
+      $_SESSION['nama_petugas'] = $dataAdmin['nama_petugas'];
+      $_SESSION['email'] = $dataAdmin['email'];
 
-      $user = $data_cek['nama_petugas'];
+      //ambil nama dari database unutk alert
+      $user = $dataAdmin['nama_petugas'];
       echo "<script>
       alert('Selamat datang $user')
       window.location.href = ' ../petugas/petugas-pending.php';</script>";
@@ -62,22 +62,24 @@ if (mysqli_num_rows($F_admin) == 0 && mysqli_num_rows($cekk) == 0 && mysqli_num_
       header("Location:../login.php?errpass=" . urlencode($errpass));
 
     }
-    //cek warga
-  } elseif (mysqli_num_rows($result) > 0) {
+
+    //cek email warga
+  } elseif (mysqli_num_rows($cekWarga) > 0) {
 
     //jika email warga
-    if (mysqli_num_rows($result) === 1) {
-      $data = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($cekWarga) === 1) {
+      $dataWarga = mysqli_fetch_assoc($cekWarga);
 
       //cek pass
-      if (password_verify($password, $data['password'])) {
+      if (password_verify($password, $dataWarga['password'])) {
 
-        $_SESSION['id_warga'] = $data['id_warga'];
-        $_SESSION['nama'] = $data['nama'];
-        $_SESSION['email'] = $data['email'];
-        $_SESSION['status'] = $data['status_data_diri'];
+        $_SESSION['id_warga'] = $dataWarga['id_warga'];
+        $_SESSION['nama'] = $dataWarga['nama'];
+        $_SESSION['email'] = $dataWarga['email'];
+        $_SESSION['status'] = $dataWarga['status_data_diri'];
 
-        $user = $data['nama'];
+        //ambil nama unutk alert
+        $user = $dataWarga['nama'];
         echo "<script>
         alert('Selamat datang $user');
         window.location.href = ' ../dashboard.php';</script>";
@@ -91,16 +93,17 @@ if (mysqli_num_rows($F_admin) == 0 && mysqli_num_rows($cekk) == 0 && mysqli_num_
     } 
 
     //cek email petugas
-  } elseif (mysqli_num_rows($F_admin) === 1) {
-    $data = mysqli_fetch_assoc($F_admin);
+  } elseif (mysqli_num_rows($cekPetugas) === 1) {
+    $dataPetugas = mysqli_fetch_assoc($cekPetugas);
 
     //cek pass
-    if ($password == $data['password']) {
-      $_SESSION['id_admin'] = $data['id_admin'];
-      $_SESSION['nama_admin'] = $data['nama_admin'];
-      $_SESSION['email'] = $data['email'];
+    if ($password == $dataPetugas['password']) {
+      $_SESSION['id_admin'] = $dataPetugas['id_admin'];
+      $_SESSION['nama_admin'] = $dataPetugas['nama_admin'];
+      $_SESSION['email'] = $dataPetugas['email'];
 
-      $user = $data['nama_admin'];
+      //ambil nama unutk alert
+      $user = $dataPetugas['nama_admin'];
       echo "<script>
       alert('Selamat datang $user');
       window.location.href = ' ../admin/dashboard-admin.php';</script>";

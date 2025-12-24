@@ -4,17 +4,17 @@
 include 'config/auth.php';
 include "config/conn.php";
 
-//err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// //err
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //validasi data diri
 $id = $_SESSION['id_warga'];
-$cekStatus = mysqli_query($conn, "select status_data_diri from warga where id_warga = $id");
-$data = mysqli_fetch_assoc($cekStatus);
+$S_cekSta = mysqli_query($conn, "select status_data_diri from warga where id_warga = $id");
+$data = mysqli_fetch_assoc($S_cekSta);
 
+//jika ada maka ke riwayat ! ke halaman profil
 if (!empty($data['status_data_diri'])) {
-  // masuk ke riwayat / profil 
   $warga = "warga/riwayat.php";
 } else {
   $daftar = "warga/profil.php";

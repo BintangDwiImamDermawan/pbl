@@ -5,8 +5,8 @@ include "../config/conn.php";
 include('../config/auth.php');
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //validasi login
 if (!isset($_SESSION['id_petugas'])) {
@@ -18,12 +18,12 @@ $id = $_SESSION['id_petugas'];
 $nama = $_SESSION['nama_petugas'];
 
 //ambil unutuk tampilkan data diri petugas
-$qry = "SELECT * FROM data_diri_petugas where  id_petugas = $id ";
-$mysql = mysqli_query($conn, $qry);
+$Q_DataDiriP = "SELECT * FROM data_diri_petugas where  id_petugas = $id ";
+$mysql = mysqli_query($conn, $Q_DataDiriP);
 $data = mysqli_fetch_array($mysql);
 
-$read = "readonly";
-$dis = "disabled";
+$read = "readonly" ;
+$dis = "disabled" ;
 
 
 ?>
@@ -71,7 +71,7 @@ $dis = "disabled";
           <div class="profil-side">
             <div class="profil-avatar">
               <!-- <i class="bi bi-person-circle"></i> -->
-              <img style="border-radius:50%;" src="../uploads-petugas/<?= $data['foto_profil'] ?> " height="100" width="100">
+              <img style="border-radius:50%;" src="../uploads-petugas/<?= $data['foto_profil'] ?? ''?> " height="100" width="100">
             </div>
             <h3>Halo <?= $nama ?></h3>
           </div>

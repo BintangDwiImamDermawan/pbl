@@ -7,10 +7,10 @@ include "../config/conn.php";
 include('../config/auth.php');
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
-//validasi login
+//validasi login petugas
 if (!isset($_SESSION['id_petugas'])) {
   echo "<script>alert('Anda tidak memiliki akses ke halaman ini!'); window.location='../login.php';</script>";
   exit();
@@ -109,7 +109,7 @@ if (!isset($_SESSION['id_petugas'])) {
 
                         while ($row = mysqli_fetch_assoc($validasi)) {
 
-                          //validasu per dokumen
+                          //validasi per dokumen
                           $nama_dokumen = $row['nama_dokumen'];
                           if ($nama_dokumen == 'SKTM') {
                             $dok_title = "Surat Keterangan Tidak Mampu";

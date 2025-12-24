@@ -12,36 +12,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $id = $_SESSION['id_warga'];
   $nik = $_POST['nik'];
 
-  // 1. Validasi NIK Terdaftar
+  // alidasi nik
   $Q_nik = mysqli_query($conn, "select nik from dokumen_domisili where nik = $nik");
   if(mysqli_num_rows($Q_nik) > 0 ){
     echo "<script>alert('NIK SUDAH TERDAFTAR SEBELUMNYA'); window.location.href = '../surat/surat-domisili.php';</script>";
-    exit; // Berhenti eksekusi
-  }
-
-  // 2. LOGIKA VALIDASI UKURAN FILE (MAKS 1 MB)
-  $max_size = 1 * 1024 * 1024; // 1 MB dalam bytes
-  
-  $files = [
-    'Surat Pengantar' => $_FILES['foto_surat_pengantar'],
-    'Kartu Keluarga' => $_FILES['foto_kk'],
-    'Pas Foto' => $_FILES['foto_pas']
-  ];
-
-  foreach ($files as $label => $file) {
-      if ($file['size'] > $max_size) {
-          echo "<script>
-          alert('Gagal! Ukuran file $label terlalu besar (Maksimal 1 MB)');
-          window.location.href = '../surat/surat-domisili.php';
-          </script>";
-          exit; // Menghentikan proses jika ada file yang terlalu besar
-      }
-      
-      // Opsional: Cek jika file kosong/tidak diupload
-      if ($file['error'] == 4) {
-          echo "<script>alert('Mohon unggah semua file yang diperlukan'); window.location.href = '../surat/surat-domisili.php';</script>";
-          exit;
-      }
+    exit; 
   }
 
   // Jika lolos validasi, ambil data

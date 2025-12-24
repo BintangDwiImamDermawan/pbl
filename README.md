@@ -80,4 +80,4 @@ Terima kasih kepada seluruh anggota tim yang telah berkontribusi dalam pengemban
 ## ⚙️ Cara Instalasi
 1. Clone repositori ini:
    ```bash
-   git clone [https://github.com/BintangDwiImamDermawan/pbl.git](https://github.com/BintangDwiImamDermawan/pbl.git)
+   git clone https://github.com/BintangDwiImamDermawan/pbl.git

@@ -12,15 +12,15 @@ if (!isset($_SESSION['id_petugas'])) {
     exit();
 }
 
-// --- 2. AMBIL DATA DARI URL ---
-$id_dok = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-$dok    = isset($_GET['dok']) ? $_GET['dok'] : '';
+//ambil dari url dan get
+$id_dok = $_GET['id'];
+$dok    = $_GET['dok'];
 
-// --- 3. LOGIKA PEMILIHAN TABEL & DATA ---
 $namaDokumen = "";
 $data = [];
 $query = "";
 
+//ini jika dok yang di pilih == SKTM maka data yang di tampilkan sktm 
 switch ($dok) {
     case 'SKTM':
         $namaDokumen = "Surat Keterangan Tidak Mampu";
@@ -48,8 +48,8 @@ switch ($dok) {
 }
 
 // Eksekusi Query
-$ambil = mysqli_query($conn, $query);
-$data  = mysqli_fetch_assoc($ambil);
+$Q_Surat = mysqli_query($conn, $query);
+$data  = mysqli_fetch_assoc($Q_Surat);
 
 // Cek jika data tidak ditemukan
 if (!$data) {
@@ -57,7 +57,10 @@ if (!$data) {
     exit();
 }
 
-// Fungsi bantu untuk membuat tombol lihat file (agar kodingan HTML lebih bersih)
+/*
+    guna funsi tombolLihat untuk mempermudah penulisan html yang sangat panjang
+    nannti jika tombol ditekan maka akan di ARAHKAN KE HALAMAN detail.php
+*/
 function tombolLihat($id, $dok, $kode, $icon = 'bi-image') {
     return '<a class="btn-link-file" href="detail.php?id='.$id.'&dok='.$dok.'&a='.$kode.'" target="_blank">
                 <i class="bi '.$icon.'"></i> Lihat File

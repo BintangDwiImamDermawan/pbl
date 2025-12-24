@@ -4,15 +4,15 @@ include "../config/conn.php";
 include('../config/auth.php');
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //validasi login
 if (!isset($_SESSION['id_petugas'])) {
   echo "<script>alert('Anda tidak memiliki akses ke halaman ini!'); window.location='../login.php';</script>";
   exit();
 }
-
+//ambil nama petugas untuk 
 $nama_petugas = $_SESSION['nama_petugas'];
 
 //alert
@@ -110,9 +110,10 @@ if (isset($_GET['status']) == "berhasil") {
                   <tbody>
 
                     <?php
+                    //  MENAMPILKAN DATA DALAM BENTUK LIST
 
                     //ambil data dari dokumen
-                    $query = "select date_format(tanggal, '%d %M %Y') as date, nama_dokumen,  status, id_warga, nama_warga, id_surat from dokumens where status = 'PENDING' order by date DESC";
+                    $query = "SELECT date_format(tanggal, '%d %M %Y') as date, nama_dokumen,  status, id_warga, nama_warga, id_surat from dokumens where status = 'PENDING' order by tanggal DESC";
                     $validasi = mysqli_query($conn, $query);
 
                     // tampilkan data 
@@ -145,9 +146,9 @@ if (isset($_GET['status']) == "berhasil") {
 
                       <form class="" method="POST" action="../petugas-config/_proses_status.php" id="formAlasan">
 
-                      <input type="hidden" name="idPetugas" id="idPetugas" value="' . $_SESSION['id_petugas'] . '">
-                      <input type="hidden" name="idSurat" id="idSurat" value="' . $row['id_surat'] . '">
-                      <input type="hidden" name="nama_dokumen" id="nama_dokumen" value="' . $nama_dokumen . '">
+                      <input type="hidden" name="idPetugas" id="idPetugas" value="'. $_SESSION['id_petugas']. '">
+                      <input type="hidden" name="idSurat" id="idSurat" value="'. $row['id_surat']. '">
+                      <input type="hidden" name="nama_dokumen" id="nama_dokumen" value="'. $nama_dokumen . '">
 
                       <input type="hidden" name="petugas" id="hidden_petugas">
                       <input type="hidden" name="alasan" id="hidden_alasan">

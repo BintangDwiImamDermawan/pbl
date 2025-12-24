@@ -4,8 +4,8 @@ include "../config/conn.php";
 include "../config/auth.php";
 
 //err log
-error_reporting(E_ALL);
-ini_set('display_errors', 3);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 3);
 
 //notif ok
 if (isset($_GET['note'])) {
@@ -23,10 +23,11 @@ $jk = $_POST['jk'];
 $hp = $_POST['hp'];
 
 //insert data data_diri_petugas
-$Q_petugas = "INSERT INTO data_diri_petugas (id_petugas, nama_lengkap, nomor, email, tempat_lahir, tanggal_lahir, jenis_kelamin)VALUES($id, '$nama', '$hp', '$email', '$tl', '$tgl', '$jk')";
-$F_petugas = mysqli_query($conn, $Q_petugas);
+$query = "INSERT INTO data_diri_petugas (id_petugas, nama_lengkap, nomor, email, tempat_lahir, tanggal_lahir, jenis_kelamin)VALUES($id, '$nama', '$hp', '$email', '$tl', '$tgl', '$jk')";
+$insert = mysqli_query($conn, $query);
 
-if ($F_petugas) {
+//jika oke ke back dengan refresh
+if ($insert) {
   header("Refresh:0; url=../admin/tambah-petugas.php?note=success");
 }
 ?>

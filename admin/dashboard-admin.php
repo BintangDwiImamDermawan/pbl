@@ -4,8 +4,8 @@ include "../config/conn.php";
 include "../config/auth.php";
 
 //err log
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //notif ok
 if (isset($_GET['note'])) {
@@ -231,12 +231,12 @@ body {
           <?php
           $id = $_SESSION['id_admin'];
 
-          //ambil total surat tabel dokumens
+          //ambil banyak total surat tabel dokumens
           $Q_totalSurat = "select count(nama_dokumen) as banyakDOK from dokumens ";
           $F_totalSurat = mysqli_query($conn, $Q_totalSurat);
           $totalSurat = mysqli_fetch_assoc($F_totalSurat);
 
-          //ambil total Petugas tabel petugas
+          //ambil banyak  total Petugas tabel petugas
           $Q_petuggas = "select count(nama_petugas) as banyakPET from petugas";
           $F_petugas = mysqli_query($conn, $Q_petuggas);
           $totalPET = mysqli_fetch_assoc($F_petugas);

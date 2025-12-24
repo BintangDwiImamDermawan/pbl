@@ -36,9 +36,9 @@ if($id_surat && $jenis_surat && $id_warga) {
     $tahun_surat = date('Y', strtotime($tgl_basis));
     $romawi      = getRomawi($bulan_surat);
 
-    $q_urutan = mysqli_query($conn, "SELECT COUNT(*) as no_urut FROM dokumens WHERE nama_dokumen = '$jenis_surat' AND (status = 'SELESAI' OR status = 'DISETUJUI') AND id_surat <= '$id_surat'");
+    $q_urutan = mysqli_query($conn, "SELECT COUNT(nama_dokumen) as no_urut FROM dokumens WHERE nama_dokumen = '$jenis_surat' AND status = 'SELESAI'  ");
     $r_urutan = mysqli_fetch_assoc($q_urutan);
-    $no_urut_str = sprintf("%03d", $r_urutan['no_urut']);
+    $no_urut_str = sprintf("%03d", $r_urutan['no_urut'] +1 );
     $hasil_no_surat = $no_urut_str . " / " . $jenis_surat . " / " . $romawi . " / " . $tahun_surat;
   } else {
     $hasil_no_surat = "000 / XXX / X / " . date('Y');
@@ -124,7 +124,7 @@ if($id_surat && $jenis_surat && $id_warga) {
       width: 210mm; 
       min-height: 297mm; 
       padding: 20mm 25mm; 
-      margin-top: 60px; 
+      margin-top: 30px; 
       margin-bottom: 20px; 
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
       position: relative; 

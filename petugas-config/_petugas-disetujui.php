@@ -3,15 +3,10 @@
 include "../config/conn.php";
 include('../config/auth.php');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require '../vendor/autoload.php';
-
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //validasi login
 if (!isset($_SESSION['id_petugas'])) {
@@ -25,45 +20,11 @@ if (isset($_GET['id'])) {
   $nama_dok = $_GET['dok'];
   $id_warga = $_GET['idw'];
 
-  $mail = new PHPMailer(true);
 
-  //ambil email dari table data_diri
-  $Q = "SELECT dd.email 
-  FROM dokumens d
-  JOIN warga w ON d.id_warga = w.id_warga
-  JOIN data_diri dd ON w.id_warga = dd.id_warga
-  WHERE w.id_warga = $id_warga 
-  LIMIT 1";
-  $F = mysqli_query($conn, $Q);
-  $D = mysqli_fetch_assoc($F);
-  try {
+  $Q_update = "UPDATE dokumens SET status = 'SELESAI', pada = NOW()  WHERE id_surat = '$id_surat' and nama_dokumen = '$nama_dok' and id_warga ='$id_warga'";
 
-    // Konfigurasi SMTP
-    $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-
-    //ganti email sesuai dengan kebutuhan
-    $mail->Username   = 'fajrinurpras07@gmail.com';
-    //app key dari gmail
-    $mail->Password   = 'xkzb fsjv lher vriu';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = 465;
-
-    // Penerima
-    $email = $D['email'];
-    $mail->setFrom('faleftplays@gmail.com', 'Admin Kelurahan');
-    $mail->addAddress($email, 'Warga');
-
-    // Uabah isi sesuia dengan apa yang di anjurkan
-    $mail->isHTML(true);
-    $mail->Subject = 'Pemberitahuan Surat';
-    $mail->Body    = 'Halo tuan ini surat anda sudah selesai dan bisa di unduh pada web pengajuan http://localhost/pblC/login.php';
-
-    $mail->send();
-    $query = "UPDATE dokumens SET status = 'SELESAI' WHERE id_surat = '$id_surat' and nama_dokumen = '$nama_dok'";
-
-    if (mysqli_query($conn, $query)) {
+  $S_update = mysqli_query($conn, $Q_update);
+    if ($S_update) {
       echo "<script> 
       alert('Surat berhasil dikirim ke Warga!');
       window.location.href = '../petugas/petugas-disetujui.php'; 
@@ -74,11 +35,5 @@ if (isset($_GET['id'])) {
       window.history.back();
       </script>";
     }
-
-    echo 'Sukses! Email berhasil dikirim.';
-
-    //email gagal terkirim
-  } catch (Exception $e) {
-    echo "<script>alert('Email Tidak Terdaftar!'); window.location='../petugas/petugas-disetujui.php';</script>";
-  }
+ 
 }

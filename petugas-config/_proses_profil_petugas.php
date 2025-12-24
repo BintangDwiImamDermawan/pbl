@@ -4,8 +4,8 @@ include "../config/conn.php";
 include ('../config/auth.php') ;
 
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //validasi login
 if (!isset($_SESSION['id_petugas'])) {
@@ -29,11 +29,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   move_uploaded_file($profil_tmp, $upload_dir);  
 
 
-  $qury = "UPDATE  data_diri_petugas SET foto_profil = '$file_name' where id_petugas = $id";
-  $cek = mysqli_query($conn, $qury);
+  $Q_update = "UPDATE  data_diri_petugas SET foto_profil = '$file_name' where id_petugas = $id";
+  $sql = mysqli_query($conn, $Q_update);
 
-  if($cek){
-    $_SESSION['status'] = 1;
+  if($sql){
     header("Location:../petugas/petugas-profil.php");
     echo "<script> alert('Data berhasil ditambahkan!')
     </script>;";

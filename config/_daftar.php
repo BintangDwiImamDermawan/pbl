@@ -1,7 +1,7 @@
 <?php
 //err
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 //link
 include("conn.php");
@@ -27,9 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //enkripsi pass
     $Password = password_hash($password, PASSWORD_DEFAULT);
 
-    //validasi cek email
-    $check_status = mysqli_query($conn, "SELECT * FROM `warga` WHERE email = '$email'");
-    if (mysqli_num_rows($check_status) > 0) {
+    // cek email
+    $cekEmail = mysqli_query($conn, "SELECT * FROM `warga` WHERE email = '$email'");
+
+    if (mysqli_num_rows($cekEmail) > 0) {
 
       echo "<script>alert('email sudah terdaftar'); window.location.href='../login.php'</script>"; 
 
