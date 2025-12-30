@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $nik = $_POST['nik'];
 
   // validasi nik
-  $Q_nik = mysqli_query($conn, "select nik from dokumen_izin_usaha where nik = $nik");
+  $Q_nik = mysqli_query($conn, "SELECT nik from dokumen_izin_usaha where nik = $nik");
   if (mysqli_num_rows($Q_nik) > 0) {
     echo "<script>
       alert('NIK SUDAH TERDAFTAR SEBELUMNYA');

@@ -70,12 +70,12 @@ include '../config/auth.php';
                     <label for="agama" class="form-label fw-bold">Agama</label>
                     <select class="form-select fw-medium" name="agama" id="agama" required>
                       <option selected aria-readonly="agama" >Agama</option>
-                      <option value="1">Islam</option>
-                      <option value="2">Kristen</option>
-                      <option value="3">Katholik</option>
-                      <option value="4">Buddha</option>
-                      <option value="5">Hindu</option>
-                      <option value="6">Konghucu</option>
+                      <option value="Islam">Islam</option>
+                      <option value="Kristen">Kristen</option>
+                      <option value="Katholik">Katholik</option>
+                      <option value="Buddha">Buddha</option>
+                      <option value="Hindu">Hindu</option>
+                      <option value="Konghucu">Konghucu</option>
                     </select>
                   </div>
                   <div class="col-md-6">
@@ -83,9 +83,14 @@ include '../config/auth.php';
                     <input type="text" name="pekerjaan" class="form-control" id="pekerjaan" placeholder="Pekerjaan" required>
 
                   </div>
-                  <div class="col-md-12 mt-5 ">
+                  <div class="col-md-6 mt-5 ">
                     <label for="alamat" class="form-label fw-bold">Alamat</label>
                     <textarea name="alamat" cols="5" rows="5" class="form-control" placeholder="Masukkan alamat" id="alamat"
+                      required></textarea>
+                  </div>
+                  <div class="col-md-6 mt-5 ">
+                    <label for="alamat" class="form-label fw-bold">Alamat Pindah</label>
+                    <textarea name="alamat_pindah" cols="5" rows="5" class="form-control" placeholder="Masukkan alamat" id="alamat"
                       required></textarea>
                   </div>
 

@@ -22,14 +22,17 @@ body {
 /* =========NAVBAR========== */
 
 nav {
+    /* content: ""; */
     background-image: url(../assets/bg4.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 1;
+    
     /* height: 65px; */
    
 }
+
 .navbar{
     padding: 0;
 }
@@ -97,8 +100,9 @@ nav {
     border: none;
     text-decoration: none;
 }
+
 .nav-item .tombol:hover{
-    color:rgb(228, 156, 156) !important;
+    color:rgb(255, 255, 255) !important;
 }
 .nav-item a:hover{
     color: #615c5c !important;
@@ -235,7 +239,7 @@ main {
 /* ============FOOTER======= */
 
 footer {
-    background-color: rgba(108, 85, 154, 0.6);
+    background-color: #1c1c1c;
     height: 50px;
     display: flex;
     align-items: center;
@@ -252,14 +256,18 @@ footer p {
 
 
 @media screen and (max-width: 768px) {
-
+    .nav-item{
+        border-bottom: 1px solid rgba(225, 225, 225, 0.555);
+    }
+    .nav-item:last-child{
+        padding:20px 0;
+        border:0;
+    }
     .logo {
         scale: 0.9;
     }
 
-    .dashboard-content {
-        /* margin-top: 90px; */
-    }
+
 
     .dashboard-content h1 {
         font-size: 2.2rem;
@@ -311,8 +319,6 @@ footer p {
 @media screen and (max-width: 576px) {
 
 
-    .container-fluid {
-        padding:0 20px !important;
-    }
+  
 
 }

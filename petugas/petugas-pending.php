@@ -151,13 +151,13 @@ if (isset($_GET['status']) == 'berhasil') {
                       <input type="hidden" name="petugas" id="hidden_petugas">
                       <input type="hidden" name="alasan" id="hidden_alasan">
 
-                      <select id="status" name="status" class="btn btn-light me-2 my-2" required>
+                      <select id="status" name="status" class="btn btn-info me-2 my-2" required>
                       <option value="">Pilih Status</option>
                       <option value="disetujui">Disetujui</option>
                       <option value="ditolak">Ditolak</option>
                       </select>
 
-                      <button  type="button" class="btn btn-info float-center px-2 py-1"  onclick="tolakSurat()">Alasan</button>
+                      <button  type="button" class="btn btn-warning float-center px-2 py-1"  onclick="tolakSurat()">Alasan</button>
                       </form>
 
                       </td>

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $nik = $_POST['nik'];
 
   // alidasi nik
-  $Q_nik = mysqli_query($conn, "select nik from dokumen_domisili where nik = $nik");
+  $Q_nik = mysqli_query($conn, "SELECT nik from dokumen_domisili where nik = $nik");
 
   if (mysqli_num_rows($Q_nik) > 0) {
     echo "<script>alert('NIK SUDAH TERDAFTAR SEBELUMNYA'); window.location.href = '../surat/surat-domisili.php';</script>";
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $agama = $_POST['agama'];
   $pekerjaan = $_POST['pekerjaan'];
   $alamat = $_POST['alamat'];
-
+  $alamat_pindah = $_POST['alamat_pindah'];
   // Baca konten file
   $foto_surat_pengantar = addslashes(file_get_contents($_FILES['foto_surat_pengantar']['tmp_name']));
   $foto_kk = addslashes(file_get_contents($_FILES['foto_kk']['tmp_name']));
@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Query insert
   $query = "INSERT INTO `dokumen_domisili`(`nik`, `nama_lengkap`, `agama`, `pekerjaan`, 
-  `alamat`, `foto_surat_pengantar`, `foto_kk`, `foto_pas`) VALUES ('$nik','$nama',
-  '$agama','$pekerjaan','$alamat','$foto_surat_pengantar','$foto_kk','$foto_pas')";
+  `alamat`,`alamat_pindah`, `foto_surat_pengantar`, `foto_kk`, `foto_pas`) VALUES ('$nik','$nama',
+  '$agama','$pekerjaan','$alamat','$alamat_pindah','$foto_surat_pengantar','$foto_kk','$foto_pas')";
 
   $validasi = mysqli_query($conn, $query);
 

@@ -24,7 +24,7 @@ if ($id == 0 || empty($dok) || empty($apa)) {
 }
 
 // ini untuk pemilihan jenis  surat
-// kolom itu merupakan jenis foto
+// kodi ini  merupakan penenetuan  jenis foto
 
 // 1. SKTM
 if ($dok == 'SKTM') {

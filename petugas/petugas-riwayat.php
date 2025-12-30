@@ -210,20 +210,33 @@ if (!isset($_SESSION['id_petugas'])) {
                             $dis = '';
                           }
 
+                          $nama_dokumen = $row['nama_dokumen'];
+                          if ($nama_dokumen == 'SKTM') {
+                            $dok_title = 'Surat Keterangan Tidak Mampu';
+                          } elseif ($nama_dokumen == 'SKK') {
+                            $dok_title = 'Surat Keterangan Kematian';
+                          } elseif ($nama_dokumen == 'SRM') {
+                            $dok_title = 'Surat Rumah';
+                          } elseif ($nama_dokumen == 'SIU') {
+                            $dok_title = 'Surat Izin Usaha';
+                          } else {
+                            $dok_title = 'Surat Domisili';
+                          }
                           $alasan = isset($row['komentar']) ? $row['komentar'] : '-';
 
                           echo '
                         <tr>
                         <td class="bg-light text-black">' . $n++ . '</td>
                         <td>' . $row['nama_warga'] . '</td>
-                        <td>' . $row['nama_dokumen'] . '</td>
+                        <td>' . $dok_title . '</td>
                         <td>' . $row['tgl'] . '</td>
                         <td class=""><label class="' . $bg . '">' . $row['status'] . '</label></td>
                         <td>' . $row['kpn'] . '</td>
                         <td>
                         
                         <button type="button" ' . $dis . '
-                        class="btn btn-sm btn-light  text-black fw-bold"
+                        class="btn btn-sm btn-secondary
+                          text-light fw-bold"
                         onclick="openPopup(this)"
                         data-nama="' . $row['nama_petugas'] . '"
                         data-kapan="' . $row['kpn'] . '"

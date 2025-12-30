@@ -120,7 +120,7 @@ include '../config/auth.php';
 
                 <div class="row mt-3">
                   <div class="col-md-6 form-file-group mt-3">
-                    <label for="suratPernyataan" class="form-label fs-5 "
+                    <label for="suratPernyataan" class="form-label  "
                     >Surat Pernyataan tidak mampu dari RT/RW</label
                     >
                     <input

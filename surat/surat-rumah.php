@@ -90,7 +90,7 @@ include '../config/auth.php';
                   kapasitas maksimum 1Mb
                 </p>
 
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col-md-6 form-file-group">
                     <label for="suratPernyataan" class="form-label">Sertifikat Tanah</label>
                     <input class="form-control" type="file" id="suratPernyataan" name="foto_sertifikat" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
@@ -101,7 +101,7 @@ include '../config/auth.php';
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col-md-6 form-file-group">
                     <label for="kk" class="form-label">Kartu Keluarga (KK)</label>
                     <input name="foto_kk" class="form-control" type="file" id="kk" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">
@@ -112,7 +112,7 @@ include '../config/auth.php';
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col-md-6 form-file-group">
                     <label for="pembayaranpajak" class="form-label">Bukti Pembayaran Pajak Bumi dan Bangunan</label>
                     <input class="form-control" type="file" id="pembayaranpajak" name="foto_BPPBB" accept=".jpg,.jpeg,.png,.pdf" required onchange="validateSize(this)">

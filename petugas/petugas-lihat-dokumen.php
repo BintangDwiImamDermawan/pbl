@@ -40,7 +40,6 @@ switch ($dok) {
         $query = "SELECT * FROM dokumen_izin_usaha WHERE id_surat = $id_dok LIMIT 1";
         break;
     default:
-        // Default ke Surat Domisili jika dok tidak dikenali atau kosong
         $namaDokumen = 'Surat Domisili';
         $dok = 'SDM';  // Standardisasi kode
         $query = "SELECT * FROM dokumen_domisili WHERE id_surat = $id_dok LIMIT 1";
@@ -163,6 +162,7 @@ function tombolLihat($id, $dok, $kode, $icon = 'bi-image')
                                         <tr><th>Kecamatan</th> <td><?= htmlspecialchars($data['kecamatan']) ?></td></tr>
                                         <tr><th>Desa / Kelurahan</th> <td><?= htmlspecialchars($data['desa']) ?></td></tr>
                                         <tr><th>Alamat</th> <td><?= htmlspecialchars($data['alamat']) ?></td></tr>
+                                        
                                         <tr><th>Foto NPWP</th> <td><?= tombolLihat($id_dok, $dok, 'fnpwp') ?></td></tr>
                                         <tr><th>Surat Pengantar RT</th> <td><?= tombolLihat($id_dok, $dok, 'fsp') ?></td></tr>
                                         <tr><th>Foto KK</th> <td><?= tombolLihat($id_dok, $dok, 'fkk') ?></td></tr>
@@ -176,15 +176,10 @@ function tombolLihat($id, $dok, $kode, $icon = 'bi-image')
                                     <?php else: ?>
                                         <tr><th>NIK</th> <td><?= htmlspecialchars($data['nik']) ?></td></tr>
                                         <tr><th>Nama Lengkap</th> <td><?= htmlspecialchars($data['nama_lengkap']) ?></td></tr>
-                                        <tr><th>Agama</th> <td>
-                                            <?php
-                                            // Mapping Kode Agama (Opsional, sesuaikan dgn DB)
-                                            $agamaArr = [1 => 'Islam', 2 => 'Kristen', 3 => 'Katholik', 4 => 'Buddha', 5 => 'Hindu', 6 => 'Konghucu'];
-                                            echo isset($agamaArr[$data['agama']]) ? $agamaArr[$data['agama']] : $data['agama'];
-                                            ?>
-                                        </td></tr>
+                                        <tr><th>Agama</th> <td><?= htmlspecialchars($data['agama']) ?></td></tr>
                                         <tr><th>Pekerjaan</th> <td><?= htmlspecialchars($data['pekerjaan']) ?></td></tr>
                                         <tr><th>Alamat</th> <td><?= htmlspecialchars($data['alamat']) ?></td></tr>
+                                        <tr><th>Alamat Pindah</th> <td><?= htmlspecialchars($data['alamat_pindah']) ?></td></tr>
                                         <tr><th>Surat Pengantar RT</th> <td><?= tombolLihat($id_dok, $dok, 'fsp') ?></td></tr>
                                         <tr><th>Foto KK</th> <td><?= tombolLihat($id_dok, $dok, 'fkk') ?></td></tr>
                                         <tr>

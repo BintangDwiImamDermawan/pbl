@@ -50,7 +50,7 @@ if (!empty($data['status_data_diri'])) {
         </button>
         <div class="profile-btn">
 
-          <a href="<?= $daftar ?? $warga ?>" class="profile-icon">
+          <a href="warga/profil.php" class="profile-icon">
             <i class="bi bi-person-circle"></i>
           </a>
         </div>

@@ -59,8 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // foto logic
-  $file_name = $oldData['foto_profil'] ?? null;  // Default pakai foto lama
-
+  $file_name = $oldData['foto_profil'] ?? null;  
   if (!empty($_FILES['profil']['name'])) {
     $file_tmp = $_FILES['profil']['tmp_name'];
     $file_size = $_FILES['profil']['size'];

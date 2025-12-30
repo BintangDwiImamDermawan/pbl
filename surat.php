@@ -29,7 +29,7 @@ function getRomawi($bln)
   return isset($romawi[(int) $bln]) ? $romawi[(int) $bln] : '';
 }
 
-// LOGIKA PENGAMBILAN DATA (Sama seperti sebelumnya)
+// LOGIKA PENGAMBILAN DATA
 if ($id_surat && $jenis_surat && $id_warga) {
   $q_main = mysqli_query($conn, "SELECT pada, tanggal FROM dokumens WHERE id_surat = '$id_surat'");
   $r_main = mysqli_fetch_assoc($q_main);
@@ -48,8 +48,6 @@ if ($id_surat && $jenis_surat && $id_warga) {
     $hasil_no_surat = '000 / XXX / X / ' . date('Y');
   }
 
-  $q_profil = mysqli_query($conn, "SELECT * FROM data_diri WHERE id_warga = '$id_warga'");
-  $row_profil = mysqli_fetch_assoc($q_profil);
 
   $tabel_surat = '';
   switch ($jenis_surat) {
@@ -81,6 +79,9 @@ if ($id_surat && $jenis_surat && $id_warga) {
     $row_surat = mysqli_fetch_assoc($q_surat);
   }
 
+  $q_profil = mysqli_query($conn, "SELECT * FROM data_diri WHERE id_warga = '$id_warga'");
+  $row_profil = mysqli_fetch_assoc($q_profil);
+
   if ($row_profil || $row_surat) {
     $nama = $row_profil['nama_lengkap'] ?? $row_surat['nama_lengkap'] ?? '-';
     $nik = $row_profil['nik'] ?? $row_surat['nik'] ?? '-';
@@ -99,11 +100,18 @@ if ($id_surat && $jenis_surat && $id_warga) {
       $umur = $diff->y . ' Tahun';
     }
 
+    // --- BAGIAN PENAMBAHAN LOGIKA STATUS PERKAWINAN ---
+    $status_perkawinan_final = "Belum Menikah";
+    if (!empty($row_surat['foto_akte_nikah'])) {
+        $status_perkawinan_final = "Kawin";
+    }
+
     $data_umum = [
       'nomor_surat' => $hasil_no_surat, 'Nama' => $nama, 'NIK' => $nik, 'Jenis Kelamin' => $jk,
       'Pekerjaan' => $pekerjaan, 'Agama' => $agama, 'Alamat' => $alamat,
       'Tempat, Tanggal Lahir' => $ttl_gabung, 'Umur' => $umur,
-      'Kewarganegaraan' => 'Indonesia', 'Status Perkawinan' => 'Kawin'
+      'Kewarganegaraan' => 'Indonesia', 
+      'Status Perkawinan' => $status_perkawinan_final 
     ];
 
     switch ($jenis_surat) {
@@ -115,10 +123,15 @@ if ($id_surat && $jenis_surat && $id_warga) {
         $template_mode = 'sktm';
         $data_final = $data_umum;
         break;
-      case 'SIU':
-        $template_mode = 'usaha';
-        $data_final = array_merge($data_umum, ['Jenis usaha' => $row_surat['nama_kbli'] ?? '-', 'Kode KBLI' => $row_surat['nomor_kbli'] ?? '-', 'Nama KBLI' => $row_surat['nama_kbli'] ?? '-']);
-        break;
+        case 'SIU':
+          $template_mode = 'usaha';
+          // Pastikan key ini SAMA PERSIS dengan yang dipanggil di JavaScript templates.usaha.extraFields
+          $data_final = array_merge($data_umum, [
+              'Jenis usaha' => !empty($row_surat['nama_kbli']) ? $row_surat['nama_kbli'] : '-',
+              'Kode KBLI'   => !empty($row_surat['nomor_kbli']) ? $row_surat['nomor_kbli'] : '-',
+              'Nama KBLI'   => !empty($row_surat['nama_kbli']) ? $row_surat['nama_kbli'] : '-'
+          ]);
+          break;
       case 'SRM':
         $template_mode = 'rumah';
         $data_final = $data_umum;
@@ -228,10 +241,10 @@ if ($id_surat && $jenis_surat && $id_warga) {
       }
 
       var opt = {
-        margin:       0, // Margin 0 karena di CSS .page sudah ada padding
+        margin:       0, 
         filename:     filename,
         image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 }, // Scale 2 agar teks tajam (tidak pecah)
+        html2canvas:  { scale: 2 }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
 
@@ -250,11 +263,11 @@ if ($id_surat && $jenis_surat && $id_warga) {
       kematian: {
         judul: "SURAT KETERANGAN KEMATIAN",
         fields: ["Nama", "NIK", "Jenis Kelamin", "Umur", "Pekerjaan", "Agama", "Kewarganegaraan", "Status Perkawinan"],
-        bodyText: (data) => `Menyatakan yang bersangkutan diatas benar <span class="text-bold">berdomisili</span> di Kelurahan Isekai Kecamatan Apayaaa Kota Batam dan telah <span class="text-bold">meninggal dunia</span> di Kelurahan Isekai pada tanggal ${data.tgl_wafat || '...'} dikarenakan <span class="text-bold">${data.penyebab || 'sakit'}</span>.`
+        bodyText: (data) => `Menyatakan yang bersangkutan diatas benar <span class="text-bold">berdomisili</span> di Kelurahan Isekai Kecamatan Apayaaa Kota Batam dan telah <span class="text-bold">meninggal dunia</span> di Kelurahan Isekai pada tanggal ${data.tgl_wafat || '...'} dikarenakan <span class="text-bold">${data.penyebab || '...'}</span>.`
       },
       pindah: {
         judul: "SURAT KETERANGAN DOMISILI",
-        fields: ["Nama", "NIK", "Tempat, Tanggal Lahir", "Jenis Kelamin", "Pekerjaan", "Agama", "Kewarganegaraan", "Status Perkawinan", "Alamat Asal", "Pindah Ke"],
+        fields: ["Nama", "NIK", "Tempat, Tanggal Lahir", "Jenis Kelamin", "Pekerjaan", "Agama", "Kewarganegaraan", "Alamat Asal", "Pindah Ke"],
         bodyText: (data) => `Menyatakan bahwa yang bersangkutan benar merupakan warga Kelurahan Isekai Kecamatan Apayaa Kota Batam dan berdomisili pada alamat tersebut.`
       },
       rumah: {
@@ -265,8 +278,9 @@ if ($id_surat && $jenis_surat && $id_warga) {
       usaha: {
         judul: "SURAT IZIN USAHA",
         fields: ["Nama", "NIK", "Tempat, Tanggal Lahir", "Jenis Kelamin", "Agama", "Pekerjaan", "Alamat"],
-        bodyText: (data) => `Menyatakan bahwa yang bersangkutan benar merupakan warga Kelurahan Isekai Kecamatan Apayaa Kota Batam, dan selanjutnya diterangkan bahwa yang bersangkutan memiliki usaha yang berlokasi di ${data.Alamat || 'wilayah'} kelurahan isekai.`,
-        extraFields: ["Jenis usaha", "Kode KBLI", "Nama KBLI"]
+        extraFields: ["Jenis usaha", "Kode KBLI", "Nama KBLI"],
+        bodyText: (data) => `Menyatakan bahwa yang bersangkutan benar merupakan warga Kelurahan Isekai Kecamatan Apayaa Kota Batam, dan selanjutnya diterangkan bahwa yang bersangkutan memiliki usaha yang berlokasi di ${data.Alamat || 'wilayah'} kelurahan isekai.`
+        
       },
       sktm: {
         judul: "SURAT KETERANGAN TIDAK MAMPU",
@@ -276,6 +290,7 @@ if ($id_surat && $jenis_surat && $id_warga) {
     };
 
     function renderSurat() {
+      console.log(dbData);
       if (!currentMode || !templates[currentMode]) {
         document.getElementById('dynamicContent').innerHTML = '<p style="text-align:center; margin-top:50px;">Data belum tersedia.</p>'; return;
       }
@@ -292,6 +307,7 @@ if ($id_surat && $jenis_surat && $id_warga) {
       if (template.extraFields) {
         let extraRows = '';
         template.extraFields.forEach(field => {
+  
           extraRows += `<tr><td class="label-cell">${field}</td><td class="colon-cell">:</td><td>${dbData[field] || "................................................"}</td></tr>`;
         });
         extraHTML = `<table class="biodata-table" style="margin-top:10px;">${extraRows}</table>`;
