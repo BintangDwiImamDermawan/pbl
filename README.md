@@ -95,9 +95,6 @@ Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbar
 <a href="https://github.com/BintangDwiImamDermawan/pbl/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=BintangDwiImamDermawan/pbl" />
 </a>
-
-> Klik pada foto untuk melihat detail profil.
-
 ---
 
 ## ⚙️ Cara Instalasi
@@ -126,4 +123,5 @@ Selamat datang di repositori ini! Di bawah ini adalah statistik aktivitas terbar
     ?>
     ```
    
+
 
