@@ -1,2 +1,5 @@
 /config/conn.php
 /vendor/
+*.txt
+*.json
+*.lock
