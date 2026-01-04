@@ -16,10 +16,10 @@ if (!isset($_SESSION['id_petugas'])) {
 $nama_petugas = $_SESSION['nama_petugas'];
 
 // alert
-if (isset($_GET['status']) == 'berhasil') {
+if (($_GET['status'] == 'berhasil')) {
   echo "<script> alert('Data Berhasil Di Ubah')</script>";
-} else {
-  $modal = 'flex';
+} elseif(($_GET['status'] == 'tolak')) {
+   echo "<script> alert('Data Berhasil Di Tolak')</script>";
 }
 ?>
 

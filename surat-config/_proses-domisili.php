@@ -46,12 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     `status`) VALUES ('SDM','$id','$nama','$id_surat' ,'PENDING')";
 
     mysqli_query($conn, $qry_dokumen);
-
-    echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';
+    echo "<script>alert('Data Berhasil di simpan'); window.location.href='../warga/riwayat.php'</script>";
+    // echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';
   } else {
     echo "<script>alert('Data Gagal Disimpan'); window.location.href='../surat/surat-domisili.php';</script>";
   }
 } else {
+  
   header('Location:../surat/surat-domisili.php');
 }
 ?>

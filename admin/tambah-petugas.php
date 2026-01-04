@@ -30,14 +30,12 @@ $id = $_SESSION['id_admin'];
     <link rel="stylesheet" href="../css/dashboard-admin.css" />
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f4f6f9;
-            /* Background konten lebih bersih */
+        .riwayat-section{
+            height:120vh !important;
         }
 
         .card-table-container {
-            background: #ffffff;
+            background: #e1dfdfff;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             padding: 25px;
@@ -52,14 +50,14 @@ $id = $_SESSION['id_admin'];
         }
 
         .table-modern thead th {
-            background-color: #f8f9fa;
+            background-color: #e1dfdfff;
             color: #6c757d;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
             padding: 15px;
-            border-bottom: 2px solid #e9ecef;
+            border-bottom: 2px solid #898b8dff;
             border-top: none;
         }
 
@@ -68,11 +66,12 @@ $id = $_SESSION['id_admin'];
             padding: 15px;
             font-size: 0.95rem;
             color: #333;
-            border-bottom: 1px solid #f2f2f2;
+            border-bottom: 1px solid #a0a0a0ff;
+            background-color: #e1e1e1ff !important;
         }
-
+      
         .table-modern tbody tr:hover {
-            background-color: #fcfcfc;
+            background-color: #9d9d9dff;
         }
 
         /* Button Add New */
@@ -169,9 +168,15 @@ $id = $_SESSION['id_admin'];
                     <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse"
                         class="border fs-1  p-1 text-decoration-none text-light border1"><i class="bi bi-list bi-lg py-2 p-1 "></i>
                     </a>
-                    <div class="profile">
-                        <a class="d-flex align-items-center text-decoration-none text-light " href="#"> Halo, <?php echo $_SESSION['nama_admin'] ?><i class="bi bi-person-circle text-light ms-2"></i></a>
-                    </div>
+                    <div class="flex-nowrap d-flex">
+            <div class="profile mt-1">
+              <a class="me-4 d-flex align-items-center text-decoration-none text-light " href="#"> Halo
+                <?php echo $_SESSION['nama_admin'] ?><i class="bi bi-person-circle text-light ms-2"></i></a>
+
+            </div>
+            <a class=" fs-6 my-2 align-items btn-sm btn btn-danger" href="../config/_close.php"
+              onclick="return confirm('Anda Yakin Ingin Keluar')"><i class="bi  bi-box-arrow-right me-1"></i>Keluar</a>
+          </div>
                 </header>
 
                 <section class="riwayat-section p-4">
@@ -254,7 +259,7 @@ $id = $_SESSION['id_admin'];
 
                 </section>
 
-                <footer class="container-fluid mt-3 mb-3 text-center text-muted small">
+                <footer class="container-fluid  text-center text-muted small">
                     <p class="m-0">AJUK - Copyright © 2025. All rights reserved.</p>
                 </footer>
             </main>

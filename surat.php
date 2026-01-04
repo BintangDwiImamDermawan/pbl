@@ -57,7 +57,7 @@ if ($id_surat && $jenis_surat && $id_warga) {
       break;
     case 'SKTM':
       $tabel_surat = 'dokumen_sktm';
-      $nama_surat='Surat Keterangan Tak Mampu';
+      $nama_surat='Surat Keterangan Tidak Mampu';
       break;
     case 'SIU':
       $tabel_surat = 'dokumen_izin_usaha';
@@ -212,8 +212,8 @@ if ($id_surat && $jenis_surat && $id_warga) {
     <div class="page" id="contentToPrint">
       <div class="header">
         <h3>PEMERINTAH KOTA BATAM</h3>
-        <h3>KECAMATAN APAYAAA</h3>
-        <h1>KELURAHAN ISEKAI</h1>
+        <h3>KECAMATAN BATAM</h3>
+        <h1>KELURAHAN BATAM</h1>
         <p>Jl. Saturnus No. 123 telp/fax (+66) 1234-5678-9822 Kota Batam</p>
       </div>
 

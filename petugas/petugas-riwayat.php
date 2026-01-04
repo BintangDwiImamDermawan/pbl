@@ -183,7 +183,7 @@ if (!isset($_SESSION['id_petugas'])) {
                       $id = $_SESSION['id_petugas'];
 
                       // tampilkan data dari table dokumens dengan status dan label warna
-                      $Q_riwayat = "SELECT *, date_format(tanggal, '%d %M %Y ') as tgl, date_format(pada, '%d-%m-%Y <br>%h:%i:%s') as kpn from dokumens  where status='SELESAI' or status='DITOLAK' order by id_dokumen DESC ";
+                      $Q_riwayat = "SELECT *, date_format(tanggal, '%d %M %Y ') as tgl, date_format(pada, '%d-%m-%Y <br>%h:%i:%s') as kpn from dokumens  where status='SELESAI' or status='DITOLAK' order by pada DESC  ";
                       $S_riwayat = mysqli_query($conn, $Q_riwayat);
 
                       // tampilkan data list

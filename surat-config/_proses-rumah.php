@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Q_inDoks = "INSERT INTO `dokumens`( `nama_dokumen`,`id_surat`, `id_warga`, 
     `nama_warga`,`status`) VALUES ('SRM','$id_surat','$id','$nama' ,'PENDING')";
     mysqli_query($conn, $Q_inDoks);
-
-    echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';
+echo "<script>alert('Data Berhasil di simpan'); window.location.href='../warga/riwayat.php'</script>";
+    // echo '<meta http-equiv="refresh" content="1; url=../warga/riwayat.php?note=berhasil">';
   } else {
     echo "<script> 
       alert('Terjadi kesalahan saat menyimpan data.');

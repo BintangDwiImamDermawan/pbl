@@ -4,8 +4,8 @@ include '../config/conn.php';
 include ('../config/auth.php');
 
 // err
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // validasi login
 if (!isset($_SESSION['id_petugas'])) {
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       status = 'DISETUJUI', 
       id_petugas = '$id_petugas',
       nama_petugas = '$petugas',
-      komentar = '$alasan', pada = '$date'
+      komentar = '$alasan', pada = NOW()
       where id_surat = $id AND nama_dokumen = '$dok'";
     $cek = mysqli_query($conn, $Q_upDok);
     if ($cek) {
@@ -41,10 +41,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // status DITOLAK
   } else {
-    $Q_upDoks = "UPDATE dokumens set status = 'DITOLAK', id_petugas = $id_petugas, nama_petugas = '$petugas', komentar = '$alasan' ,pada = '$date' where id_surat =  $id AND nama_dokumen = '$dok'";
-
+    $Q_upDoks = "UPDATE dokumens set status = 'DITOLAK', id_petugas = $id_petugas, nama_petugas = '$petugas', komentar = '$alasan' ,pada = NOW() where id_surat =  $id AND nama_dokumen = '$dok'";
     $cek = mysqli_query($conn, $Q_upDoks);
+
     if ($cek) {
+      if ($dok == 'SKTM') {
+        $query = "DELETE from dokumen_sktm where id_surat = $id";
+      } elseif ($dok == 'SKK') {
+        $query = "DELETE from dokumen_skk where id_surat = $id";
+      } elseif ($dok == 'SRM') {
+        $query = "DELETE from dokumen_rumah where id_surat = $id";
+      } elseif ($dok == 'SIU') {
+        $query = "DELETE from dokumen_izin_usaha where id_surat = $id";
+      } else {
+        $query = "DELETE from dokumen_domisili where id_surat = $id";
+      }
+
+      $sql = mysqli_query($conn, $query);
+
       header('Location:../petugas/petugas-pending.php?status=tolak');
     }
   }

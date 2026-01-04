@@ -18,7 +18,7 @@ body {
   background: url('../assets/ikn2.jpeg') center/cover no-repeat fixed;
   display: flex;
   color: white;
-  /* height: 400vh; */
+  height: 120%;
 }
 
 /*======= akhir ========*/
@@ -27,7 +27,7 @@ body {
 .sidebar {
   background-color: rgba(30, 25, 60, 0.9);
   backdrop-filter: blur(10px);
-  /* height:1vh;  */
+  /* height:100vh;  */
   z-index: 1000;
   display: sticky;   
 
@@ -99,7 +99,7 @@ hr {
 
 .main-content{
   /* height:2000px; */
-  height: auto;
+  height: 100%;
 
 }
 .topbar {
@@ -128,8 +128,9 @@ hr {
   flex-wrap: wrap;
   background-color: #42414071;
   backdrop-filter: blur(2px);
-  height:200vh;
-  padding: 51px 30px 20px 30px;
+  height:230vh;
+   
+  padding: 51px 30px 40px 30px;
 }
 
 .search-bar {
